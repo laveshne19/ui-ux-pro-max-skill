@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohit &amp; Raja Car Deals — Certified Pre-Owned Luxury Cars, Chandigarh</title>
+<meta name="description" content="Mohit &amp; Raja Car Deals — Chandigarh's trusted destination for certified pre-owned luxury cars. Mercedes-Benz, BMW, Audi, Range Rover, Porsche, Lexus, Jaguar &amp; more.">
+<link rel="icon" href="data:,">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:        '#0A0A0C',
+          ink2:       '#131317',
+          surface:    '#1A1A20',
+          surface2:   '#212129',
+          hairline:   '#2A2A33',
+          paper:      '#FAFAF9',
+          paper2:     '#F1F1EE',
+          brandblue:  '#2A4CE0',
+          brandblue2: '#4A6BFF',
+          gold:       '#C9A24B',
+          mute:       '#9AA0AE',
+        },
+        fontFamily: {
+          display: ['Playfair Display', 'serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+        boxShadow: {
+          glow: '0 0 80px -20px rgba(74,107,255,0.55)',
+          card: '0 20px 60px -20px rgba(0,0,0,0.5)',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior:auto !important; }
+  }
+  html { scroll-behavior: smooth; }
+  body { background:#0A0A0C; }
+  ::selection { background:#4A6BFF; color:#fff; }
+
+  .noise::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events:none; mix-blend-mode:overlay;
+  }
+
+  .shard{
+    position:absolute; inset:0; width:100%; height:100%;
+    background-image:url('assets/hero/lexus-hero.jpg');
+    background-size:cover; background-position:center 20%;
+    will-change:transform, opacity;
+    filter: saturate(1.05) contrast(1.05);
+  }
+  .hero-stage{ perspective:1400px; }
+
+  .badge-price{
+    background:linear-gradient(135deg,#C9A24B,#E9CD86 45%,#C9A24B);
+    color:#171308;
+  }
+
+  .fade-up{ opacity:0; transform:translateY(28px); }
+
+  .glass{
+    background:rgba(255,255,255,0.04);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border:1px solid rgba(255,255,255,0.08);
+  }
+
+  .car-card{
+    background:linear-gradient(180deg,#1A1A20 0%,#141418 100%);
+    border:1px solid rgba(255,255,255,0.07);
+    transition: transform .5s cubic-bezier(.19,1,.22,1), box-shadow .5s ease, border-color .5s ease;
+  }
+  .car-card:hover{
+    transform: translateY(-8px);
+    border-color: rgba(74,107,255,0.5);
+    box-shadow: 0 30px 70px -25px rgba(0,0,0,0.65), 0 0 0 1px rgba(74,107,255,0.15);
+  }
+  .car-img-wrap{ aspect-ratio: 4/3; overflow:hidden; position:relative; background:#0f0f13; }
+  .car-img-wrap img{ width:100%; height:100%; object-fit:cover; transition: transform .8s cubic-bezier(.19,1,.22,1); }
+  .car-card:hover .car-img-wrap img{ transform:scale(1.08); }
+
+  .placeholder-car{
+    width:100%; height:100%;
+    display:flex; align-items:center; justify-content:center;
+    background: radial-gradient(120% 120% at 30% 20%, rgba(74,107,255,0.18), transparent 60%), linear-gradient(135deg,#191922,#0d0d11);
+  }
+
+  .filter-btn{ transition: all .25s ease; }
+  .filter-btn.active{ background:#4A6BFF; color:#fff; border-color:#4A6BFF; }
+
+  .scrollbar-thin::-webkit-scrollbar{ height:6px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb{ background:#333; border-radius:999px; }
+
+  .brand-marquee{ animation: marquee 28s linear infinite; }
+  @keyframes marquee{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+
+  .num-badge{ font-variant-numeric: tabular-nums; }
+
+  .kenburns{ animation: kb 16s ease-in-out infinite alternate; }
+  @keyframes kb{ from{ transform:scale(1);} to{ transform:scale(1.08);} }
+</style>
+</head>
+<body class="bg-ink text-paper font-sans antialiased selection:bg-brandblue2 selection:text-white">
+
+<!-- ============ NAV ============ -->
+<header id="top" class="fixed top-0 inset-x-0 z-50">
+  <div class="mx-3 mt-3 md:mx-6 md:mt-4 glass rounded-2xl">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3 group">
+        <img src="assets/logo/mr-logo.png" alt="Mohit &amp; Raja Car Deals logo" class="h-10 w-auto drop-shadow-[0_0_10px_rgba(74,107,255,0.45)]">
+        <div class="leading-tight hidden sm:block">
+          <div class="font-display font-bold tracking-wide text-base text-paper">MOHIT &amp; RAJA</div>
+          <div class="text-[10px] tracking-[0.35em] text-gold uppercase -mt-0.5">Car Deals · A Name of Trust</div>
+        </div>
+      </a>
+      <nav class="hidden lg:flex items-center gap-8 text-sm text-mute">
+        <a href="#inventory" class="hover:text-white transition-colors">Inventory</a>
+        <a href="#why-us" class="hover:text-white transition-colors">Why Us</a>
+        <a href="#showroom" class="hover:text-white transition-colors">Showroom</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </nav>
+      <a href="tel:+918872221786" class="inline-flex items-center gap-2 bg-brandblue hover:bg-brandblue2 text-white text-sm font-semibold px-4 md:px-5 py-2.5 rounded-xl transition-colors shadow-glow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="hidden sm:inline">88722-21786</span><span class="sm:hidden">Call</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="hero" class="relative min-h-[100svh] flex items-center overflow-hidden bg-ink">
+  <div class="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_0%,rgba(74,107,255,0.16),transparent_60%)]"></div>
+  <div class="absolute inset-0 noise"></div>
+
+  <div class="max-w-7xl mx-auto w-full px-5 md:px-8 pt-28 pb-16 grid lg:grid-cols-2 gap-10 items-center relative z-10">
+    <div>
+      <div class="inline-flex items-center gap-2 text-[11px] tracking-[0.25em] uppercase text-gold border border-gold/30 rounded-full px-4 py-1.5 mb-6 fade-up" data-fade>
+        Chandigarh's Trusted Luxury Pre-Owned Showroom
+      </div>
+      <h1 class="font-display font-bold text-4xl sm:text-5xl md:text-6xl leading-[1.05] mb-6 fade-up" data-fade>
+        Own the Extraordinary.<br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brandblue2 to-gold">Pre-Owned, Perfected.</span>
+      </h1>
+      <p class="text-mute text-base md:text-lg max-w-xl mb-8 fade-up" data-fade>
+        Curated Mercedes-Benz, BMW, Audi, Range Rover, Porsche, Lexus, Jaguar &amp; Maserati —
+        single-owner, fully documented, showroom-condition cars only. Every vehicle inspected,
+        every detail verified.
+      </p>
+      <div class="flex flex-wrap gap-4 fade-up" data-fade>
+        <a href="#inventory" class="bg-brandblue hover:bg-brandblue2 text-white font-semibold px-7 py-3.5 rounded-xl transition-all shadow-glow hover:-translate-y-0.5">
+          Explore 42 Cars in Stock
+        </a>
+        <a href="https://wa.me/918872221786" target="_blank" rel="noopener" class="inline-flex items-center gap-2 border border-white/15 hover:border-white/30 text-white font-semibold px-7 py-3.5 rounded-xl transition-all hover:-translate-y-0.5">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.5 7.8 9.3 7.3c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 5 4.3.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+      <div class="grid grid-cols-3 gap-6 mt-12 max-w-md fade-up" data-fade>
+        <div>
+          <div class="font-display font-bold text-2xl md:text-3xl text-white num-badge">42</div>
+          <div class="text-mute text-xs uppercase tracking-wider mt-1">Cars in Stock</div>
+        </div>
+        <div>
+          <div class="font-display font-bold text-2xl md:text-3xl text-white">100%</div>
+          <div class="text-mute text-xs uppercase tracking-wider mt-1">Single Owner*</div>
+        </div>
+        <div>
+          <div class="font-display font-bold text-2xl md:text-3xl text-white">2026</div>
+          <div class="text-mute text-xs uppercase tracking-wider mt-1">Fresh Stock</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero assembling Lexus -->
+    <div class="hero-stage relative h-[380px] sm:h-[460px] md:h-[560px]">
+      <div id="carRig" class="absolute inset-0">
+        <div class="shard" data-tile="0"></div>
+        <div class="shard" data-tile="1"></div>
+        <div class="shard" data-tile="2"></div>
+        <div class="shard" data-tile="3"></div>
+        <div class="shard" data-tile="4"></div>
+        <div class="shard" data-tile="5"></div>
+      </div>
+      <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[80%] h-10 rounded-full bg-brandblue2/30 blur-2xl"></div>
+      <div class="absolute -top-4 right-2 md:right-8 glass rounded-xl px-4 py-3 text-xs">
+        <div class="text-mute uppercase tracking-wider text-[10px]">Featured In Stock</div>
+        <div class="font-display font-semibold text-white text-sm mt-0.5">Lexus LX 570 · 2021</div>
+        <div class="text-gold font-semibold mt-0.5">Est. ₹1.70 Cr*</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-mute text-xs flex flex-col items-center gap-2 animate-bounce">
+    <span class="tracking-widest uppercase">Scroll</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+  </div>
+</section>
+
+<!-- ============ BRAND STRIP ============ -->
+<section class="bg-ink2 border-y border-hairline py-6 overflow-hidden">
+  <div class="flex whitespace-nowrap brand-marquee">
+    <div class="flex items-center gap-16 text-mute/70 text-xl font-display font-semibold tracking-wide pr-16">
+      <span>MERCEDES-BENZ</span><span>BMW</span><span>AUDI</span><span>RANGE ROVER</span><span>PORSCHE</span><span>LEXUS</span><span>JAGUAR</span><span>VOLVO</span><span>MASERATI</span><span>JEEP</span><span>TOYOTA</span>
+    </div>
+    <div class="flex items-center gap-16 text-mute/70 text-xl font-display font-semibold tracking-wide pr-16" aria-hidden="true">
+      <span>MERCEDES-BENZ</span><span>BMW</span><span>AUDI</span><span>RANGE ROVER</span><span>PORSCHE</span><span>LEXUS</span><span>JAGUAR</span><span>VOLVO</span><span>MASERATI</span><span>JEEP</span><span>TOYOTA</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section id="why-us" class="bg-ink py-24 px-5 md:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mb-14 fade-up" data-fade>
+      <div class="text-gold text-xs tracking-[0.3em] uppercase mb-3">Why Mohit &amp; Raja</div>
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-white">A name built on trust, for people who don't compromise.</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="glass rounded-2xl p-6 fade-up" data-fade>
+        <div class="w-11 h-11 rounded-xl bg-brandblue/20 flex items-center justify-center mb-4 text-brandblue2">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/></svg>
+        </div>
+        <h3 class="font-semibold text-white mb-1.5">All-Original Documentation</h3>
+        <p class="text-mute text-sm leading-relaxed">Full service records, insurance and ownership history verified on every vehicle.</p>
+      </div>
+      <div class="glass rounded-2xl p-6 fade-up" data-fade>
+        <div class="w-11 h-11 rounded-xl bg-brandblue/20 flex items-center justify-center mb-4 text-brandblue2">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3 class="font-semibold text-white mb-1.5">Single-Hand Driven Stock</h3>
+        <p class="text-mute text-sm leading-relaxed">Most cars are single-owner, well maintained and kept in next-to-showroom condition.</p>
+      </div>
+      <div class="glass rounded-2xl p-6 fade-up" data-fade>
+        <div class="w-11 h-11 rounded-xl bg-brandblue/20 flex items-center justify-center mb-4 text-brandblue2">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9M14 17H5M17 3l3 4-3 4M7 21l-3-4 3-4"/></svg>
+        </div>
+        <h3 class="font-semibold text-white mb-1.5">Only Luxury, Only Curated</h3>
+        <p class="text-mute text-sm leading-relaxed">We deal exclusively in premium and luxury marques — no compromise on quality of stock.</p>
+      </div>
+      <div class="glass rounded-2xl p-6 fade-up" data-fade>
+        <div class="w-11 h-11 rounded-xl bg-brandblue/20 flex items-center justify-center mb-4 text-brandblue2">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </div>
+        <h3 class="font-semibold text-white mb-1.5">Transparent Estimated Pricing</h3>
+        <p class="text-mute text-sm leading-relaxed">Every listing carries an honest estimated budget — final price confirmed on inspection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INVENTORY ============ -->
+<section id="inventory" class="bg-paper text-ink py-24 px-5 md:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 fade-up" data-fade>
+      <div>
+        <div class="text-brandblue text-xs tracking-[0.3em] uppercase mb-3 font-semibold">Fresh Stock · Sept 2026</div>
+        <h2 class="font-display font-bold text-3xl md:text-4xl">The Collection — 42 Cars in Stock</h2>
+        <p class="text-gray-500 mt-3 max-w-xl">Prices shown are <strong>estimated budgets</strong>, confirmed after inspection and test drive. Tap any car to view full details or enquire directly.</p>
+      </div>
+      <div class="text-sm text-gray-500">
+        Showing <span id="countShown" class="font-semibold text-ink">42</span> of 42 cars
+      </div>
+    </div>
+
+    <div id="filterBar" class="flex gap-2 overflow-x-auto scrollbar-thin pb-4 mb-6 fade-up" data-fade>
+      <!-- filter buttons injected by JS -->
+    </div>
+
+    <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- car cards injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOWROOM ============ -->
+<section id="showroom" class="bg-ink py-24 px-5 md:px-8 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mb-12 fade-up" data-fade>
+      <div class="text-gold text-xs tracking-[0.3em] uppercase mb-3">Visit Us</div>
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-white">Walk through the showroom floor</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="rounded-2xl overflow-hidden h-72 md:h-96 md:row-span-2 relative group fade-up" data-fade>
+        <img src="assets/showroom/showroom-2.jpg" class="w-full h-full object-cover kenburns" alt="Mohit and Raja Car Deals showroom floor with luxury cars">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+      </div>
+      <div class="rounded-2xl overflow-hidden h-44 md:h-[184px] relative group fade-up" data-fade>
+        <img src="assets/showroom/showroom-1.jpg" class="w-full h-full object-cover kenburns" alt="Audi on display at Mohit and Raja Car Deals">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+      </div>
+      <div class="rounded-2xl overflow-hidden h-44 md:h-[184px] relative group fade-up" data-fade>
+        <img src="assets/showroom/showroom-3.jpg" class="w-full h-full object-cover kenburns" alt="Luxury sedans lined up at Mohit and Raja Car Deals showroom">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+      </div>
+      <div class="rounded-2xl overflow-hidden h-44 md:h-[184px] relative group fade-up md:col-span-2" data-fade>
+        <img src="assets/hero/lexus-lx570-logo-bg.jpg" class="w-full h-full object-cover kenburns" alt="Mohit and Raja Car Deals signage with Lexus LX 570">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="bg-ink2 py-24 px-5 md:px-8 border-t border-hairline">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
+    <div class="fade-up" data-fade>
+      <div class="text-gold text-xs tracking-[0.3em] uppercase mb-3">Get In Touch</div>
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-white mb-6">Visit Us To Make Your Dreams Come True</h2>
+      <p class="text-mute mb-8 max-w-lg">Plot No. 54, Industrial Area Phase 1, Chandigarh — 160002</p>
+
+      <div class="grid sm:grid-cols-2 gap-4 mb-8">
+        <div class="glass rounded-xl p-5">
+          <div class="text-white font-semibold mb-1">Raja Narula</div>
+          <a href="tel:+918872221786" class="text-brandblue2 hover:underline">88722-21786</a>
+        </div>
+        <div class="glass rounded-xl p-5">
+          <div class="text-white font-semibold mb-1">Mohit Narula</div>
+          <a href="tel:+919915076767" class="text-brandblue2 hover:underline">99150-76767</a>
+        </div>
+        <div class="glass rounded-xl p-5">
+          <div class="text-white font-semibold mb-1">Sales — Ritesh</div>
+          <a href="tel:+917508221786" class="text-brandblue2 hover:underline">75082-21786</a>
+        </div>
+        <div class="glass rounded-xl p-5">
+          <div class="text-white font-semibold mb-1">Sales — Param</div>
+          <a href="tel:+917710221786" class="text-brandblue2 hover:underline">77102-21786</a>
+        </div>
+        <div class="glass rounded-xl p-5">
+          <div class="text-white font-semibold mb-1">Sales — Ashish</div>
+          <a href="tel:+917710121786" class="text-brandblue2 hover:underline">77101-21786</a>
+        </div>
+        <div class="glass rounded-xl p-5">
+          <div class="text-white font-semibold mb-1">Sales — Ashish</div>
+          <a href="tel:+918054121786" class="text-brandblue2 hover:underline">80541-21786</a>
+        </div>
+      </div>
+
+      <a href="https://wa.me/918872221786" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-brandblue hover:bg-brandblue2 text-white font-semibold px-7 py-3.5 rounded-xl transition-all shadow-glow hover:-translate-y-0.5">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+
+    <div class="rounded-2xl overflow-hidden border border-hairline min-h-[320px]">
+      <iframe
+        title="Mohit and Raja Car Deals location map"
+        class="w-full h-full min-h-[320px]"
+        style="filter:grayscale(0.4) invert(0.92) contrast(0.9);"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Plot+no+54+Industrial+Area+Phase+1+Chandigarh+160002&output=embed">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink py-10 px-5 md:px-8 border-t border-hairline">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="assets/logo/mr-logo.png" alt="Mohit &amp; Raja Car Deals" class="h-8 w-auto">
+      <span class="text-mute text-sm">© 2026 Mohit &amp; Raja Car Deals — A Name of Trust</span>
+    </div>
+    <div class="text-mute text-xs text-center md:text-right">
+      *All prices are estimated budgets shown for reference and are subject to inspection, negotiation &amp; on-road documentation. Sample demo site — content pending final domain launch.
+    </div>
+  </div>
+</footer>
+
+<!-- ============ CAR DETAIL MODAL ============ -->
+<div id="modalBackdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] hidden items-center justify-center p-4">
+  <div id="modalCard" class="bg-surface rounded-3xl max-w-2xl w-full overflow-hidden border border-hairline max-h-[88vh] overflow-y-auto scrollbar-thin">
+    <div class="relative">
+      <div class="car-img-wrap" style="aspect-ratio:16/10">
+        <img id="modalImg" src="" alt="" class="w-full h-full object-cover">
+        <div id="modalPlaceholder" class="placeholder-car hidden absolute inset-0"></div>
+      </div>
+      <button id="modalClose" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors">✕</button>
+      <div id="modalPriceTag" class="absolute bottom-4 left-4 badge-price font-bold px-4 py-2 rounded-xl text-sm"></div>
+    </div>
+    <div class="p-6 md:p-8">
+      <div id="modalBrand" class="text-brandblue2 text-xs tracking-[0.3em] uppercase mb-2 font-semibold"></div>
+      <h3 id="modalTitle" class="font-display font-bold text-2xl md:text-3xl text-white mb-4"></h3>
+      <div id="modalTags" class="flex flex-wrap gap-2 mb-5"></div>
+      <p id="modalDesc" class="text-mute leading-relaxed mb-6"></p>
+      <div class="flex flex-wrap gap-3">
+        <a id="modalWhatsapp" href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-brandblue hover:bg-brandblue2 text-white font-semibold px-6 py-3 rounded-xl transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2z"/></svg>
+          Enquire on WhatsApp
+        </a>
+        <a href="tel:+918872221786" class="inline-flex items-center gap-2 border border-white/15 hover:border-white/30 text-white font-semibold px-6 py-3 rounded-xl transition-colors">Call Showroom</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============ CAR DATA ============ */
+const CARS = [
+{id:1,brand:"Volvo",model:"S90",year:2019,title:"Volvo S90 Inscription",price:"₹27 Lakh*",tags:["Dec 2019","Inscription","Single Owner"],desc:"Top-end Inscription trim, fully loaded, next-to-showroom condition. Single hand driven, all original, very well maintained — just like a new car."},
+{id:2,brand:"BMW",model:"3 GT",year:2017,title:"BMW 320 GT",price:"₹21 Lakh*",tags:["Dec 2017","Digital Cluster","Full Insured"],desc:"Top-end model with all loadings, full digital instrument cluster, new shape. All original, single hand driven, full depreciation-cap insured."},
+{id:3,brand:"Jaguar",model:"F-Pace",year:2020,title:"Jaguar F-Pace",price:"₹32 Lakh*",tags:["2020 DOP","Single Owner","Fully Loaded"],desc:"Top-end model, single hand driven, fully loaded, next-to-showroom condition. All original."},
+{id:4,brand:"Volvo",model:"XC90",year:2018,title:"Volvo XC90",price:"₹32 Lakh*",tags:["Dec 2018","Fully Loaded","Single Owner"],desc:"Top-end model fully loaded with all loadings. Single hand driven, next-to-showroom condition, very well maintained."},
+{id:5,brand:"BMW",model:"630 GT",year:2019,title:"BMW 630 GT M Sport",price:"₹32.50 Lakh*",tags:["Dec 2019","M Sport","Single Owner"],desc:"Single hand driven, all original, very well company maintained. Next-to-showroom condition, top-end model fully loaded with all M-loadings."},
+{id:6,brand:"Land Rover",model:"Discovery Sport",year:2022,title:"Land Rover Discovery Sport HSE R-Dynamic",price:"₹42.50 Lakh*",tags:["Dec 2022","HSE R-Dynamic","BS VI"],desc:"All original, single hand driven with full records. New-shape BS VI version, top-end model fully loaded, next-to-showroom condition."},
+{id:7,brand:"Audi",model:"Q5",year:2022,title:"Audi Q5 Technology Pack",price:"₹38 Lakh*",tags:["2022 DOP","Technology Pack","Single Owner"],desc:"All original, single owner, top-end Technology Pack, fully loaded. Full service records, very well maintained, next-to-showroom condition."},
+{id:8,brand:"Mercedes-Benz",model:"GLC 200",year:2021,title:"Mercedes-Benz GLC 200",price:"₹41 Lakh*",tags:["Dec 2021","Petrol BS VI","35k km"],desc:"Blue colour, all original, single hand, only 35k km driven. Top-end model fully loaded, very well maintained, next-to-showroom condition."},
+{id:9,brand:"Mercedes-Benz",model:"GLE 300",year:2022,title:"Mercedes-Benz GLE 300",price:"₹62.50 Lakh*",tags:["Dec 2022","White","Like New"],desc:"Top-end model fully loaded with all loadings. All original, just like a brand-new car, very well maintained, next-to-showroom condition."},
+{id:10,brand:"Porsche",model:"Cayenne",year:2019,title:"Porsche Cayenne Platinum Edition",price:"₹68 Lakh*",tags:["Single Owner","22\" Forged Alloys","Limited Edition"],desc:"New-shape Platinum Edition, top-end model fully loaded with all luxury loadings. 22-inch limited-edition Porsche original forged alloys, just like a new car."},
+{id:11,brand:"Audi",model:"Q8",year:2024,title:"Audi Q8",price:"₹74 Lakh*",tags:["2024 DOP","Single Owner","Like New"],desc:"All original, single hand driven, top-end model fully loaded with all loadings, next-to-showroom condition, just like a new car."},
+{id:12,brand:"Volvo",model:"S90",year:2018,title:"Volvo S90 Inscription",price:"₹22 Lakh*",tags:["2018 DOP","Inscription","Black"],desc:"Top-end Inscription model fully loaded, all original, single hand driven, next-to-showroom condition, black colour."},
+{id:13,brand:"Lexus",model:"LX 570",year:2021,title:"Lexus LX 570 Limited Edition",price:"₹1.70 Cr*",tags:["Dec 2021","Limited Edition","VVIP Number"],desc:"All original, top-end limited-edition model fully loaded with all loadings. Chandigarh VVIP-paid single-hand-driven number, next-to-showroom condition. Our featured car in stock."},
+{id:14,brand:"Audi",model:"Q3",year:2016,title:"Audi Q3",price:"₹12.50 Lakh*",tags:["Dec 2016","Single Owner","Full Insured"],desc:"Single hand driven, new shape, top-end model fully loaded with all loadings, full insured, next-to-showroom condition, all original."},
+{id:15,brand:"BMW",model:"X4",year:2022,title:"BMW X4 Shadow Edition",price:"₹52 Lakh*",tags:["Dec 2022","Shadow Edition","Black"],desc:"Single hand driven, black colour, top-end Shadow Edition with all loadings, brand-new tyres, very well maintained, next-to-showroom condition."},
+{id:16,brand:"Mercedes-Benz",model:"GL 350",year:2016,title:"Mercedes-Benz GL 350 AMG Kit",price:"₹27 Lakh*",tags:["2016","AMG Kit","Full Insured"],desc:"All original, AMG kit with original AMG alloys, single hand driven, top-end model fully loaded, full insured, next-to-showroom condition."},
+{id:17,brand:"Audi",model:"Q7",year:2017,title:"Audi Q7 Technology Pack",price:"₹26.50 Lakh*",tags:["Dec 2017","Technology Pack","Full Insured"],desc:"All original, full depreciation-cap insured, next-to-showroom condition, fully loaded top-end model, Technology Pack with all loadings."},
+{id:18,brand:"Mercedes-Benz",model:"E-Class",year:2023,title:"Mercedes-Benz E-Class",price:"₹48.50 Lakh*",tags:["2023 DOP","White","Single Owner"],desc:"All original, single hand driven, CH registration, white colour, next-to-showroom condition, top-end model fully loaded, very well maintained."},
+{id:19,brand:"Mercedes-Benz",model:"GLC 220",year:2016,title:"Mercedes-Benz GLC 220",price:"₹22 Lakh*",tags:["Dec 2016","White","Full Insured"],desc:"White colour, single hand driven, top-end model fully loaded, next-to-showroom, full depreciation-cap insured, all original with service record."},
+{id:20,brand:"Audi",model:"A3 Cabriolet",year:2016,title:"Audi A3 Cabriolet",price:"₹32 Lakh*",tags:["Dec 2016","Only 15k km","Black"],desc:"Single hand driven, all original, only 15k km driven, next-to-showroom condition, black colour, just like a new car."},
+{id:21,brand:"Mercedes-Benz",model:"GLS 63 AMG",year:2014,title:"Mercedes-Benz GLS 63 AMG (GL63 Converted)",price:"₹50 Lakh*",tags:["Dec 2014","5.5L V8 Biturbo","Full Insured"],desc:"GL 63 AMG converted to GLS 63 AMG, all original 5.5-litre V8 Biturbo, full depreciation-cap insured, black colour, CH number, very well maintained."},
+{id:22,brand:"Mercedes-Benz",model:"C-Class",year:2023,title:"Mercedes-Benz C-Class",price:"₹47 Lakh*",tags:["2023 DOP","CH Registered","Like New"],desc:"Top-end model fully loaded, CH registered, just like a new car, all original, single hand driven, full insured, next-to-showroom condition."},
+{id:23,brand:"Jaguar",model:"XJL",year:2016,title:"Jaguar XJL",price:"₹28 Lakh*",tags:["2016","New Shape","Fully Loaded"],desc:"Top-end model fully loaded with all loadings, new shape, next-to-showroom condition, all original, just like a new car, very well maintained."},
+{id:24,brand:"BMW",model:"X4",year:2019,title:"BMW X4 M Sport 3.0",price:"₹42 Lakh*",tags:["Dec 2019","3.0 Litre","Facelifted"],desc:"All original, facelifted new shape, next-to-showroom condition, top-end model fully loaded, well maintained, extraordinary car."},
+{id:25,brand:"BMW",model:"520d",year:2016,title:"BMW 520d M Sport",price:"₹18.50 Lakh*",tags:["Dec 2016","M-Class Loadings","Full Insured"],desc:"All original, single hand driven, top-end model fully loaded with all M-class loadings. Extraordinary car, very well maintained, full depreciation-cap insured."},
+{id:26,brand:"Mercedes-Benz",model:"S 350",year:2016,title:"Mercedes-Benz S 350",price:"₹28 Lakh*",tags:["Dec 2016","Facelifted","CHD Registered"],desc:"Facelifted new shape, CHD-paid registration, top-end model fully loaded with all luxury loadings, full depreciation-cap insured, very well maintained."},
+{id:27,brand:"Land Rover",model:"Range Rover Vogue LWB",year:2019,title:"Range Rover Vogue LWB",price:"₹88 Lakh*",tags:["2019","Facelifted","Fully Loaded"],desc:"All original, top-end model, new facelifted shape, fully loaded with all loadings, next-to-showroom condition, extraordinary maintenance."},
+{id:28,brand:"Mercedes-Benz",model:"GLS 400",year:2023,title:"Mercedes-Benz GLS 400",price:"₹85 Lakh*",tags:["2023 DOP","Soft Close Doors","Like New"],desc:"Top-end model fully loaded, just like a new car, soft-close doors, all original, single hand driven with all records, full depreciation-cap insured."},
+{id:29,brand:"Mercedes-Benz",model:"E 350",year:2017,title:"Mercedes-Benz E 350 Exclusive Edition",price:"₹24.50 Lakh*",tags:["Dec 2017","Exclusive Edition","Black"],desc:"Black colour, all original, bumper-to-bumper. Top-end Exclusive Edition, fully loaded with all luxury loadings, next-to-showroom condition."},
+{id:30,brand:"Audi",model:"A6",year:2018,title:"Audi A6",price:"₹22 Lakh*",tags:["Dec 2018","Single Owner","CH Number"],desc:"Single owner, CH number, top-end model with all loadings, all original, next-to-showroom condition, very well maintained, extraordinary car."},
+{id:31,brand:"Land Rover",model:"Range Rover Evoque",year:2015,title:"Range Rover Evoque HSE Dynamic",price:"₹21.50 Lakh*",tags:["Dec 2015","HSE Dynamic","Fully Loaded"],desc:"Top-end HSE Dynamic model fully loaded with all loadings, very well maintained, next-to-showroom condition."},
+{id:32,brand:"BMW",model:"530i",year:2019,title:"BMW 530i",price:"₹33.50 Lakh*",tags:["BS VI","Blue","Like New"],desc:"Just like a new car, top-end model, blue colour, fully loaded with all loadings, very well maintained, next-to-showroom condition."},
+{id:33,brand:"Audi",model:"A3",year:2018,title:"Audi A3 Petrol",price:"₹16.50 Lakh*",tags:["Dec 2018","Petrol","CHD Registered"],desc:"Petrol, CHD registered, all original, bumper-to-bumper, top-end model fully loaded, next-to-showroom condition, very well maintained."},
+{id:34,brand:"BMW",model:"530d",year:2017,title:"BMW 530d M Sport",price:"₹26.50 Lakh*",tags:["Dec 2017","M Sport","New RFT Tyres"],desc:"Fully loaded with all loadings, full insured, brand-new RFT tyres, CHD registered, next-to-showroom condition, very well maintained."},
+{id:35,brand:"Jaguar",model:"F-Pace",year:2019,title:"Jaguar F-Pace",price:"₹28 Lakh*",tags:["2019","CHD Registered","Black"],desc:"Black colour, extraordinary, very well maintained, just like a new car, top-end model fully loaded with all loadings."},
+{id:36,brand:"Mercedes-Benz",model:"S-Class Maybach",year:2017,title:"Mercedes-Benz S-Class Maybach",price:"₹55 Lakh*",tags:["Dec 2017","New Shape","Fully Loaded"],desc:"New-shape top-end model fully loaded with all loadings, all original, next-to-showroom condition, very well and extraordinarily maintained."},
+{id:37,brand:"BMW",model:"X4",year:2022,title:"BMW X4 M Sport Shadow Jahre Edition",price:"₹55 Lakh*",tags:["Dec 2022","Shadow Jahre Edition","Petrol BS VI"],desc:"Black colour, all original, next-to-showroom condition, top-end model fully loaded with all loadings, very well maintained, petrol BS VI version."},
+{id:38,brand:"BMW",model:"X5",year:2023,title:"BMW X5 M Sport",price:"₹72 Lakh*",tags:["2023","Only 25k km","Like New"],desc:"Top-end model fully loaded, only 25k km driven, just like a new car, next-to-showroom condition, all original bumper-to-bumper, full depreciation-cap insured, BS VI version."},
+{id:39,brand:"BMW",model:"730Ld",year:2019,title:"BMW 730Ld M Sport",price:"₹40 Lakh*",tags:["2019 DOP","Only 50k km","Carbon Black"],desc:"Only 50k km driven with service records, top-end model fully loaded with all loadings, next-to-showroom condition, very well and extraordinarily maintained, carbon black colour."},
+{id:40,brand:"Jeep",model:"Wrangler Rubicon",year:2022,title:"Jeep Wrangler Rubicon Special Edition",price:"₹45 Lakh*",tags:["Dec 2022","Special Edition","Single Owner"],desc:"Single hand driven, special edition, grey colour, fully loaded top-end model with all loadings, very well maintained, next-to-showroom condition."},
+{id:41,brand:"Maserati",model:"Quattroporte",year:2016,title:"Maserati Quattroporte",price:"₹40 Lakh*",tags:["Dec 2016","4-Seat Config","Red Interior"],desc:"Single hand driven, very well and extraordinarily maintained, top-end model fully loaded with all loadings. Four-seater configuration, red interior with carbon-fibre inserts, recently fully serviced, full depreciation-cap insured."},
+{id:42,brand:"Toyota",model:"Fortuner",year:2024,title:"Toyota Fortuner 4x2 Automatic",price:"₹40 Lakh*",tags:["White","30k km","All Records"],desc:"White colour, 4x2 automatic, top-end model all original bumper-to-bumper, only 30k km driven with all service records, next-to-showroom condition, very well maintained."},
+];
+
+/* ============ RENDER GRID ============ */
+const grid = document.getElementById('grid');
+const filterBar = document.getElementById('filterBar');
+const countShown = document.getElementById('countShown');
+
+function carImgPath(car){
+  return `assets/cars/${String(car.id).padStart(2,'0')}.jpg`;
+}
+
+const BRAND_COLORS = {
+  'Mercedes-Benz':'#6FA7C9', 'BMW':'#4A6BFF', 'Audi':'#C0392B', 'Land Rover':'#2E7D32',
+  'Volvo':'#5B7FDB', 'Jaguar':'#0B6E4F', 'Porsche':'#B08D57', 'Lexus':'#C9A24B',
+  'Maserati':'#8E1B2F', 'Jeep':'#3C6E47', 'Toyota':'#B0272B'
+};
+function placeholderHTML(car, id){
+  const c = BRAND_COLORS[car.brand] || '#4A6BFF';
+  const idAttr = id ? `id="${id}"` : '';
+  return `
+  <div ${idAttr} class="placeholder-car hidden absolute inset-0" style="background: radial-gradient(120% 120% at 25% 15%, ${c}33, transparent 60%), linear-gradient(150deg,#17171d,#0c0c10);">
+    <div class="text-center px-6">
+      <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="1.4" opacity="0.85" class="mx-auto mb-3">
+        <path d="M3 13l1.5-4.5A2 2 0 0 1 6.4 7h11.2a2 2 0 0 1 1.9 1.5L21 13"/>
+        <path d="M2 13h20v4a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+        <circle cx="7" cy="17" r="1.4"/><circle cx="17" cy="17" r="1.4"/>
+      </svg>
+      <div class="font-display font-semibold text-white text-base leading-tight">${car.brand}</div>
+      <div class="text-mute text-sm">${car.model}</div>
+      <div class="text-[10px] uppercase tracking-[0.2em] text-mute/60 mt-2">Photo on request</div>
+    </div>
+  </div>`;
+}
+
+function carCardHTML(car){
+  return `
+  <div class="car-card rounded-2xl overflow-hidden cursor-pointer fade-up" data-fade data-id="${car.id}" data-brand="${car.brand}">
+    <div class="car-img-wrap">
+      <img src="${carImgPath(car)}" alt="${car.title} ${car.year}" loading="lazy"
+           onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+      ${placeholderHTML(car)}
+      <div class="absolute top-3 left-3 badge-price font-bold px-3 py-1.5 rounded-lg text-xs shadow-lg">${car.price}</div>
+      <div class="absolute top-3 right-3 bg-black/55 backdrop-blur-sm text-white text-xs font-semibold px-2.5 py-1 rounded-lg">${car.year}</div>
+    </div>
+    <div class="p-5">
+      <div class="text-brandblue2 text-[10px] tracking-[0.25em] uppercase font-semibold mb-1">${car.brand}</div>
+      <h3 class="font-display font-semibold text-white text-lg leading-snug mb-3">${car.title}</h3>
+      <div class="flex flex-wrap gap-1.5">
+        ${car.tags.slice(0,2).map(t=>`<span class="text-[11px] bg-white/5 border border-white/10 text-mute px-2 py-1 rounded-md">${t}</span>`).join('')}
+      </div>
+    </div>
+  </div>`;
+}
+
+function render(list){
+  grid.innerHTML = list.map(carCardHTML).join('');
+  countShown.textContent = list.length;
+  grid.querySelectorAll('.car-card').forEach(el=>{
+    gsap.fromTo(el, {opacity:0,y:24}, {
+      opacity:1,y:0,duration:.5,ease:'power2.out',
+      scrollTrigger:{trigger:el, start:'top 92%'}
+    });
+    el.addEventListener('click', ()=>openModal(parseInt(el.dataset.id)));
+  });
+}
+
+const BRANDS = ['All', ...Array.from(new Set(CARS.map(c=>c.brand)))];
+filterBar.innerHTML = BRANDS.map((b,i)=>`<button class="filter-btn shrink-0 border border-gray-300 text-sm font-medium px-4 py-2 rounded-full ${i===0?'active':''}" data-brand="${b}">${b}</button>`).join('');
+filterBar.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    filterBar.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const brand = btn.dataset.brand;
+    render(brand==='All' ? CARS : CARS.filter(c=>c.brand===brand));
+  });
+});
+
+render(CARS);
+
+/* ============ MODAL ============ */
+const modalBackdrop = document.getElementById('modalBackdrop');
+function openModal(id){
+  const car = CARS.find(c=>c.id===id);
+  if(!car) return;
+  const modalImg = document.getElementById('modalImg');
+  modalImg.src = carImgPath(car);
+  modalImg.alt = car.title;
+  modalImg.style.display = '';
+  modalImg.onerror = function(){ this.style.display='none'; document.getElementById('modalPlaceholder').classList.remove('hidden'); };
+  document.getElementById('modalPlaceholder').outerHTML = placeholderHTML(car, 'modalPlaceholder');
+  document.getElementById('modalPriceTag').textContent = car.price;
+  document.getElementById('modalBrand').textContent = car.brand;
+  document.getElementById('modalTitle').textContent = `${car.title} · ${car.year}`;
+  document.getElementById('modalTags').innerHTML = car.tags.map(t=>`<span class="text-xs bg-white/5 border border-white/10 text-mute px-2.5 py-1 rounded-md">${t}</span>`).join('');
+  document.getElementById('modalDesc').textContent = car.desc;
+  document.getElementById('modalWhatsapp').href = `https://wa.me/918872221786?text=${encodeURIComponent('Hi, I am interested in the '+car.title+' ('+car.year+'), estimated price '+car.price+'. Please share more details.')}`;
+  modalBackdrop.classList.remove('hidden');
+  modalBackdrop.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  modalBackdrop.classList.add('hidden');
+  modalBackdrop.classList.remove('flex');
+  document.body.style.overflow = '';
+}
+document.getElementById('modalClose').addEventListener('click', closeModal);
+modalBackdrop.addEventListener('click', e=>{ if(e.target===modalBackdrop) closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+
+/* ============ GSAP: NAV + SCROLL REVEALS ============ */
+gsap.registerPlugin(ScrollTrigger);
+
+document.querySelectorAll('[data-fade]').forEach(el=>{
+  gsap.fromTo(el, {opacity:0,y:28}, {
+    opacity:1,y:0,duration:.7,ease:'power2.out',
+    scrollTrigger:{trigger:el, start:'top 90%'}
+  });
+});
+
+/* ============ HERO: ASSEMBLE / DISASSEMBLE LEXUS ============ */
+const tiles = gsap.utils.toArray('.shard');
+const clipMap = [
+  'inset(0% 66.66% 50% 0%)',
+  'inset(0% 33.33% 50% 33.33%)',
+  'inset(0% 0% 50% 66.66%)',
+  'inset(50% 66.66% 0% 0%)',
+  'inset(50% 33.33% 0% 33.33%)',
+  'inset(50% 0% 0% 66.66%)',
+];
+const scatter = [
+  {x:-220,y:-160,rot:-25},
+  {x:0,y:-260,rot:18},
+  {x:220,y:-160,rot:-14},
+  {x:-220,y:200,rot:20},
+  {x:0,y:280,rot:-16},
+  {x:220,y:200,rot:22},
+];
+
+tiles.forEach((t,i)=>{
+  t.style.clipPath = clipMap[i];
+  gsap.set(t, {x:scatter[i].x, y:scatter[i].y, rotation:scatter[i].rot, scale:0.72, opacity:0, transformOrigin:'50% 50%'});
+});
+
+const assembleTl = gsap.timeline({delay:0.3});
+assembleTl.to(tiles, {
+  x:0, y:0, rotation:0, scale:1, opacity:1,
+  duration:1.3, stagger:0.09, ease:'back.out(1.4)'
+});
+assembleTl.to('#carRig', {y:-8, duration:2.4, ease:'sine.inOut', yoyo:true, repeat:-1}, '-=0.4');
+
+tiles.forEach((t,i)=>{
+  gsap.to(t, {
+    x:scatter[i].x*1.4, y:scatter[i].y*1.4 - 80, rotation:scatter[i].rot*1.6, opacity:0,
+    ease:'power1.in',
+    scrollTrigger:{
+      trigger:'#hero', start:'top top', end:'bottom top', scrub:0.6
+    }
+  });
+});
+
+/* subtle mouse parallax on hero rig */
+const heroStage = document.querySelector('.hero-stage');
+if (heroStage && window.matchMedia('(hover:hover)').matches){
+  heroStage.addEventListener('mousemove', (e)=>{
+    const r = heroStage.getBoundingClientRect();
+    const px = (e.clientX - r.left)/r.width - 0.5;
+    const py = (e.clientY - r.top)/r.height - 0.5;
+    gsap.to('#carRig', {rotateY: px*10, rotateX: -py*8, duration:0.6, ease:'power2.out', transformPerspective:1000});
+  });
+  heroStage.addEventListener('mouseleave', ()=>{
+    gsap.to('#carRig', {rotateY:0, rotateX:0, duration:0.8, ease:'power3.out'});
+  });
+}
+</script>
+</body>
+</html>

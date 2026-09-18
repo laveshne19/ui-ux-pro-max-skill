@@ -1,0 +1,14 @@
+{
+  "01": {
+    "filename": "01-volvo-s90-2019.jpg",
+    "query_used": "Volvo S90 2019 Inscription sedan front angle",
+    "notes": "Downloaded successfully (1920x1075 JPEG, front 3/4 view)."
+  },
+  "02": { "filename": null, "query_used": "BMW 3 Series GT 320d 2017 front angle", "notes": "BLOCKED: candidate images found (netcarshow.com, atcdn.co.uk, bmwblog.com) but sandbox network policy rejected the HTTPS connection to every host (403 at proxy CONNECT)." },
+  "03": { "filename": null, "query_used": "Jaguar F-Pace 2020 front angle", "notes": "BLOCKED: same network policy restriction (dealer sites, hgmsites.net, Instagram CDN all rejected)." },
+  "04": { "filename": null, "query_used": "Volvo XC90 2018 front angle", "notes": "BLOCKED: same network policy restriction (hearstapps.com, dealer sites, carscommerce.inc all rejected)." },
+  "05": { "filename": null, "query_used": "BMW 630 GT M Sport 2019 front angle", "notes": "BLOCKED: same network policy restriction (netcarshow.com, bigboytoyz.com, wikimedia rejected)." },
+  "06": { "filename": null, "query_used": "Land Rover Discovery Sport HSE R-Dynamic 2022 front angle", "notes": "BLOCKED: same network policy restriction (landroverusa.com, kbb images, dealer CDNs rejected)." },
+  "_status": "INCOMPLETE - see report",
+  "07_to_42": "Not attempted after confirming systemic network block; see caller report for explanation and next steps."
+}
