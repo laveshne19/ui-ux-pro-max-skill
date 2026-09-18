@@ -140,13 +140,13 @@ async function init(){
     return;
   }
 
-  canWrite = user ? (user.canEdit ? (user.canEdit() ?? false) : false) : false;
-  // canEdit() may be sync-returning cached state; also check the async form if present
+  canWrite = user ? await user.canEdit() : false;
+  // canEdit() is the admin/db-write level; data.write can additionally grant
+  // shared-document writes to "interact"-level viewers, so OR the two in.
   try {
     if (user && typeof user.can === 'function') {
       const canDataWrite = await user.can('data.write');
       if (canDataWrite === true) canWrite = true;
-      if (canDataWrite === false && !(user.canEdit && user.canEdit())) canWrite = false;
     }
   } catch (e) { /* keep whatever we already determined */ }
 
