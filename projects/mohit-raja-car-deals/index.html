@@ -16,17 +16,18 @@
     theme: {
       extend: {
         colors: {
-          ink:      '#1D1D1F',
-          mute:     '#6E6E73',
-          mute2:    '#86868B',
-          hairline: '#D2D2D7',
+          ink:      '#0F1115',
+          mute:     '#585C66',
+          mute2:    '#8A8F99',
+          hairline: '#E2E4E9',
           bg:       '#FFFFFF',
-          bgsoft:   '#F5F5F7',
-          dark:     '#111114',
-          dark2:    '#1D1D1F',
-          accent:   '#2A5CE0',
-          accent2:  '#1846C4',
-          gold:     '#9C7A3C',
+          bgsoft:   '#F6F7F9',
+          dark:     '#0A0C11',
+          dark2:    '#12141A',
+          accent:   '#0B5FFF',
+          accent2:  '#0847C4',
+          navy:     '#0B1C3D',
+          gold:     '#B08D57',
         },
         fontFamily: {
           sans: ['-apple-system','BlinkMacSystemFont','Inter','"Helvetica Neue"','Arial','sans-serif'],
@@ -46,20 +47,22 @@
   }
   html { scroll-behavior: smooth; }
   body {
-    background:#FFFFFF; color:#1D1D1F;
+    background:#FFFFFF; color:#0F1115;
     font-family:-apple-system,BlinkMacSystemFont,'Inter','Helvetica Neue',Arial,sans-serif;
     -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    text-rendering:optimizeLegibility;
   }
-  ::selection { background:#2A5CE0; color:#fff; }
+  ::selection { background:#0B5FFF; color:#fff; }
   a, button { -webkit-tap-highlight-color: transparent; }
-  :focus-visible { outline: 2px solid #2A5CE0; outline-offset: 2px; }
+  :focus-visible { outline: 2px solid #0B5FFF; outline-offset: 2px; }
 
-  .eyebrow{ font-size:0.8125rem; color:#6E6E73; letter-spacing:0.01em; }
+  .eyebrow{ font-size:0.8125rem; color:#585C66; letter-spacing:0.01em; }
 
   .shard{
     position:absolute; inset:0; width:100%; height:100%;
     background-image:url('assets/hero/lexus-hero.jpg');
-    background-size:cover; background-position:center 20%;
+    background-size:cover; background-position:center 48%;
     will-change:transform, opacity;
   }
   .hero-stage{ perspective:1400px; }
@@ -81,37 +84,37 @@
   }
 
   .btn-primary{
-    background:#2A5CE0; color:#fff; transition: background-color .2s ease, transform .2s ease;
+    background:#0B5FFF; color:#fff; transition: background-color .2s ease, transform .2s ease;
   }
-  .btn-primary:hover{ background:#1846C4; }
-  .btn-link{ color:#2A5CE0; transition: gap .2s ease; }
+  .btn-primary:hover{ background:#0847C4; }
+  .btn-link{ color:#0B5FFF; transition: gap .2s ease; }
   .btn-link:hover .chev{ transform:translateX(3px); }
 
   .car-card{
     background:#FFFFFF;
-    border:1px solid #E5E5EA;
+    border:1px solid #E2E4E9;
     transition: transform .35s cubic-bezier(.19,1,.22,1), box-shadow .35s ease, border-color .35s ease;
   }
   .car-card:hover{
     transform: translateY(-4px);
-    border-color:#D2D2D7;
+    border-color:#E2E4E9;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05), 0 24px 48px -20px rgba(0,0,0,0.18);
   }
-  .car-img-wrap{ aspect-ratio: 4/3; overflow:hidden; position:relative; background:#F5F5F7; }
+  .car-img-wrap{ aspect-ratio: 4/3; overflow:hidden; position:relative; background:#F6F7F9; }
   .car-img-wrap img{ width:100%; height:100%; object-fit:cover; transition: transform .7s cubic-bezier(.19,1,.22,1); }
   .car-card:hover .car-img-wrap img{ transform:scale(1.06); }
 
   .placeholder-car{
     width:100%; height:100%;
     display:flex; align-items:center; justify-content:center;
-    background:#F5F5F7;
+    background:#F6F7F9;
   }
 
   .filter-btn{ transition: all .2s ease; }
-  .filter-btn.active{ background:#1D1D1F; color:#fff; border-color:#1D1D1F; }
+  .filter-btn.active{ background:#0F1115; color:#fff; border-color:#0F1115; }
 
   .scrollbar-thin::-webkit-scrollbar{ height:6px; }
-  .scrollbar-thin::-webkit-scrollbar-thumb{ background:#D2D2D7; border-radius:999px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb{ background:#E2E4E9; border-radius:999px; }
 
   .brand-marquee{ animation: marquee 30s linear infinite; }
   @keyframes marquee{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
@@ -151,7 +154,7 @@
     <div class="eyebrow mb-4 fade-up" data-fade>Chandigarh &middot; A Name of Trust</div>
     <h1 class="text-[2.75rem] sm:text-6xl md:text-[5rem] font-semibold tracking-tight text-ink leading-[1.04] mb-6 fade-up" data-fade style="text-wrap:balance;">
       Own the<br class="hidden sm:block">
-      <span class="text-transparent bg-clip-text bg-gradient-to-br from-ink via-ink to-accent">extraordinary.</span>
+      <span class="text-transparent bg-clip-text bg-gradient-to-br from-ink via-navy to-accent">extraordinary.</span>
     </h1>
     <p class="text-mute text-lg md:text-xl max-w-2xl mx-auto mb-9 leading-relaxed fade-up" data-fade>
       A curated bench of Mercedes-Benz, BMW, Audi, Range&nbsp;Rover, Porsche, Lexus, Jaguar
@@ -183,7 +186,7 @@
       <div class="absolute top-5 left-5 md:top-7 md:left-7 glasscard rounded-2xl px-4 py-3">
         <div class="eyebrow text-[11px] mb-0.5">Featured In Stock</div>
         <div class="font-semibold text-ink text-[15px]">Lexus LX 570 &middot; 2021</div>
-        <div class="text-accent font-semibold text-sm mt-0.5 num-badge">Est. &#8377;1.70 Cr*</div>
+        <div class="text-gold font-semibold text-sm mt-0.5 num-badge">Est. &#8377;1.70 Cr*</div>
       </div>
     </div>
   </div>
@@ -393,7 +396,7 @@
         <div id="modalPlaceholder" class="placeholder-car hidden absolute inset-0"></div>
       </div>
       <button id="modalClose" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 hover:bg-white shadow-card text-ink flex items-center justify-center transition-colors">✕</button>
-      <div id="modalPriceTag" class="absolute bottom-4 left-4 bg-white shadow-card font-semibold px-4 py-2 rounded-full text-sm text-ink num-badge"></div>
+      <div id="modalPriceTag" class="absolute bottom-4 left-4 bg-white shadow-card font-semibold px-4 py-2 rounded-full text-sm text-gold num-badge"></div>
     </div>
     <div class="p-6 md:p-8">
       <div id="modalBrand" class="eyebrow mb-2"></div>
@@ -468,12 +471,12 @@ function carImgPath(car){
 }
 
 const BRAND_COLORS = {
-  'Mercedes-Benz':'#5B7A99', 'BMW':'#2A5CE0', 'Audi':'#B23A3A', 'Land Rover':'#2F6B45',
+  'Mercedes-Benz':'#5B7A99', 'BMW':'#0B5FFF', 'Audi':'#B23A3A', 'Land Rover':'#2F6B45',
   'Volvo':'#4A63B0', 'Jaguar':'#1F6B52', 'Porsche':'#9C7A3C', 'Lexus':'#9C7A3C',
   'Maserati':'#8A2A38', 'Jeep':'#3E6B4C', 'Toyota':'#B0272B'
 };
 function placeholderHTML(car, id){
-  const c = BRAND_COLORS[car.brand] || '#2A5CE0';
+  const c = BRAND_COLORS[car.brand] || '#0B5FFF';
   const idAttr = id ? `id="${id}"` : '';
   return `
   <div ${idAttr} class="placeholder-car hidden absolute inset-0">
@@ -505,7 +508,7 @@ function carCardHTML(car){
           <div class="eyebrow text-[11px]">${car.brand}</div>
           <h3 class="font-semibold text-ink text-[17px] leading-snug">${car.model}</h3>
         </div>
-        <div class="font-semibold text-ink text-[15px] whitespace-nowrap num-badge">${car.price}</div>
+        <div class="font-semibold text-gold text-[15px] whitespace-nowrap num-badge">${car.price}</div>
       </div>
       <div class="flex flex-wrap gap-1.5 mt-3">
         ${car.tags.slice(0,2).map(t=>`<span class="text-[11px] bg-bgsoft text-mute px-2 py-1 rounded-md">${t}</span>`).join('')}
