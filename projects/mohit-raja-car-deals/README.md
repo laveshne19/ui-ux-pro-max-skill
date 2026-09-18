@@ -18,6 +18,12 @@ All 42 listings now have a real photo (`assets/cars/01.jpg` … `42.jpg`), fetch
 
 If a photo ever goes missing, the card gracefully falls back to a clean branded placeholder (brand name, model, accent color) rather than a broken image — the `<img>` tags already point at the `assets/cars/NN.jpg` naming convention, so dropping in a replacement file needs no code changes.
 
+## Adding cars / photos yourself
+
+`admin.html` is a separate page for adding, editing and removing listings without touching code — brand, model, year, price, tags, description and a photo upload. It's published as its own private Claude Artifact (backed by that platform's shared database and asset store), separate from the public site, so it needs to be shared explicitly with **"Can edit" access** (via the Share menu, not just the link) for whoever should be able to add cars.
+
+This admin database is the editable source of new/updated listings. Because the public site is a static file (for reliability and so it works once hosted on your own domain), new entries added in the admin page need a resync into `index.html`'s `CARS` array before they show up live — ask Claude to pull the latest from the admin database and rebuild the site when you've added something.
+
 ## Next steps before going live
 
 - Spot-check the `APPROX`-flagged photos in `assets/cars/manifest.json` against the actual cars in stock, and swap in the showroom's own photos where it matters most (especially the Lexus hero car, which already uses a real photo of your own unit).
