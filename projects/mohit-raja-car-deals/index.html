@@ -147,46 +147,52 @@
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section id="hero" class="relative pt-28 pb-16 md:pt-36 md:pb-20 px-5 md:px-8 bg-bg overflow-hidden">
-  <div class="absolute inset-0 bg-[radial-gradient(55%_45%_at_50%_0%,rgba(42,92,224,0.07),transparent_70%)] pointer-events-none"></div>
-  <div class="max-w-4xl mx-auto text-center relative z-10">
-    <div class="eyebrow mb-4 fade-up" data-fade>Chandigarh &middot; A Name of Trust</div>
-    <h1 class="text-[2.75rem] sm:text-6xl md:text-[5rem] font-semibold tracking-tight text-ink leading-[1.04] mb-6 fade-up" data-fade style="text-wrap:balance;">
-      Own the<br class="hidden sm:block">
-      <span class="text-transparent bg-clip-text bg-gradient-to-br from-ink via-navy to-accent">extraordinary.</span>
-    </h1>
-    <p class="text-mute text-lg md:text-xl max-w-2xl mx-auto mb-9 leading-relaxed fade-up" data-fade>
-      A curated bench of Mercedes-Benz, BMW, Audi, Range&nbsp;Rover, Porsche, Lexus, Jaguar
-      &amp; Maserati — single-owner, fully documented, next-to-showroom condition only.
-    </p>
-    <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 fade-up" data-fade>
-      <a href="#inventory" class="btn-primary font-medium px-7 py-3.5 rounded-full">
-        View the Collection
-      </a>
-      <a href="https://wa.me/918872221786" target="_blank" rel="noopener" class="btn-link inline-flex items-center gap-1 font-medium">
-        Chat on WhatsApp
-        <svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
-      </a>
-    </div>
+<!-- ============ HERO — full-page ============ -->
+<section id="hero" class="hero-stage relative min-h-[100svh] flex flex-col overflow-hidden bg-ink">
+  <div id="carRig" class="absolute inset-0">
+    <div class="shard" data-tile="0"></div>
+    <div class="shard" data-tile="1"></div>
+    <div class="shard" data-tile="2"></div>
+    <div class="shard" data-tile="3"></div>
+    <div class="shard" data-tile="4"></div>
+    <div class="shard" data-tile="5"></div>
   </div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/15 to-black/75 pointer-events-none"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40 pointer-events-none"></div>
 
-  <!-- Hero assembling Lexus, on an Apple-style product plinth -->
-  <div class="max-w-5xl mx-auto mt-14 md:mt-20 relative fade-up" data-fade>
-    <div class="hero-stage relative h-[300px] sm:h-[420px] md:h-[540px] rounded-[2rem] md:rounded-[2.5rem] bg-bgsoft overflow-hidden">
-      <div id="carRig" class="absolute inset-0">
-        <div class="shard" data-tile="0"></div>
-        <div class="shard" data-tile="1"></div>
-        <div class="shard" data-tile="2"></div>
-        <div class="shard" data-tile="3"></div>
-        <div class="shard" data-tile="4"></div>
-        <div class="shard" data-tile="5"></div>
+  <div class="relative z-10 flex flex-col flex-1">
+    <div class="max-w-4xl mx-auto text-center px-5 md:px-8 pt-28 md:pt-36 fade-up" data-fade>
+      <div class="eyebrow text-white/70 mb-4">Chandigarh &middot; A Name of Trust</div>
+      <h1 class="text-[2.75rem] sm:text-6xl md:text-[5.5rem] font-semibold tracking-tight text-white leading-[1.02] mb-6" style="text-wrap:balance;">
+        Own the<br class="hidden sm:block">
+        <span class="text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-accent2">extraordinary.</span>
+      </h1>
+      <p class="text-white/75 text-lg md:text-xl max-w-2xl mx-auto mb-9 leading-relaxed">
+        A curated bench of Mercedes-Benz, BMW, Audi, Range&nbsp;Rover, Porsche, Lexus, Jaguar
+        &amp; Maserati — single-owner, fully documented, next-to-showroom condition only.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+        <a href="#inventory" class="btn-primary font-medium px-7 py-3.5 rounded-full">
+          View the Collection
+        </a>
+        <a href="https://wa.me/918872221786" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium text-white hover:text-white/80 transition-colors">
+          Chat on WhatsApp
+          <svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
+        </a>
       </div>
-      <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[70%] h-8 rounded-[100%] bg-black/12 blur-2xl"></div>
-      <div class="absolute top-5 left-5 md:top-7 md:left-7 glasscard rounded-2xl px-4 py-3">
+    </div>
+
+    <div class="flex-1"></div>
+
+    <div class="relative z-10 flex items-end justify-between gap-4 px-5 md:px-10 pb-8 md:pb-10 fade-up" data-fade>
+      <div class="glasscard rounded-2xl px-4 py-3 md:px-5 md:py-4">
         <div class="eyebrow text-[11px] mb-0.5">Featured In Stock</div>
-        <div class="font-semibold text-ink text-[15px]">Lexus LX 570 &middot; 2021</div>
+        <div class="font-semibold text-ink text-[15px] md:text-base">Lexus LX 570 &middot; 2021</div>
         <div class="text-gold font-semibold text-sm mt-0.5 num-badge">Est. &#8377;1.70 Cr*</div>
+      </div>
+      <div class="hidden sm:flex flex-col items-center gap-2 text-white/60 eyebrow text-[11px]">
+        <span>Scroll</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="animate-bounce"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
       </div>
     </div>
   </div>
@@ -517,14 +523,18 @@ function carCardHTML(car){
   </div>`;
 }
 
+const hasGSAP = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+
 function render(list){
   grid.innerHTML = list.map(carCardHTML).join('');
   countShown.textContent = list.length;
   grid.querySelectorAll('.car-card').forEach(el=>{
-    gsap.fromTo(el, {opacity:0,y:20}, {
-      opacity:1,y:0,duration:.5,ease:'power2.out',
-      scrollTrigger:{trigger:el, start:'top 92%'}
-    });
+    if (hasGSAP) {
+      gsap.fromTo(el, {opacity:0,y:20}, {
+        opacity:1,y:0,duration:.5,ease:'power2.out',
+        scrollTrigger:{trigger:el, start:'top 92%'}
+      });
+    }
     el.addEventListener('click', ()=>openModal(parseInt(el.dataset.id)));
   });
 }
@@ -572,18 +582,8 @@ document.getElementById('modalClose').addEventListener('click', closeModal);
 modalBackdrop.addEventListener('click', e=>{ if(e.target===modalBackdrop) closeModal(); });
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 
-/* ============ GSAP: SCROLL REVEALS ============ */
-gsap.registerPlugin(ScrollTrigger);
-
-document.querySelectorAll('[data-fade]').forEach(el=>{
-  gsap.fromTo(el, {opacity:0,y:24}, {
-    opacity:1,y:0,duration:.7,ease:'power2.out',
-    scrollTrigger:{trigger:el, start:'top 90%'}
-  });
-});
-
-/* ============ HERO: ASSEMBLE / DISASSEMBLE LEXUS ============ */
-const tiles = gsap.utils.toArray('.shard');
+/* ============ ANIMATION (with a plain fallback if the CDN is unavailable) ============ */
+const tiles = document.querySelectorAll('.shard');
 const clipMap = [
   'inset(0% 66.66% 50% 0%)',
   'inset(0% 33.33% 50% 33.33%)',
@@ -592,63 +592,78 @@ const clipMap = [
   'inset(50% 33.33% 0% 33.33%)',
   'inset(50% 0% 0% 66.66%)',
 ];
-const scatter = [
-  {x:-200,y:-140,rot:-22},
-  {x:0,y:-230,rot:16},
-  {x:200,y:-140,rot:-12},
-  {x:-200,y:180,rot:18},
-  {x:0,y:250,rot:-14},
-  {x:200,y:180,rot:20},
-];
+tiles.forEach((t,i)=>{ t.style.clipPath = clipMap[i]; });
 
-tiles.forEach((t,i)=>{
-  t.style.clipPath = clipMap[i];
-  gsap.set(t, {x:scatter[i].x, y:scatter[i].y, rotation:scatter[i].rot, scale:0.74, opacity:0, transformOrigin:'50% 50%'});
-});
+if (hasGSAP) {
+  gsap.registerPlugin(ScrollTrigger);
 
-const assembleTl = gsap.timeline({delay:0.3});
-assembleTl.to(tiles, {
-  x:0, y:0, rotation:0, scale:1, opacity:1,
-  duration:1.2, stagger:0.08, ease:'power3.out'
-});
-assembleTl.to('#carRig', {y:-6, duration:2.6, ease:'sine.inOut', yoyo:true, repeat:-1}, '-=0.4');
-
-tiles.forEach((t,i)=>{
-  gsap.to(t, {
-    x:scatter[i].x*1.3, y:scatter[i].y*1.3 - 60, rotation:scatter[i].rot*1.5, opacity:0,
-    ease:'power1.in',
-    scrollTrigger:{
-      trigger:'#hero', start:'top top', end:'bottom top', scrub:0.6
-    }
+  document.querySelectorAll('[data-fade]').forEach(el=>{
+    gsap.fromTo(el, {opacity:0,y:24}, {
+      opacity:1,y:0,duration:.7,ease:'power2.out',
+      scrollTrigger:{trigger:el, start:'top 90%'}
+    });
   });
-});
 
-/* subtle mouse parallax on hero rig */
-const heroStage = document.querySelector('.hero-stage');
-if (heroStage && window.matchMedia('(hover:hover)').matches){
-  heroStage.addEventListener('mousemove', (e)=>{
-    const r = heroStage.getBoundingClientRect();
-    const px = (e.clientX - r.left)/r.width - 0.5;
-    const py = (e.clientY - r.top)/r.height - 0.5;
-    gsap.to('#carRig', {rotateY: px*8, rotateX: -py*6, duration:0.6, ease:'power2.out', transformPerspective:1000});
+  const scatter = [
+    {x:-420,y:-280,rot:-24},
+    {x:0,y:-460,rot:16},
+    {x:420,y:-280,rot:-14},
+    {x:-420,y:340,rot:20},
+    {x:0,y:520,rot:-16},
+    {x:420,y:340,rot:22},
+  ];
+
+  tiles.forEach((t,i)=>{
+    gsap.set(t, {x:scatter[i].x, y:scatter[i].y, rotation:scatter[i].rot, scale:0.74, opacity:0, transformOrigin:'50% 50%'});
   });
-  heroStage.addEventListener('mouseleave', ()=>{
-    gsap.to('#carRig', {rotateY:0, rotateX:0, duration:0.8, ease:'power3.out'});
+
+  const assembleTl = gsap.timeline({delay:0.3});
+  assembleTl.to(tiles, {
+    x:0, y:0, rotation:0, scale:1, opacity:1,
+    duration:1.2, stagger:0.08, ease:'power3.out'
   });
+  assembleTl.to('#carRig', {y:-6, duration:2.6, ease:'sine.inOut', yoyo:true, repeat:-1}, '-=0.4');
+
+  tiles.forEach((t,i)=>{
+    gsap.to(t, {
+      x:scatter[i].x*1.3, y:scatter[i].y*1.3 - 60, rotation:scatter[i].rot*1.5, opacity:0,
+      ease:'power1.in',
+      scrollTrigger:{
+        trigger:'#hero', start:'top top', end:'bottom top', scrub:0.6
+      }
+    });
+  });
+
+  const heroStage = document.querySelector('.hero-stage');
+  if (heroStage && window.matchMedia('(hover:hover)').matches){
+    heroStage.addEventListener('mousemove', (e)=>{
+      const r = heroStage.getBoundingClientRect();
+      const px = (e.clientX - r.left)/r.width - 0.5;
+      const py = (e.clientY - r.top)/r.height - 0.5;
+      gsap.to('#carRig', {rotateY: px*8, rotateX: -py*6, duration:0.6, ease:'power2.out', transformPerspective:1000});
+    });
+    heroStage.addEventListener('mouseleave', ()=>{
+      gsap.to('#carRig', {rotateY:0, rotateX:0, duration:0.8, ease:'power3.out'});
+    });
+  }
+
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    const target = parseFloat(el.dataset.count);
+    const obj = {val:0};
+    ScrollTrigger.create({
+      trigger: el, start:'top 90%', once:true,
+      onEnter: () => gsap.to(obj, {
+        val: target, duration: 1.5, ease:'power2.out',
+        onUpdate: () => { el.textContent = Math.round(obj.val); }
+      })
+    });
+  });
+} else {
+  // No animation library available — show everything in its resting state, no motion.
+  document.querySelectorAll('[data-fade]').forEach(el=>{ el.style.opacity = '1'; el.style.transform = 'none'; });
+  tiles.forEach(t=>{ t.style.opacity = '1'; t.style.transform = 'none'; });
+  document.querySelectorAll('[data-count]').forEach(el=>{ el.textContent = el.dataset.count; });
 }
-
-/* ============ COUNT-UP STATS ============ */
-document.querySelectorAll('[data-count]').forEach(el=>{
-  const target = parseFloat(el.dataset.count);
-  const obj = {val:0};
-  ScrollTrigger.create({
-    trigger: el, start:'top 90%', once:true,
-    onEnter: () => gsap.to(obj, {
-      val: target, duration: 1.5, ease:'power2.out',
-      onUpdate: () => { el.textContent = Math.round(obj.val); }
-    })
-  });
-});
 </script>
 </body>
 </html>
