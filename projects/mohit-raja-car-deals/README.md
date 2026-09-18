@@ -1,0 +1,36 @@
+# Mohit & Raja Car Deals — Sample Website
+
+Single-file demo site for a Chandigarh-based luxury pre-owned car showroom, built with the `ui-ux-pro-max` skill and an Apple-inspired light design system (white/`#F5F5F7` panels, `-apple-system`/Inter typography, GSAP scroll/reveal motion), reviewed against Apple's Human Interface Guidelines for color, typography, layout and materials.
+
+Open `index.html` directly in a browser — no build step required.
+
+## What's included
+
+- Animated hero: the featured Lexus LX 570 photo assembles from puzzle-piece shards on load (GSAP) and disassembles again as you scroll past, with a subtle mouse-parallax tilt, staged on a soft grey "product plinth" panel.
+- Full inventory grid of all 42 cars from the current stock list, each with a real matching photo, brand/year badges, an "estimated price" tag (from the given "demand" prices), spec tags, and a detail modal with a WhatsApp enquiry link pre-filled with the car's name and price.
+- Brand filter bar, "by the numbers" stats with count-up animation, animated scroll reveals, a showroom photo gallery, "why us" trust section, and a contact section with all phone numbers, address and an embedded map.
+- One deliberate dark section (the showroom gallery) for visual rhythm, the way Apple alternates light and dark sections rather than staying all-white or all-black.
+- A real mobile navigation menu (hamburger + slide-down panel) and a sticky bottom Call/WhatsApp bar that appears once you scroll past the hero on phones — the two things a mobile car-shopper actually needs one thumb-tap away.
+- Logo cropped from the showroom signage photo (`assets/logo/mr-logo.png`).
+
+## Car photos
+
+All 42 listings now have a real photo (`assets/cars/01.jpg` … `42.jpg`), fetched via Apify and matched to each car's brand/model/year. See `assets/cars/manifest.json` for the source and match quality of every photo — most are exact year/trim matches; a handful are the closest available substitute where an exact photo couldn't be found (e.g. an adjacent model year of the same generation, or a different body style of the same nameplate). Worth a quick visual check against the real cars before final launch, especially the ones marked `APPROX` in the manifest.
+
+If a photo ever goes missing, the card gracefully falls back to a clean branded placeholder (brand name, model, accent color) rather than a broken image — the `<img>` tags already point at the `assets/cars/NN.jpg` naming convention, so dropping in a replacement file needs no code changes.
+
+## Adding cars / photos yourself
+
+`admin.html` is a separate page for adding, editing and removing listings without touching code — brand, model, year, price, tags, description and a photo upload, with live Edit/Delete on every existing car. It's published as its own private Claude Artifact (backed by that platform's shared database and asset store).
+
+**Why two links instead of one.** The public showroom site has to be viewable by anyone, with no sign-in — that's the whole point of a customer-facing page. The database/photo-upload feature (`db`/`assets`) is only offered by the platform to artifacts that are restricted to signed-in members of your organization; declaring it turns off public link-sharing. So one link (the site) stays fully public and read-only, and a second link (the admin page) carries the editable database and needs **"Can edit" access** granted explicitly via its Share menu to whoever should be able to add or remove cars (Mohit, Raja, or your sales team).
+
+This means new entries added in the admin page live in the admin database immediately, but the public site is a static file (deliberately — so it's fast, reliable, and works once moved to your own domain), so it needs a **resync** to pick them up: just tell Claude "sync the latest listings to the live site" and it pulls every car from the admin database and republishes both the live artifact and this `index.html` file in one pass — normally done in a couple of minutes, no code knowledge needed on your end.
+
+**Once you're off claude.ai and on your own domain**, this project can be handed to any developer to wire the same `admin.html` form up to a small real backend (Supabase, Firebase, or a simple Node API) instead of the Claude Artifact database — the schema (brand/model/year/price/title/tags/desc/image) carries over directly, and at that point edits go live on the real site immediately with no resync step at all.
+
+## Next steps before going live
+
+- Spot-check the `APPROX`-flagged photos in `assets/cars/manifest.json` against the actual cars in stock, and swap in the showroom's own photos where it matters most (especially the Lexus hero car, which already uses a real photo of your own unit).
+- Confirm/replace the placeholder Google Maps embed query with the exact pin once available.
+- Once a domain is purchased, this can be deployed as-is (static HTML) or migrated into a framework via the `ui-ux-pro-max` skill's `--stack` option if a CMS/backend is needed later.
