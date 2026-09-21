@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /manager.html
+Sitemap: https://www.mohitrajacars.com/sitemap.xml

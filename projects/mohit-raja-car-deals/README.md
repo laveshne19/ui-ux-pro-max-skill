@@ -2,7 +2,15 @@
 
 Single-file demo site for a Chandigarh-based luxury pre-owned car showroom, built with the `ui-ux-pro-max` skill and an Apple-inspired light design system (white/`#F5F5F7` panels, `-apple-system`/Inter typography, GSAP scroll/reveal motion), reviewed against Apple's Human Interface Guidelines for color, typography, layout and materials.
 
-Open `index.html` directly in a browser — no build step required.
+Open `site/index.html` directly in a browser — no build step required.
+
+`site/` is exactly what gets published; everything beside it (`artifact.html`,
+`admin.html`, these notes) is working material that stays out of the web root.
+The root `netlify.toml` points a Netlify build at that folder.
+
+Day-to-day stock changes go through `site/manager.html`, served at `/admin` —
+see `HOW-TO-UPDATE.md`, which is written for the showroom rather than for a
+developer.
 
 ## What's included
 
@@ -11,11 +19,11 @@ Open `index.html` directly in a browser — no build step required.
 - Brand filter bar, "by the numbers" stats with count-up animation, animated scroll reveals, a showroom photo gallery, "why us" trust section, and a contact section with all phone numbers, address and an embedded map.
 - One deliberate dark section (the showroom gallery) for visual rhythm, the way Apple alternates light and dark sections rather than staying all-white or all-black.
 - A real mobile navigation menu (hamburger + slide-down panel) and a sticky bottom Call/WhatsApp bar that appears once you scroll past the hero on phones — the two things a mobile car-shopper actually needs one thumb-tap away.
-- Logo cropped from the showroom signage photo (`assets/logo/mr-logo.png`).
+- Logo cropped from the showroom signage photo (`site/assets/logo/mr-logo.png`).
 
 ## Car photos
 
-All 42 listings now have a real photo (`assets/cars/01.jpg` … `42.jpg`), fetched via Apify and matched to each car's brand/model/year. See `assets/cars/manifest.json` for the source and match quality of every photo — most are exact year/trim matches; a handful are the closest available substitute where an exact photo couldn't be found (e.g. an adjacent model year of the same generation, or a different body style of the same nameplate). Worth a quick visual check against the real cars before final launch, especially the ones marked `APPROX` in the manifest.
+All 42 listings now have a real photo (`site/assets/cars/01.jpg` … `42.jpg`), fetched via Apify and matched to each car's brand/model/year. See `site/assets/cars/manifest.json` for the source and match quality of every photo — most are exact year/trim matches; a handful are the closest available substitute where an exact photo couldn't be found (e.g. an adjacent model year of the same generation, or a different body style of the same nameplate). Worth a quick visual check against the real cars before final launch, especially the ones marked `APPROX` in the manifest.
 
 If a photo ever goes missing, the card gracefully falls back to a clean branded placeholder (brand name, model, accent color) rather than a broken image — the `<img>` tags already point at the `assets/cars/NN.jpg` naming convention, so dropping in a replacement file needs no code changes.
 

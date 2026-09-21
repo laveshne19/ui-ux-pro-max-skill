@@ -84,14 +84,16 @@ switched on in Netlify under **Site settings → Access control**.)
 
 ## For whoever looks after this technically
 
-* The stock list is `cars.json` at the root of the site — a plain list of cars.
-  Everything on the home page is built from it.
-* Photos live in `assets/cars/`. A car's `photo` field may be any path or a
+* Everything Netlify publishes lives in `site/`; `netlify.toml` at the repo
+  root points the build there (`base` + `publish`, no build command).
+* The stock list is `site/cars.json` — a plain list of cars. Everything on the
+  home page is built from it.
+* Photos live in `site/assets/cars/`. A car's `photo` field may be any path or a
   full URL; when it is missing the site falls back to
   `assets/cars/<id padded to 2 digits>.jpg`.
-* `index.html` ships with a copy of the stock list built in, so the page still
+* `site/index.html` ships with a copy of the stock list built in, so the page still
   renders a full showroom if `cars.json` ever fails to load.
-* `/admin` is a redirect to `manager.html` (see `netlify.toml`).
+* `/admin` redirects to `manager.html` (see the root `netlify.toml`).
 * The Stock Manager writes new photos as `assets/cars/new-<id>.jpg` and copies
   every other file straight from the live site, so the zip it produces is a
   complete, publishable copy of the website.
