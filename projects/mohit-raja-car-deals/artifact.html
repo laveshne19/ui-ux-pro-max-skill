@@ -580,7 +580,7 @@ function carCardHTML(car, index){
     <div class="car-img-wrap">
       <img src="${carImgPath(car)}" alt="${car.title} ${car.year}" decoding="async"
            ${eager ? 'fetchpriority="high"' : 'loading="lazy"'}
-           onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+           onerror="retryImage(this)">
       ${placeholderHTML(car)}
       <div class="img-scrim"></div>
       <div class="absolute top-3 right-3 bg-dark/70 backdrop-blur-md border border-hairline text-ink text-[11px] font-medium tracking-wide px-2.5 py-1 rounded-full num-badge">${car.year}</div>
@@ -599,6 +599,23 @@ function carCardHTML(car, index){
       </div>
     </div>
   </div>`;
+}
+
+/* A single failed request used to drop a card straight to "Photo On Request"
+   forever. Loading 42 photos at once means the odd request does fail, so give
+   each one a few goes (cache-busted, backing off) before conceding. */
+const MAX_IMG_RETRIES = 3;
+function retryImage(img){
+  const tries = parseInt(img.dataset.retry || '0', 10);
+  if (tries < MAX_IMG_RETRIES){
+    img.dataset.retry = String(tries + 1);
+    const base = img.src.split('?')[0];
+    setTimeout(() => { img.src = base + '?retry=' + (tries + 1); }, 500 * (tries + 1));
+    return;
+  }
+  img.style.display = 'none';
+  const ph = img.parentElement && img.parentElement.querySelector('.placeholder-car');
+  if (ph) ph.classList.remove('hidden');
 }
 
 const hasGSAP = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
@@ -639,7 +656,8 @@ function openModal(id){
   modalImg.src = carImgPath(car);
   modalImg.alt = car.title;
   modalImg.style.display = '';
-  modalImg.onerror = function(){ this.style.display='none'; document.getElementById('modalPlaceholder').classList.remove('hidden'); };
+  modalImg.dataset.retry = '0';
+  modalImg.onerror = function(){ retryImage(this); };
   document.getElementById('modalPlaceholder').outerHTML = placeholderHTML(car, 'modalPlaceholder');
   document.getElementById('modalPriceTag').textContent = car.price;
   document.getElementById('modalBrand').textContent = car.brand;
