@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Stock Manager — Mohit &amp; Raja Car Deals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+  :root{
+    --bg:#0A0908; --panel:#141210; --panel2:#1C1916; --line:rgba(201,163,86,0.20);
+    --ink:#F3EEE3; --mute:#B7B0A0; --gold:#C9A356; --gold2:#A9823C;
+    --ok:#3FA97A; --bad:#C8503F;
+  }
+  *{box-sizing:border-box}
+  html,body{max-width:100%;overflow-x:hidden}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;font-size:16px;line-height:1.5}
+  img{max-width:100%}
+  .wrap{max-width:860px;margin:0 auto;padding:20px 16px 120px}
+  h1{font-size:24px;margin:0 0 4px}
+  .sub{color:var(--mute);font-size:14px;margin:0 0 20px}
+
+  .steps{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:22px}
+  .steps h2{font-size:15px;margin:0 0 10px;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
+  .steps ol{margin:0;padding-left:20px}
+  .steps li{margin-bottom:7px;color:var(--mute);font-size:14.5px}
+  .steps li b{color:var(--ink)}
+
+  .bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+  button{font:inherit;font-weight:600;border-radius:11px;padding:12px 18px;border:1px solid var(--line);
+    background:var(--panel2);color:var(--ink);cursor:pointer;min-height:46px}
+  button:hover{border-color:var(--gold)}
+  .primary{background:linear-gradient(180deg,var(--gold),var(--gold2));color:#100D08;border-color:transparent}
+  .danger{color:#F0B4AA;border-color:rgba(200,80,63,.4)}
+  .ghost{background:transparent}
+
+  .count{color:var(--mute);font-size:14px;margin-bottom:10px}
+  .list{display:grid;gap:12px}
+  .row{display:flex;gap:12px;align-items:center;background:var(--panel);
+    border:1px solid var(--line);border-radius:14px;padding:10px}
+  .row img,.row .noimg{width:96px;height:64px;object-fit:cover;border-radius:9px;flex:none;background:var(--panel2)}
+  .noimg{display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:11px;text-align:center}
+  .row .meta{flex:1;min-width:0}
+  .row .meta b{display:block;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .row .meta span{color:var(--mute);font-size:13px}
+  .row .acts{display:flex;gap:6px;flex:none}
+  .row .acts button{padding:9px 12px;font-size:13px;min-height:auto}
+
+  dialog{border:1px solid var(--line);border-radius:16px;background:var(--panel);color:var(--ink);
+    width:min(560px,94vw);padding:0}
+  dialog::backdrop{background:rgba(0,0,0,.72)}
+  form.card{padding:20px}
+  label{display:block;font-size:13px;color:var(--mute);margin:14px 0 5px}
+  input,textarea{width:100%;font:inherit;background:var(--panel2);color:var(--ink);
+    border:1px solid var(--line);border-radius:10px;padding:11px 12px}
+  textarea{min-height:86px;resize:vertical}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .preview{width:100%;height:170px;object-fit:cover;border-radius:12px;margin-top:8px;display:none}
+  .dlgbar{display:flex;gap:10px;justify-content:flex-end;margin-top:20px;flex-wrap:wrap}
+  .hint{font-size:12.5px;color:var(--mute);margin-top:6px}
+
+  #toast{position:fixed;left:16px;right:16px;bottom:16px;max-width:520px;margin:0 auto;
+    background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+    font-size:14.5px;display:none;z-index:50}
+  #toast.show{display:block}
+  #toast.ok{border-color:rgba(63,169,122,.55)}
+  #toast.bad{border-color:rgba(200,80,63,.55)}
+
+  @media (max-width:520px){
+    .row{flex-wrap:wrap}
+    .row .acts{width:100%}
+    .row .acts button{flex:1}
+    .two{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Stock Manager</h1>
+  <p class="sub">Mohit &amp; Raja Car Deals — add, change and remove cars from the website.</p>
+
+  <div class="steps">
+    <h2>How to update the website</h2>
+    <ol>
+      <li><b>Add</b> a new car, or <b>Delete</b> a car that is sold. Changes save on this device as you go.</li>
+      <li>When you are finished, press <b>Publish website</b> at the bottom. A file downloads.</li>
+      <li>Open that downloaded file (it unzips into a folder), then drag the <b>folder</b> onto
+          <b>app.netlify.com/drop</b>. The website updates in about a minute.</li>
+    </ol>
+  </div>
+
+  <div class="bar">
+    <button class="primary" id="addBtn">+ Add a car</button>
+    <button class="ghost" id="reloadBtn">Start again from the live website</button>
+  </div>
+
+  <div class="count" id="count">Loading stock…</div>
+  <div class="list" id="list"></div>
+
+  <div class="bar" style="margin-top:26px">
+    <button class="primary" id="publishBtn">Publish website</button>
+    <button class="ghost" id="jsonBtn">Download stock list only</button>
+  </div>
+</div>
+
+<dialog id="dlg">
+  <form class="card" method="dialog" id="carForm">
+    <h2 style="margin:0;font-size:19px" id="dlgTitle">Add a car</h2>
+
+    <label for="f_photo">Photo of the car</label>
+    <input type="file" id="f_photo" accept="image/*">
+    <div class="hint">Take a photo with the phone camera, or pick one from the gallery.</div>
+    <img class="preview" id="f_preview" alt="">
+
+    <div class="two">
+      <div><label for="f_brand">Make (e.g. BMW)</label><input id="f_brand" required></div>
+      <div><label for="f_model">Model (e.g. 320 GT)</label><input id="f_model" required></div>
+    </div>
+    <div class="two">
+      <div><label for="f_year">Year</label><input id="f_year" type="number" min="1980" max="2100" required></div>
+      <div><label for="f_price">Price (e.g. 21 Lakh)</label><input id="f_price" required></div>
+    </div>
+
+    <label for="f_tags">Three short points, separated by commas</label>
+    <input id="f_tags" placeholder="Single Owner, 30k km, All Records">
+
+    <label for="f_desc">Description</label>
+    <textarea id="f_desc" placeholder="Top-end model, all original, very well maintained."></textarea>
+
+    <div class="dlgbar">
+      <button type="button" class="ghost" id="cancelBtn">Cancel</button>
+      <button type="button" class="primary" id="saveBtn">Save car</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast"></div>
+
+<script>
+/* ---------------------------------------------------------------------------
+   Stock Manager
+   The person using this has never edited a website. So: no accounts, no code,
+   no server. The stock list lives in cars.json; photos taken here are shrunk
+   in the browser and written straight into the published folder. Everything is
+   kept in this device's storage until "Publish website" builds the folder.
+--------------------------------------------------------------------------- */
+const STORE = 'mrStockDraft';
+const PHOTO_MAX_W = 1600;      // plenty for a full-width card on a retina screen
+const PHOTO_QUALITY = 0.82;
+let cars = [];
+let editingId = null;
+
+const $ = id => document.getElementById(id);
+const listEl = $('list'), countEl = $('count'), dlg = $('dlg');
+
+function toast(msg, kind){
+  const t = $('toast');
+  t.textContent = msg;
+  t.className = 'show ' + (kind || '');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => { t.className = ''; }, kind === 'bad' ? 7000 : 4000);
+}
+
+function save(){
+  try { localStorage.setItem(STORE, JSON.stringify(cars)); }
+  catch (e) { toast('This device ran out of storage. Publish now so nothing is lost.', 'bad'); }
+}
+
+/* A photo added here is held as a data URL so it survives a page refresh, and
+   is written out as a real .jpg file when the folder is built. */
+function isNewPhoto(p){ return typeof p === 'string' && p.startsWith('data:'); }
+
+function nextId(){ return cars.reduce((m, c) => Math.max(m, Number(c.id) || 0), 0) + 1; }
+
+function render(){
+  countEl.textContent = cars.length + (cars.length === 1 ? ' car in stock' : ' cars in stock');
+  listEl.innerHTML = '';
+  cars.forEach(car => {
+    const row = document.createElement('div');
+    row.className = 'row';
+    const src = car.photo || '';
+    row.innerHTML = `
+      ${src ? `<img src="${src}" alt="">` : '<div class="noimg">No photo</div>'}
+      <div class="meta">
+        <b>${car.brand} ${car.model}</b>
+        <span>${car.year} &middot; ${car.price}</span>
+      </div>
+      <div class="acts">
+        <button data-edit="${car.id}">Edit</button>
+        <button class="danger" data-del="${car.id}">Delete</button>
+      </div>`;
+    listEl.appendChild(row);
+  });
+}
+
+listEl.addEventListener('click', e => {
+  const del = e.target.closest('[data-del]'), ed = e.target.closest('[data-edit]');
+  if (del){
+    const car = cars.find(c => String(c.id) === del.dataset.del);
+    if (car && confirm(`Remove the ${car.brand} ${car.model} from the website?`)){
+      cars = cars.filter(c => c !== car);
+      save(); render();
+      toast('Removed. Press "Publish website" when you are finished.');
+    }
+  }
+  if (ed) openForm(cars.find(c => String(c.id) === ed.dataset.edit));
+});
+
+/* ---- add / edit form ---- */
+let pendingPhoto = null;
+
+function openForm(car){
+  editingId = car ? car.id : null;
+  $('dlgTitle').textContent = car ? 'Edit car' : 'Add a car';
+  $('f_brand').value = car ? car.brand : '';
+  $('f_model').value = car ? car.model : '';
+  $('f_year').value  = car ? car.year  : new Date().getFullYear();
+  $('f_price').value = car ? String(car.price).replace(/[₹*]/g, '').trim() : '';
+  $('f_tags').value  = car && car.tags ? car.tags.join(', ') : '';
+  $('f_desc').value  = car ? (car.desc || '') : '';
+  $('f_photo').value = '';
+  pendingPhoto = null;
+  const prev = $('f_preview');
+  if (car && car.photo){ prev.src = car.photo; prev.style.display = 'block'; }
+  else { prev.removeAttribute('src'); prev.style.display = 'none'; }
+  dlg.showModal();
+}
+
+$('addBtn').onclick = () => openForm(null);
+$('cancelBtn').onclick = () => dlg.close();
+
+$('f_photo').addEventListener('change', async e => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  try {
+    pendingPhoto = await shrink(file);
+    const prev = $('f_preview');
+    prev.src = pendingPhoto;
+    prev.style.display = 'block';
+  } catch (err) {
+    toast('That file could not be read as a photo. Try a different one.', 'bad');
+  }
+});
+
+/* Phone cameras produce 8–12MB files. Shrinking in the browser keeps the site
+   fast and keeps the published folder small enough to upload over mobile data. */
+function shrink(file){
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const scale = Math.min(1, PHOTO_MAX_W / img.naturalWidth);
+      const cv = document.createElement('canvas');
+      cv.width  = Math.round(img.naturalWidth  * scale);
+      cv.height = Math.round(img.naturalHeight * scale);
+      cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+      resolve(cv.toDataURL('image/jpeg', PHOTO_QUALITY));
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('not an image')); };
+    img.src = url;
+  });
+}
+
+$('saveBtn').onclick = () => {
+  const brand = $('f_brand').value.trim(), model = $('f_model').value.trim();
+  const year = parseInt($('f_year').value, 10), priceRaw = $('f_price').value.trim();
+  if (!brand || !model || !year || !priceRaw){
+    toast('Please fill in make, model, year and price.', 'bad');
+    return;
+  }
+  // The showroom types "21 Lakh"; the site shows "₹21 Lakh*".
+  const price = /^₹/.test(priceRaw) ? priceRaw : '₹' + priceRaw + (/\*$/.test(priceRaw) ? '' : '*');
+  const tags = $('f_tags').value.split(',').map(s => s.trim()).filter(Boolean).slice(0, 3);
+  const desc = $('f_desc').value.trim();
+
+  if (editingId !== null){
+    const car = cars.find(c => c.id === editingId);
+    Object.assign(car, { brand, model, year, title: `${brand} ${model}`, price, tags, desc });
+    if (pendingPhoto) car.photo = pendingPhoto;
+  } else {
+    if (!pendingPhoto){ toast('Please add a photo of the car.', 'bad'); return; }
+    cars.unshift({ id: nextId(), brand, model, year, title: `${brand} ${model}`,
+                   price, tags, desc, photo: pendingPhoto });
+  }
+  save(); render(); dlg.close();
+  toast('Saved. Press "Publish website" when you are finished.', 'ok');
+};
+
+/* ---- loading ---- */
+async function loadLive(){
+  const res = await fetch('cars.json', { cache: 'no-cache' });
+  if (!res.ok) throw new Error('cars.json ' + res.status);
+  const list = await res.json();
+  if (!Array.isArray(list) || !list.length) throw new Error('cars.json is empty');
+  return list;
+}
+
+async function boot(){
+  const draft = localStorage.getItem(STORE);
+  if (draft){
+    try {
+      cars = JSON.parse(draft);
+      render();
+      toast('Showing the changes you had not published yet.');
+      return;
+    } catch (e) { /* fall through to the live list */ }
+  }
+  try { cars = await loadLive(); }
+  catch (e){ cars = []; toast('Could not read the current stock list (' + e.message + ').', 'bad'); }
+  save(); render();
+}
+
+$('reloadBtn').onclick = async () => {
+  if (!confirm('Throw away the changes on this device and load the stock list that is live now?')) return;
+  localStorage.removeItem(STORE);
+  try { cars = await loadLive(); save(); render(); toast('Loaded the live stock list.', 'ok'); }
+  catch (e){ toast('Could not reach the website: ' + e.message, 'bad'); }
+};
+
+/* ---- publishing ---- */
+function dataUrlToBlob(dataUrl){
+  const [head, b64] = dataUrl.split(',');
+  const mime = /:(.*?);/.exec(head)[1];
+  const bin = atob(b64);
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return new Blob([bytes], { type: mime });
+}
+
+function download(blob, name){
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 60000);
+}
+
+/* Turn the working list into the form the website reads: every photo is a file
+   path under assets/cars/, never an embedded image. */
+function exportList(){
+  const files = [];       // { path, blob } for photos added on this device
+  const out = cars.map(car => {
+    const row = { id: car.id, brand: car.brand, model: car.model, year: car.year,
+                  title: car.title || `${car.brand} ${car.model}`,
+                  price: car.price, tags: car.tags || [], desc: car.desc || '' };
+    if (isNewPhoto(car.photo)){
+      const path = `assets/cars/new-${car.id}.jpg`;
+      files.push({ path, blob: dataUrlToBlob(car.photo) });
+      row.photo = path;
+    } else if (car.photo){
+      row.photo = car.photo;
+    }
+    return row;
+  });
+  return { json: JSON.stringify(out, null, 2), files };
+}
+
+$('jsonBtn').onclick = () => {
+  const { json, files } = exportList();
+  if (files.length){
+    toast('Some cars have new photos. Use "Publish website" instead so the photos go too.', 'bad');
+    return;
+  }
+  download(new Blob([json], { type: 'application/json' }), 'cars.json');
+};
+
+/* The whole site is rebuilt into one folder so the showroom never has to keep
+   files on their computer between updates -- they publish what they download. */
+const SITE_FILES = ['index.html', 'manager.html'];
+
+$('publishBtn').onclick = async () => {
+  const btn = $('publishBtn');
+  btn.disabled = true;
+  const original = btn.textContent;
+  btn.textContent = 'Preparing…';
+  try {
+    if (typeof JSZip === 'undefined') throw new Error('no internet connection');
+    const { json, files } = exportList();
+    const zip = new JSZip();
+    zip.file('cars.json', json);
+    files.forEach(f => zip.file(f.path, f.blob));
+
+    // Everything already on the live site is copied across unchanged.
+    const existing = new Set(files.map(f => f.path));
+    const wanted = SITE_FILES.concat(
+      cars.map(c => c.photo).filter(p => p && !p.startsWith('data:') && !/^https?:/.test(p))
+    );
+    let copied = 0, missed = [];
+    for (const path of wanted){
+      if (existing.has(path)) continue;
+      existing.add(path);
+      btn.textContent = `Preparing… ${++copied}/${wanted.length}`;
+      try {
+        const r = await fetch(path, { cache: 'force-cache' });
+        if (!r.ok) throw new Error(r.status);
+        zip.file(path, await r.blob());
+      } catch (e) { missed.push(path); }
+    }
+    // Logo, hero and showroom photos are named in index.html, not in the stock
+    // list, so they are fetched from the page's own markup.
+    try {
+      const page = await (await fetch('index.html', { cache: 'force-cache' })).text();
+      const refs = [...new Set((page.match(/assets\/[A-Za-z0-9_\-\/]+\.(?:jpg|jpeg|png|webp|svg)/g) || []))];
+      for (const path of refs){
+        if (existing.has(path)) continue;
+        existing.add(path);
+        try {
+          const r = await fetch(path, { cache: 'force-cache' });
+          if (r.ok) zip.file(path, await r.blob());
+        } catch (e) { /* a missing extra image must not stop the update */ }
+      }
+    } catch (e) { /* index.html already reported below if it failed */ }
+
+    if (missed.includes('index.html')){
+      throw new Error('the website files could not be read — open this page from the website address, not from a downloaded copy');
+    }
+    btn.textContent = 'Packing…';
+    const blob = await zip.generateAsync({ type: 'blob' });
+    download(blob, 'mohitrajacars-website.zip');
+    toast(missed.length
+      ? `Ready. ${missed.length} photo(s) could not be copied and will show "Photo On Request".`
+      : 'Ready. Open the downloaded file, then drag the folder onto app.netlify.com/drop.',
+      missed.length ? 'bad' : 'ok');
+  } catch (err) {
+    toast('Could not build the website folder: ' + err.message, 'bad');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = original;
+  }
+};
+
+boot();
+</script>
+</body>
+</html>

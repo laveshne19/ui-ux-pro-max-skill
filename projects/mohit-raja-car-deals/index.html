@@ -5,6 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mohit &amp; Raja Car Deals — Certified Pre-Owned Luxury Cars, Chandigarh</title>
 <meta name="description" content="Mohit &amp; Raja Car Deals — Chandigarh's trusted destination for certified pre-owned luxury cars. Mercedes-Benz, BMW, Audi, Range Rover, Porsche, Lexus, Jaguar &amp; more.">
+<link rel="canonical" href="https://www.mohitrajacars.com/">
+<meta name="theme-color" content="#0A0908">
+<link rel="icon" href="assets/logo/mr-logo.png">
+<link rel="apple-touch-icon" href="assets/logo/mr-logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mohit &amp; Raja Car Deals">
+<meta property="og:title" content="Mohit &amp; Raja Car Deals — Certified Pre-Owned Luxury Cars, Chandigarh">
+<meta property="og:description" content="Chandigarh's trusted destination for certified pre-owned luxury cars. Mercedes-Benz, BMW, Audi, Range Rover, Porsche, Lexus, Jaguar &amp; more.">
+<meta property="og:url" content="https://www.mohitrajacars.com/">
+<meta property="og:image" content="https://www.mohitrajacars.com/assets/hero/lexus-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "Mohit & Raja Car Deals",
+  "url": "https://www.mohitrajacars.com/",
+  "image": "https://www.mohitrajacars.com/assets/hero/lexus-hero.jpg",
+  "priceRange": "\u20b9\u20b9\u20b9",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Plot No. 54, Industrial Area Phase 1",
+    "addressLocality": "Chandigarh",
+    "postalCode": "160002",
+    "addressCountry": "IN"
+  },
+  "areaServed": ["Chandigarh", "Mohali", "Panchkula", "Punjab", "Haryana"]
+}
+</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +76,9 @@
     *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior:auto !important; }
   }
   html { scroll-behavior: smooth; }
+  /* No phone should ever scroll sideways, whatever a stray element does. */
+  html, body { max-width:100%; overflow-x:hidden; }
+  img, svg, video { max-width:100%; }
   body {
     background:#0A0908; color:#F3EEE3;
     font-family:-apple-system,BlinkMacSystemFont,'Inter','Helvetica Neue',Arial,sans-serif;
@@ -173,13 +205,123 @@
   #mobileNav.open{ display:flex; }
   #mobileCtaBar.visible{ transform:translateY(0); }
   @media (max-width:1023px){ body{ padding-bottom:64px; } }
+
+  /* ---------- Opening animation ---------- */
+  #intro{
+    position:fixed; inset:0; z-index:10000; overflow:hidden;
+    background:radial-gradient(120% 90% at 50% 60%, #15120E 0%, #0A0908 55%, #050403 100%);
+    display:flex; align-items:center; justify-content:center;
+  }
+  #intro.done{ opacity:0; transform:scale(1.04); pointer-events:none;
+    transition:opacity .9s cubic-bezier(.4,0,.2,1), transform 1.1s cubic-bezier(.4,0,.2,1); }
+  #intro.hide{ display:none; }
+
+  .intro-road{
+    position:absolute; left:0; right:0; top:58%; height:1px;
+    background:linear-gradient(to right, transparent, rgba(201,163,86,.55), transparent);
+    transform:scaleX(0); transform-origin:50% 50%;
+    animation:roadIn .7s .1s cubic-bezier(.19,1,.22,1) forwards;
+  }
+  @keyframes roadIn{ to{ transform:scaleX(1);} }
+
+  .intro-speed{ position:absolute; inset:0; top:58%; pointer-events:none; }
+  .intro-speed i{
+    position:absolute; height:2px; border-radius:2px;
+    background:linear-gradient(to right, transparent, rgba(201,163,86,.75), transparent);
+    opacity:0; animation:speed 1s linear infinite;
+  }
+  .intro-speed i:nth-child(1){ width:190px; top:-54px; animation-delay:.45s; }
+  .intro-speed i:nth-child(2){ width:130px; top:-26px; animation-delay:.60s; }
+  .intro-speed i:nth-child(3){ width:230px; top:-8px;  animation-delay:.52s; }
+  .intro-speed i:nth-child(4){ width:110px; top:14px;  animation-delay:.68s; }
+  .intro-speed i:nth-child(5){ width:170px; top:36px;  animation-delay:.58s; }
+  .intro-speed i:nth-child(6){ width:150px; top:62px;  animation-delay:.74s; }
+  @keyframes speed{
+    0%{ transform:translateX(110vw); opacity:0; }
+    12%{ opacity:.95; }
+    100%{ transform:translateX(-40vw); opacity:0; }
+  }
+
+  .intro-car{
+    position:absolute; top:58%; left:0;
+    width:min(56vw,540px); transform:translate(-130%,-72%);
+    filter:drop-shadow(0 26px 40px rgba(0,0,0,.65));
+    animation:carDrive 2.05s cubic-bezier(.55,.02,.28,1) .35s forwards;
+  }
+  .intro-car svg{ width:100%; height:auto; display:block; }
+  @keyframes carDrive{
+    0%{ transform:translate(-130%,-72%); }
+    38%{ transform:translate(26%,-72%); }
+    58%{ transform:translate(30%,-72%); }
+    100%{ transform:translate(170vw,-72%); }
+  }
+
+  .intro-brand{ position:relative; text-align:center; opacity:0;
+    animation:brandIn .9s 2.05s cubic-bezier(.19,1,.22,1) forwards; }
+  .intro-brand img{ height:74px; width:auto; margin:0 auto .9rem; display:block; }
+  .intro-name{ font-size:clamp(1.9rem,7vw,3.1rem); color:#F3EEE3; letter-spacing:-.02em; line-height:1; }
+  .intro-tag{ margin-top:.7rem; font-size:.7rem; letter-spacing:.24em; text-transform:uppercase; color:#C9A356; }
+  @keyframes brandIn{ from{ opacity:0; transform:translateY(16px);} to{ opacity:1; transform:none;} }
+
+  /* Anyone who prefers reduced motion just gets the site, immediately. */
+  @media (prefers-reduced-motion: reduce){
+    #intro{ display:none !important; }
+  }
+
+  /* ---------- Mobile-first sizing ----------
+     Most visitors arrive on a phone, so the phone layout is the real layout:
+     bigger type, full-bleed cards and thumb-reachable controls. */
+  @media (max-width:640px){
+    .car-img-wrap{ aspect-ratio:16/10; }
+    .filter-btn{ padding:.55rem 1rem; font-size:.82rem; }
+    .eyebrow{ letter-spacing:.13em; }
+    .intro-brand img{ height:56px; }
+  }
 </style>
 </head>
 <body class="antialiased">
 
+<!-- ============ OPENING ANIMATION ============ -->
+<div id="intro" aria-hidden="true">
+  <div class="intro-road"></div>
+  <div class="intro-speed"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="intro-car">
+    <!-- Low-slung supercar silhouette, drawn rather than photographed so it
+         stays crisp at any size and adds no weight to the page. -->
+    <svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="carBody" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#E7D6A9"/>
+          <stop offset="45%" stop-color="#C9A356"/>
+          <stop offset="100%" stop-color="#7A5F2E"/>
+        </linearGradient>
+        <linearGradient id="carGlass" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#20252B"/>
+          <stop offset="100%" stop-color="#0A0D10"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#carBody)" d="M18 150c-6-2-10-7-10-16 0-12 6-20 18-25l58-22c12-15 26-27 44-36 22-11 46-16 74-16 30 0 55 6 78 18l70 12c34 6 60 14 80 25 16 9 26 18 30 28 3 8 1 15-6 20-5 4-13 6-24 6H18z"/>
+      <path fill="url(#carGlass)" d="M150 86c14-13 30-22 48-27 18-5 37-7 57-5 18 2 34 7 49 15l24 14-178 10z"/>
+      <path fill="#0A0908" opacity=".55" d="M470 132h84c8 0 12 3 12 8 0 6-5 9-14 9h-82z"/>
+      <circle cx="158" cy="150" r="42" fill="#0A0908"/>
+      <circle cx="158" cy="150" r="24" fill="#2A2A28"/>
+      <circle cx="158" cy="150" r="10" fill="#C9A356"/>
+      <circle cx="470" cy="150" r="42" fill="#0A0908"/>
+      <circle cx="470" cy="150" r="24" fill="#2A2A28"/>
+      <circle cx="470" cy="150" r="10" fill="#C9A356"/>
+      <path fill="#FFF3D0" opacity=".9" d="M560 108c14 2 22 6 26 12l-30 4z"/>
+    </svg>
+  </div>
+  <div class="intro-brand">
+    <img src="assets/logo/mr-logo.png" alt="">
+    <div class="intro-name display">Mohit &amp; Raja</div>
+    <div class="intro-tag">Certified Pre-Owned Luxury &middot; Chandigarh</div>
+  </div>
+</div>
+
 <!-- ============ NAV ============ -->
 <header id="top" class="fixed top-0 inset-x-0 z-50 navbar">
-  <div class="max-w-7xl mx-auto px-5 md:px-8 h-14 flex items-center justify-between">
+  <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-10 h-14 flex items-center justify-between">
     <a href="#top" class="flex items-center gap-2.5">
       <img src="assets/logo/mr-logo.png" alt="Mohit &amp; Raja Car Deals logo" class="h-8 w-auto">
       <span class="font-semibold text-[15px] text-ink tracking-tight hidden sm:inline">Mohit &amp; Raja</span>
@@ -234,7 +376,7 @@
   <div class="hero-grain absolute inset-0 pointer-events-none"></div>
 
   <div class="relative z-10 flex flex-col flex-1">
-    <div class="max-w-4xl mx-auto text-center px-5 md:px-8 pt-28 md:pt-36 fade-up" data-fade>
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-10 pt-28 md:pt-36 fade-up" data-fade>
       <div class="eyebrow text-accent/90 mb-4">Chandigarh &middot; A Name of Trust</div>
       <h1 class="display text-[2.75rem] sm:text-6xl md:text-[5.5rem] font-medium tracking-tight text-white leading-[1.02] mb-6" style="text-wrap:balance;">
         Own the<br class="hidden sm:block">
@@ -257,7 +399,7 @@
 
     <div class="flex-1"></div>
 
-    <div class="relative z-10 flex items-end justify-between gap-4 px-5 md:px-10 pb-8 md:pb-10 fade-up" data-fade>
+    <div class="relative z-10 flex items-end justify-between gap-4 px-4 sm:px-6 lg:px-12 pb-8 md:pb-10 fade-up" data-fade>
       <div class="glasscard rounded-2xl px-4 py-3 md:px-5 md:py-4">
         <div class="eyebrow text-[11px] mb-0.5">Featured In Stock</div>
         <div class="font-semibold text-ink text-[15px] md:text-base">Lexus LX 570 &middot; 2021</div>
@@ -284,8 +426,8 @@
 </section>
 
 <!-- ============ BY THE NUMBERS ============ -->
-<section class="lux-bloom bg-bgsoft py-16 px-5 md:px-8">
-  <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center">
+<section class="lux-bloom bg-bgsoft py-16 px-4 sm:px-6 lg:px-10">
+  <div class="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center">
     <div class="md:border-r border-hairline fade-up" data-fade>
       <div class="text-4xl md:text-5xl font-semibold text-ink mb-1 num-badge"><span data-count="42">0</span></div>
       <div class="eyebrow">Cars In Stock</div>
@@ -306,8 +448,8 @@
 </section>
 
 <!-- ============ WHY US ============ -->
-<section id="why-us" class="lux-bloom bg-bg py-24 px-5 md:px-8">
-  <div class="max-w-6xl mx-auto">
+<section id="why-us" class="lux-bloom bg-bg py-24 px-4 sm:px-6 lg:px-10">
+  <div class="max-w-[1400px] mx-auto">
     <div class="max-w-2xl mx-auto text-center mb-16 fade-up" data-fade>
       <div class="eyebrow mb-3">Why Mohit &amp; Raja</div>
       <h2 class="display text-3xl md:text-[2.5rem] font-medium tracking-tight text-ink" style="text-wrap:balance;">A name built on trust, for people who don't compromise.</h2>
@@ -346,8 +488,8 @@
 </section>
 
 <!-- ============ INVENTORY ============ -->
-<section id="inventory" class="lux-bloom bg-bgsoft py-24 px-5 md:px-8">
-  <div class="max-w-7xl mx-auto">
+<section id="inventory" class="lux-bloom bg-bgsoft py-24 px-4 sm:px-6 lg:px-10">
+  <div class="max-w-[1560px] mx-auto">
     <div class="text-center max-w-2xl mx-auto mb-10 fade-up" data-fade>
       <div class="eyebrow mb-3">Fresh Stock &middot; Sept 2026</div>
       <h2 class="display text-3xl md:text-[2.5rem] font-medium tracking-tight text-ink mb-4" style="text-wrap:balance;">The Collection</h2>
@@ -357,19 +499,19 @@
     <div class="flex items-center justify-between gap-4 mb-6 fade-up" data-fade>
       <div id="filterBar" class="flex gap-2 overflow-x-auto scrollbar-thin flex-1"></div>
       <div class="eyebrow whitespace-nowrap hidden sm:block">
-        <span id="countShown" class="text-ink font-medium">42</span> / 42
+        <span id="countShown" class="text-ink font-medium">42</span> / <span id="countTotal">42</span>
       </div>
     </div>
 
-    <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-6">
       <!-- car cards injected by JS -->
     </div>
   </div>
 </section>
 
 <!-- ============ SHOWROOM (contrast section) ============ -->
-<section id="showroom" class="relative bg-dark py-24 px-5 md:px-8 overflow-hidden">
-  <div class="max-w-7xl mx-auto">
+<section id="showroom" class="relative bg-dark py-24 px-4 sm:px-6 lg:px-10 overflow-hidden">
+  <div class="max-w-[1560px] mx-auto">
     <div class="max-w-2xl mb-12 fade-up" data-fade>
       <div class="eyebrow text-white/50 mb-3">Visit Us</div>
       <h2 class="display text-3xl md:text-[2.5rem] font-medium tracking-tight text-white" style="text-wrap:balance;">Walk through the showroom floor.</h2>
@@ -396,8 +538,8 @@
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section id="contact" class="lux-bloom bg-bg py-24 px-5 md:px-8">
-  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
+<section id="contact" class="lux-bloom bg-bg py-24 px-4 sm:px-6 lg:px-10">
+  <div class="max-w-[1560px] mx-auto grid lg:grid-cols-2 gap-12">
     <div class="fade-up" data-fade>
       <div class="eyebrow mb-3">Get In Touch</div>
       <h2 class="display text-3xl md:text-[2.5rem] font-medium tracking-tight text-ink mb-6" style="text-wrap:balance;">Visit us to make your dream a reality.</h2>
@@ -454,8 +596,8 @@
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer class="bg-bg py-10 px-5 md:px-8 border-t border-hairline">
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+<footer class="bg-bg py-10 px-4 sm:px-6 lg:px-10 border-t border-hairline">
+  <div class="max-w-[1560px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
     <div class="flex items-center gap-3">
       <img src="assets/logo/mr-logo.png" alt="Mohit &amp; Raja Car Deals" class="h-7 w-auto">
       <span class="text-mute text-sm">© 2026 Mohit &amp; Raja Car Deals — A Name of Trust</span>
@@ -546,6 +688,9 @@ const filterBar = document.getElementById('filterBar');
 const countShown = document.getElementById('countShown');
 
 function carImgPath(car){
+  // cars.json may name a photo explicitly (any file the showroom uploads, or a
+  // full URL); otherwise fall back to the numbered photo for that car.
+  if (car.photo) return car.photo;
   return `assets/cars/${String(car.id).padStart(2,'0')}.jpg`;
 }
 
@@ -635,23 +780,54 @@ function render(list){
   });
 }
 
-const BRANDS = ['All', ...Array.from(new Set(CARS.map(c=>c.brand)))];
-filterBar.innerHTML = BRANDS.map((b,i)=>`<button class="filter-btn shrink-0 border border-hairline text-ink/70 text-[13px] font-medium px-4 py-2 rounded-full ${i===0?'active':''}" data-brand="${b}">${b}</button>`).join('');
-filterBar.querySelectorAll('.filter-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    filterBar.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    const brand = btn.dataset.brand;
-    render(brand==='All' ? CARS : CARS.filter(c=>c.brand===brand));
-  });
-});
+/* ============ STOCK LIST ============
+   The showroom's stock lives in cars.json so it can be changed without
+   touching this page. If that file is missing or malformed for any reason,
+   the copy built into this page below is used instead, so the site never
+   comes up empty. */
+let INVENTORY = CARS;
 
-render(CARS);
+function buildFilters(list){
+  const brands = ['All', ...Array.from(new Set(list.map(c => c.brand)))];
+  filterBar.innerHTML = brands.map((b, i) =>
+    `<button class="filter-btn shrink-0 border border-hairline text-ink/70 text-[13px] font-medium px-4 py-2 rounded-full ${i === 0 ? 'active' : ''}" data-brand="${b}">${b}</button>`
+  ).join('');
+  filterBar.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const brand = btn.dataset.brand;
+      render(brand === 'All' ? INVENTORY : INVENTORY.filter(c => c.brand === brand));
+    });
+  });
+}
+
+function showInventory(list){
+  INVENTORY = list;
+  const total = document.getElementById('countTotal');
+  if (total) total.textContent = list.length;
+  document.querySelectorAll('[data-count="42"]').forEach(el => { el.dataset.count = list.length; });
+  buildFilters(list);
+  render(list);
+}
+
+showInventory(CARS);
+
+fetch('cars.json', { cache: 'no-cache' })
+  .then(r => r.ok ? r.json() : Promise.reject(new Error('cars.json ' + r.status)))
+  .then(list => {
+    if (!Array.isArray(list) || !list.length) throw new Error('cars.json is empty');
+    const clean = list.filter(c => c && c.brand && c.model);
+    if (!clean.length) throw new Error('no usable rows in cars.json');
+    clean.forEach((c, i) => { if (c.id == null) c.id = i + 1; });
+    showInventory(clean);
+  })
+  .catch(err => console.warn('Using the built-in stock list:', err.message));
 
 /* ============ MODAL ============ */
 const modalBackdrop = document.getElementById('modalBackdrop');
 function openModal(id){
-  const car = CARS.find(c=>c.id===id);
+  const car = INVENTORY.find(c => c.id === id);
   if(!car) return;
   const modalImg = document.getElementById('modalImg');
   modalImg.src = carImgPath(car);
@@ -678,6 +854,36 @@ function closeModal(){
 document.getElementById('modalClose').addEventListener('click', closeModal);
 modalBackdrop.addEventListener('click', e=>{ if(e.target===modalBackdrop) closeModal(); });
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+
+/* ============ OPENING ANIMATION ============
+   Plays once per visit (sessionStorage), never blocks the site: whatever
+   happens, the intro is torn down and scrolling is restored. */
+(function(){
+  const intro = document.getElementById('intro');
+  if (!intro) return;
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let seen = false;
+  try { seen = sessionStorage.getItem('mrSeenIntro') === '1'; } catch (e) {}
+
+  function finish(){
+    if (intro.classList.contains('done')) return;
+    intro.classList.add('done');
+    document.body.style.overflow = '';
+    setTimeout(() => intro.classList.add('hide'), 1100);
+    try { sessionStorage.setItem('mrSeenIntro', '1'); } catch (e) {}
+  }
+
+  if (reduced || seen) { intro.classList.add('hide'); return; }
+
+  document.body.style.overflow = 'hidden';
+  // Let a visitor skip it the moment they touch anything.
+  ['click','touchstart','keydown','wheel'].forEach(ev =>
+    intro.addEventListener(ev, finish, { once:true, passive:true }));
+  setTimeout(finish, 3400);
+  // Belt and braces: if a slow device stalls the timer, never trap the page.
+  window.addEventListener('load', () => setTimeout(finish, 4200));
+})();
 
 /* ============ MOBILE NAV + STICKY CTA BAR ============ */
 const navToggle = document.getElementById('navToggle');
