@@ -1,0 +1,263 @@
+{
+  "_method": "All images retrieved via Apify MCP tools only (google-images-api actor for candidate URLs, then moving_beacon-owner1/my-actor-69 'to_base64' actor to fetch server-side on Apify's infrastructure and return base64 via the Apify key-value-store API). Base64 was decoded locally with Python. No direct curl/fetch to any third-party host was performed from this sandbox.",
+  "00": {
+    "filename": "00.jpg",
+    "query_used": "Lexus LX 570 2021 front three quarter view",
+    "source": "conceptcarz.com",
+    "notes": "Exact match, side/angled studio shot. Featured hero car."
+  },
+  "01": {
+    "filename": "01.jpg",
+    "query_used": "Volvo S90 Inscription 2019 official press photo front three quarter",
+    "source": "guideautoweb.com",
+    "notes": "Re-sourced Sep 2026: replaced a photo carrying a 'Florida Fine Cars' watermark and novelty dealer plate. Clean editorial press shot, white S90."
+  },
+  "02": {
+    "filename": "02.jpg",
+    "query_used": "BMW 3 Series GT 320 2017 front three quarter",
+    "source": "edmunds.com",
+    "notes": "Exact model/year match (3-Series Gran Turismo 340i xDrive, close trim to 320)."
+  },
+  "03": {
+    "filename": "03.jpg",
+    "query_used": "Jaguar F-Pace 2020 front three quarter",
+    "source": "thecarconnection.com (hgmsites)",
+    "notes": "Exact year match, angular front exterior view."
+  },
+  "04": {
+    "filename": "04.jpg",
+    "query_used": "Volvo XC90 2018 front three quarter",
+    "source": "motortrend.com",
+    "notes": "T8 Excellence trim, close match."
+  },
+  "05": {
+    "filename": "05.jpg",
+    "query_used": "BMW 630 GT M Sport 2019 front three quarter",
+    "source": "truecar.com",
+    "notes": "2019 BMW 6 Series Gran Turismo, driver side front quarter, white (color approx)."
+  },
+  "06": {
+    "filename": "06.jpg",
+    "query_used": "Land Rover Discovery Sport HSE R-Dynamic 2022 front three quarter",
+    "source": "edmunds.com",
+    "notes": "APPROX: image is 2020 model year (facelift carried into 2022), R-Dynamic SE trim."
+  },
+  "07": {
+    "filename": "07.jpg",
+    "query_used": "2021 Audi Q5 facelift front three quarter",
+    "source": "motortrend.com",
+    "notes": "Re-sourced Sep 2026: replaced a photo carrying an 'EMICH VOLKSWAGEN Denver' dealer banner. 2021 facelift = same generation as the 2022 car."
+  },
+  "08": {
+    "filename": "08.jpg",
+    "query_used": "Mercedes GLC 200 2021 blue front three quarter",
+    "source": "carwale.com (aeplcdn)",
+    "notes": "Left front three-quarter, generation match; exact color/trim not verified."
+  },
+  "09": {
+    "filename": "09.jpg",
+    "query_used": "Mercedes-Benz GLE 300d 2022 white SUV front three quarter",
+    "source": "mbwhiteplains.com (carscommerce)",
+    "notes": "Updated Sep 2026: clean studio catalog render, white, correct generation; base GLE 300 (non-AMG) trim-specific photo still not confirmed, but no more AMG badging visible."
+  },
+  "10": {
+    "filename": "10.jpg",
+    "query_used": "Porsche Cayenne Platinum Edition 2019 front three quarter exterior",
+    "source": "platinumautohaus.com",
+    "notes": "Updated Sep 2026: real dealer listing photo of a 2019 Cayenne, white, cropped to remove the dealer's banner watermark; Platinum Edition's specific 22-inch forged alloys not confirmed from this angle."
+  },
+  "11": {
+    "filename": "11.jpg",
+    "query_used": "Audi Q8 2024 front three quarter",
+    "source": "motortrend.com",
+    "notes": "2024 Audi Q8 Sportback, front three-quarter (netcarshow original timed out, used motortrend alternate)."
+  },
+  "12": {
+    "filename": "12.jpg",
+    "query_used": "Volvo S90 2018 Inscription black front three quarter",
+    "source": "cars.com",
+    "notes": "APPROX: stock photo, exact black color not confirmed from thumbnail."
+  },
+  "13": {
+    "filename": "13.jpg",
+    "query_used": "Lexus LX570 2021 (duplicate of hero)",
+    "notes": "Reused 00.jpg per instructions (duplicate of featured hero car)."
+  },
+  "14": {
+    "filename": "14.jpg",
+    "query_used": "Audi Q3 2016 official press photo front three quarter",
+    "source": "autoevolution.com",
+    "notes": "Re-sourced Sep 2026: replaced a cluttered motor-show floor shot. Official 2016 Q3 US-spec press photo, black."
+  },
+  "15": {
+    "filename": "15.jpg",
+    "query_used": "BMW X4 2022 shadow edition black front three quarter",
+    "source": "bmwblog.com",
+    "notes": "Exact match: 2022 BMW X4 Black Shadow Edition."
+  },
+  "16": {
+    "filename": "16.jpg",
+    "query_used": "Mercedes GL350 2016 AMG kit front three quarter",
+    "source": "edmunds.com",
+    "notes": "APPROX: image is 2015 GL350 BlueTEC 4MATIC (pre-facelift, same generation as 2016)."
+  },
+  "17": {
+    "filename": "17.jpg",
+    "query_used": "Audi Q7 2017 front three quarter",
+    "source": "motortrend.com",
+    "notes": "Exact year match, front three-quarter in motion."
+  },
+  "18": {
+    "filename": "18.jpg",
+    "query_used": "2023 Mercedes E-Class front three quarter white",
+    "source": "consumerreports.org",
+    "notes": "Exact year/color match (2023 E-Class, white)."
+  },
+  "19": {
+    "filename": "19.jpg",
+    "query_used": "Mercedes GLC 220 2016 white front three quarter",
+    "source": "carsales.com.au",
+    "notes": "APPROX: image is GLC250 (same generation/body as GLC220), color not confirmed white."
+  },
+  "20": {
+    "filename": "20.jpg",
+    "query_used": "Audi A3 Cabriolet 2016 official press photo",
+    "source": "autoevolution.com",
+    "notes": "Re-sourced Sep 2026: replaced a photo carrying a '(c)EVOX IMAGES' stock-library watermark. Note: this is a rear three-quarter, unlike the mostly front-facing set."
+  },
+  "21": {
+    "filename": "21.jpg",
+    "query_used": "Mercedes-Benz GL63 AMG front three quarter",
+    "source": "motortrend.com",
+    "notes": "Re-sourced Sep 2026: replaced a photo carrying 'High Class Auto Sales' logo, phone number and address banners."
+  },
+  "22": {
+    "filename": "22.jpg",
+    "query_used": "Mercedes C-Class 2023 front three quarter",
+    "source": "thecarconnection.com (hgmsites)",
+    "notes": "APPROX: image is C300 Coupe body style; sedan-specific photo not confirmed."
+  },
+  "23": {
+    "filename": "23.jpg",
+    "query_used": "Jaguar XJL 2016 front three quarter",
+    "source": "motortrend.com",
+    "notes": "Exact match, XJL 3.0 AWD front three-quarter in motion."
+  },
+  "24": {
+    "filename": "24.jpg",
+    "query_used": "BMW X4 M Sport 2019 front three quarter",
+    "source": "motortrend.com",
+    "notes": "Exact year match."
+  },
+  "25": {
+    "filename": "25.jpg",
+    "query_used": "2017 BMW 530i first drive front three quarter",
+    "source": "caranddriver.com",
+    "notes": "Re-sourced Sep 2026: replaced a soft video-review still in a cluttered gravel yard. G30 generation matches the 2016 520d M Sport."
+  },
+  "26": {
+    "filename": "26.jpg",
+    "query_used": "Mercedes-Benz S-Class 2016 sedan OEM photo",
+    "source": "edmunds.com (OEM)",
+    "notes": "Re-sourced Sep 2026: replaced a photo carrying 'Carmel Auto Gallery', a phone number, 'DEAL PENDING' and 'Clean CARFAX' overlays. Manufacturer W222 photo."
+  },
+  "27": {
+    "filename": "27.jpg",
+    "query_used": "Range Rover Vogue LWB 2019 front three quarter",
+    "source": "carsandbids.com",
+    "notes": "Good match, Range Rover LWB body style visible."
+  },
+  "28": {
+    "filename": "28.jpg",
+    "query_used": "Mercedes-Benz GLS 2023 press photo front three quarter",
+    "source": "caranddriver.com",
+    "notes": "Re-sourced Sep 2026: the previous file was CORRUPT -- a structurally valid JPEG that decoded to uniform grey noise, so this card rendered as static."
+  },
+  "29": {
+    "filename": "29.jpg",
+    "query_used": "Mercedes E350 2017 black front three quarter",
+    "source": "cars.com",
+    "notes": "APPROX: 2017 E-Class stock photo, exact black color not confirmed."
+  },
+  "30": {
+    "filename": "30.jpg",
+    "query_used": "Audi A6 2018 front three quarter",
+    "source": "autocarindia.com",
+    "notes": "Exact year match, front three-fourth view."
+  },
+  "31": {
+    "filename": "31.jpg",
+    "query_used": "Range Rover Evoque HSE Dynamic 2015 front three quarter",
+    "source": "autoevolution.com",
+    "notes": "Good generation match (3-door Evoque); HSE Dynamic trim not specifically confirmed."
+  },
+  "32": {
+    "filename": "32.jpg",
+    "query_used": "BMW 5-Series press photo front three quarter",
+    "source": "caranddriver.com (BMW press image P90244780)",
+    "notes": "Re-sourced Sep 2026: replaced a photo carrying a 'Sands' dealer logo, a 'JUST ARRIVED / CALL NOW' banner and a grease-pencil stock number on the windshield."
+  },
+  "33": {
+    "filename": "33.jpg",
+    "query_used": "Audi A3 sedan 2018 front three quarter",
+    "source": "conceptcarz.com",
+    "notes": "Re-sourced Sep 2026: replaced a photo carrying a 'Prestige Imports' editorial headline bar."
+  },
+  "34": {
+    "filename": "34.jpg",
+    "query_used": "BMW 5-Series G30 studio press photo front three quarter",
+    "source": "autoevolution.com",
+    "notes": "Re-sourced Sep 2026: replaced a photo carrying a 'carwale' watermark. G30 generation matches the 2017 530d M Sport."
+  },
+  "35": {
+    "filename": "35.jpg",
+    "query_used": "Jaguar F-Pace 2019 black front three quarter",
+    "source": "kbb.com",
+    "notes": "Exact year match; black color not confirmed from thumbnail."
+  },
+  "36": {
+    "filename": "36.jpg",
+    "query_used": "Mercedes-Maybach S-Class 2017 sedan front three quarter",
+    "source": "caranddriver.com (hearstapps)",
+    "notes": "Updated Sep 2026: correct sedan body style (previous photo was a Cabriolet), 2017 model year, editorial action shot, no watermarks."
+  },
+  "37": {
+    "filename": "37.jpg",
+    "query_used": "BMW X4 M Sport Shadow Jahre Edition 2022 black front three quarter",
+    "source": "bmwblog.com",
+    "notes": "Reused 2022 BMW X4 Black Shadow Edition source series (different angle from index 15)."
+  },
+  "38": {
+    "filename": "38.jpg",
+    "query_used": "BMW X5 M 2023 front three quarter",
+    "source": "caranddriver.com",
+    "notes": "Re-sourced Sep 2026: replaced a photo carrying a 'BIG STAR FORD Pearland' banner and dealer plate."
+  },
+  "39": {
+    "filename": "39.jpg",
+    "query_used": "BMW 730Ld M Sport 2019 carbon black front three quarter",
+    "source": "carwale.com (aeplcdn)",
+    "notes": "APPROX: generic BMW 7 Series front three-quarter; 730Ld/carbon black trim not specifically confirmed."
+  },
+  "40": {
+    "filename": "40.jpg",
+    "query_used": "Jeep Wrangler Rubicon 392 2022 press photo",
+    "source": "hagerty.com",
+    "notes": "Re-sourced Sep 2026: replaced a photo carrying a 'Ken Garff Toyota Cheyenne' watermark and windshield sticker."
+  },
+  "41": {
+    "filename": "41.jpg",
+    "query_used": "Maserati Quattroporte 2016 red interior front three quarter",
+    "source": "motortrend.com",
+    "notes": "Exact year match (Quattroporte S); red interior not visible from exterior shot."
+  },
+  "42": {
+    "filename": "42.jpg",
+    "query_used": "Toyota Fortuner 2024 white 4x2 front three quarter",
+    "source": "legendmotorsglobal.com",
+    "notes": "Exact year match; 4x2 trim not specifically confirmed from thumbnail."
+  },
+  "_status": "COMPLETE",
+  "_summary": "43 of 43 target images successfully retrieved and saved as 00.jpg through 42.jpg (13.jpg is an intentional duplicate of 00.jpg per instructions). Most are exact or very close year/trim/body-style matches; items marked APPROX have a noted discrepancy (usually a closely related model year, trim, or unconfirmed exact color) since exact matches were unavailable via image search.",
+  "_audit_sep_2026": "Visual audit of all 42 photos found 13 unusable: 9 carried competitor-dealer branding, 2 carried stock-library/portal watermarks (EVOX, CarWale), 1 was a cluttered show-floor shot, and 28.jpg was corrupt (decoded to grey noise). All 13 were re-sourced from manufacturer press and motoring-editorial outlets, which do not brand their images."
+}

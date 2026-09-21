@@ -1,0 +1,632 @@
+[
+  {
+    "id": 1,
+    "brand": "Volvo",
+    "model": "S90",
+    "year": 2019,
+    "title": "Volvo S90 Inscription",
+    "price": "₹27 Lakh*",
+    "tags": [
+      "Dec 2019",
+      "Inscription",
+      "Single Owner"
+    ],
+    "desc": "Top-end Inscription trim, fully loaded, next-to-showroom condition. Single hand driven, all original, very well maintained — just like a new car.",
+    "photo": "assets/cars/01.jpg"
+  },
+  {
+    "id": 2,
+    "brand": "BMW",
+    "model": "3 GT",
+    "year": 2017,
+    "title": "BMW 320 GT",
+    "price": "₹21 Lakh*",
+    "tags": [
+      "Dec 2017",
+      "Digital Cluster",
+      "Full Insured"
+    ],
+    "desc": "Top-end model with all loadings, full digital instrument cluster, new shape. All original, single hand driven, full depreciation-cap insured.",
+    "photo": "assets/cars/02.jpg"
+  },
+  {
+    "id": 3,
+    "brand": "Jaguar",
+    "model": "F-Pace",
+    "year": 2020,
+    "title": "Jaguar F-Pace",
+    "price": "₹32 Lakh*",
+    "tags": [
+      "2020 DOP",
+      "Single Owner",
+      "Fully Loaded"
+    ],
+    "desc": "Top-end model, single hand driven, fully loaded, next-to-showroom condition. All original.",
+    "photo": "assets/cars/03.jpg"
+  },
+  {
+    "id": 4,
+    "brand": "Volvo",
+    "model": "XC90",
+    "year": 2018,
+    "title": "Volvo XC90",
+    "price": "₹32 Lakh*",
+    "tags": [
+      "Dec 2018",
+      "Fully Loaded",
+      "Single Owner"
+    ],
+    "desc": "Top-end model fully loaded with all loadings. Single hand driven, next-to-showroom condition, very well maintained.",
+    "photo": "assets/cars/04.jpg"
+  },
+  {
+    "id": 5,
+    "brand": "BMW",
+    "model": "630 GT",
+    "year": 2019,
+    "title": "BMW 630 GT M Sport",
+    "price": "₹32.50 Lakh*",
+    "tags": [
+      "Dec 2019",
+      "M Sport",
+      "Single Owner"
+    ],
+    "desc": "Single hand driven, all original, very well company maintained. Next-to-showroom condition, top-end model fully loaded with all M-loadings.",
+    "photo": "assets/cars/05.jpg"
+  },
+  {
+    "id": 6,
+    "brand": "Land Rover",
+    "model": "Discovery Sport",
+    "year": 2022,
+    "title": "Land Rover Discovery Sport HSE R-Dynamic",
+    "price": "₹42.50 Lakh*",
+    "tags": [
+      "Dec 2022",
+      "HSE R-Dynamic",
+      "BS VI"
+    ],
+    "desc": "All original, single hand driven with full records. New-shape BS VI version, top-end model fully loaded, next-to-showroom condition.",
+    "photo": "assets/cars/06.jpg"
+  },
+  {
+    "id": 7,
+    "brand": "Audi",
+    "model": "Q5",
+    "year": 2022,
+    "title": "Audi Q5 Technology Pack",
+    "price": "₹38 Lakh*",
+    "tags": [
+      "2022 DOP",
+      "Technology Pack",
+      "Single Owner"
+    ],
+    "desc": "All original, single owner, top-end Technology Pack, fully loaded. Full service records, very well maintained, next-to-showroom condition.",
+    "photo": "assets/cars/07.jpg"
+  },
+  {
+    "id": 8,
+    "brand": "Mercedes-Benz",
+    "model": "GLC 200",
+    "year": 2021,
+    "title": "Mercedes-Benz GLC 200",
+    "price": "₹41 Lakh*",
+    "tags": [
+      "Dec 2021",
+      "Petrol BS VI",
+      "35k km"
+    ],
+    "desc": "Blue colour, all original, single hand, only 35k km driven. Top-end model fully loaded, very well maintained, next-to-showroom condition.",
+    "photo": "assets/cars/08.jpg"
+  },
+  {
+    "id": 9,
+    "brand": "Mercedes-Benz",
+    "model": "GLE 300",
+    "year": 2022,
+    "title": "Mercedes-Benz GLE 300",
+    "price": "₹62.50 Lakh*",
+    "tags": [
+      "Dec 2022",
+      "White",
+      "Like New"
+    ],
+    "desc": "Top-end model fully loaded with all loadings. All original, just like a brand-new car, very well maintained, next-to-showroom condition.",
+    "photo": "assets/cars/09.jpg"
+  },
+  {
+    "id": 10,
+    "brand": "Porsche",
+    "model": "Cayenne",
+    "year": 2019,
+    "title": "Porsche Cayenne Platinum Edition",
+    "price": "₹68 Lakh*",
+    "tags": [
+      "Single Owner",
+      "22\" Forged Alloys",
+      "Limited Edition"
+    ],
+    "desc": "New-shape Platinum Edition, top-end model fully loaded with all luxury loadings. 22-inch limited-edition Porsche original forged alloys, just like a new car.",
+    "photo": "assets/cars/10.jpg"
+  },
+  {
+    "id": 11,
+    "brand": "Audi",
+    "model": "Q8",
+    "year": 2024,
+    "title": "Audi Q8",
+    "price": "₹74 Lakh*",
+    "tags": [
+      "2024 DOP",
+      "Single Owner",
+      "Like New"
+    ],
+    "desc": "All original, single hand driven, top-end model fully loaded with all loadings, next-to-showroom condition, just like a new car.",
+    "photo": "assets/cars/11.jpg"
+  },
+  {
+    "id": 12,
+    "brand": "Volvo",
+    "model": "S90",
+    "year": 2018,
+    "title": "Volvo S90 Inscription",
+    "price": "₹22 Lakh*",
+    "tags": [
+      "2018 DOP",
+      "Inscription",
+      "Black"
+    ],
+    "desc": "Top-end Inscription model fully loaded, all original, single hand driven, next-to-showroom condition, black colour.",
+    "photo": "assets/cars/12.jpg"
+  },
+  {
+    "id": 13,
+    "brand": "Lexus",
+    "model": "LX 570",
+    "year": 2021,
+    "title": "Lexus LX 570 Limited Edition",
+    "price": "₹1.70 Cr*",
+    "tags": [
+      "Dec 2021",
+      "Limited Edition",
+      "VVIP Number"
+    ],
+    "desc": "All original, top-end limited-edition model fully loaded with all loadings. Chandigarh VVIP-paid single-hand-driven number, next-to-showroom condition. Our featured car in stock.",
+    "photo": "assets/cars/13.jpg"
+  },
+  {
+    "id": 14,
+    "brand": "Audi",
+    "model": "Q3",
+    "year": 2016,
+    "title": "Audi Q3",
+    "price": "₹12.50 Lakh*",
+    "tags": [
+      "Dec 2016",
+      "Single Owner",
+      "Full Insured"
+    ],
+    "desc": "Single hand driven, new shape, top-end model fully loaded with all loadings, full insured, next-to-showroom condition, all original.",
+    "photo": "assets/cars/14.jpg"
+  },
+  {
+    "id": 15,
+    "brand": "BMW",
+    "model": "X4",
+    "year": 2022,
+    "title": "BMW X4 Shadow Edition",
+    "price": "₹52 Lakh*",
+    "tags": [
+      "Dec 2022",
+      "Shadow Edition",
+      "Black"
+    ],
+    "desc": "Single hand driven, black colour, top-end Shadow Edition with all loadings, brand-new tyres, very well maintained, next-to-showroom condition.",
+    "photo": "assets/cars/15.jpg"
+  },
+  {
+    "id": 16,
+    "brand": "Mercedes-Benz",
+    "model": "GL 350",
+    "year": 2016,
+    "title": "Mercedes-Benz GL 350 AMG Kit",
+    "price": "₹27 Lakh*",
+    "tags": [
+      "2016",
+      "AMG Kit",
+      "Full Insured"
+    ],
+    "desc": "All original, AMG kit with original AMG alloys, single hand driven, top-end model fully loaded, full insured, next-to-showroom condition.",
+    "photo": "assets/cars/16.jpg"
+  },
+  {
+    "id": 17,
+    "brand": "Audi",
+    "model": "Q7",
+    "year": 2017,
+    "title": "Audi Q7 Technology Pack",
+    "price": "₹26.50 Lakh*",
+    "tags": [
+      "Dec 2017",
+      "Technology Pack",
+      "Full Insured"
+    ],
+    "desc": "All original, full depreciation-cap insured, next-to-showroom condition, fully loaded top-end model, Technology Pack with all loadings.",
+    "photo": "assets/cars/17.jpg"
+  },
+  {
+    "id": 18,
+    "brand": "Mercedes-Benz",
+    "model": "E-Class",
+    "year": 2023,
+    "title": "Mercedes-Benz E-Class",
+    "price": "₹48.50 Lakh*",
+    "tags": [
+      "2023 DOP",
+      "White",
+      "Single Owner"
+    ],
+    "desc": "All original, single hand driven, CH registration, white colour, next-to-showroom condition, top-end model fully loaded, very well maintained.",
+    "photo": "assets/cars/18.jpg"
+  },
+  {
+    "id": 19,
+    "brand": "Mercedes-Benz",
+    "model": "GLC 220",
+    "year": 2016,
+    "title": "Mercedes-Benz GLC 220",
+    "price": "₹22 Lakh*",
+    "tags": [
+      "Dec 2016",
+      "White",
+      "Full Insured"
+    ],
+    "desc": "White colour, single hand driven, top-end model fully loaded, next-to-showroom, full depreciation-cap insured, all original with service record.",
+    "photo": "assets/cars/19.jpg"
+  },
+  {
+    "id": 20,
+    "brand": "Audi",
+    "model": "A3 Cabriolet",
+    "year": 2016,
+    "title": "Audi A3 Cabriolet",
+    "price": "₹32 Lakh*",
+    "tags": [
+      "Dec 2016",
+      "Only 15k km",
+      "Black"
+    ],
+    "desc": "Single hand driven, all original, only 15k km driven, next-to-showroom condition, black colour, just like a new car.",
+    "photo": "assets/cars/20.jpg"
+  },
+  {
+    "id": 21,
+    "brand": "Mercedes-Benz",
+    "model": "GLS 63 AMG",
+    "year": 2014,
+    "title": "Mercedes-Benz GLS 63 AMG (GL63 Converted)",
+    "price": "₹50 Lakh*",
+    "tags": [
+      "Dec 2014",
+      "5.5L V8 Biturbo",
+      "Full Insured"
+    ],
+    "desc": "GL 63 AMG converted to GLS 63 AMG, all original 5.5-litre V8 Biturbo, full depreciation-cap insured, black colour, CH number, very well maintained.",
+    "photo": "assets/cars/21.jpg"
+  },
+  {
+    "id": 22,
+    "brand": "Mercedes-Benz",
+    "model": "C-Class",
+    "year": 2023,
+    "title": "Mercedes-Benz C-Class",
+    "price": "₹47 Lakh*",
+    "tags": [
+      "2023 DOP",
+      "CH Registered",
+      "Like New"
+    ],
+    "desc": "Top-end model fully loaded, CH registered, just like a new car, all original, single hand driven, full insured, next-to-showroom condition.",
+    "photo": "assets/cars/22.jpg"
+  },
+  {
+    "id": 23,
+    "brand": "Jaguar",
+    "model": "XJL",
+    "year": 2016,
+    "title": "Jaguar XJL",
+    "price": "₹28 Lakh*",
+    "tags": [
+      "2016",
+      "New Shape",
+      "Fully Loaded"
+    ],
+    "desc": "Top-end model fully loaded with all loadings, new shape, next-to-showroom condition, all original, just like a new car, very well maintained.",
+    "photo": "assets/cars/23.jpg"
+  },
+  {
+    "id": 24,
+    "brand": "BMW",
+    "model": "X4",
+    "year": 2019,
+    "title": "BMW X4 M Sport 3.0",
+    "price": "₹42 Lakh*",
+    "tags": [
+      "Dec 2019",
+      "3.0 Litre",
+      "Facelifted"
+    ],
+    "desc": "All original, facelifted new shape, next-to-showroom condition, top-end model fully loaded, well maintained, extraordinary car.",
+    "photo": "assets/cars/24.jpg"
+  },
+  {
+    "id": 25,
+    "brand": "BMW",
+    "model": "520d",
+    "year": 2016,
+    "title": "BMW 520d M Sport",
+    "price": "₹18.50 Lakh*",
+    "tags": [
+      "Dec 2016",
+      "M-Class Loadings",
+      "Full Insured"
+    ],
+    "desc": "All original, single hand driven, top-end model fully loaded with all M-class loadings. Extraordinary car, very well maintained, full depreciation-cap insured.",
+    "photo": "assets/cars/25.jpg"
+  },
+  {
+    "id": 26,
+    "brand": "Mercedes-Benz",
+    "model": "S 350",
+    "year": 2016,
+    "title": "Mercedes-Benz S 350",
+    "price": "₹28 Lakh*",
+    "tags": [
+      "Dec 2016",
+      "Facelifted",
+      "CHD Registered"
+    ],
+    "desc": "Facelifted new shape, CHD-paid registration, top-end model fully loaded with all luxury loadings, full depreciation-cap insured, very well maintained.",
+    "photo": "assets/cars/26.jpg"
+  },
+  {
+    "id": 27,
+    "brand": "Land Rover",
+    "model": "Range Rover Vogue LWB",
+    "year": 2019,
+    "title": "Range Rover Vogue LWB",
+    "price": "₹88 Lakh*",
+    "tags": [
+      "2019",
+      "Facelifted",
+      "Fully Loaded"
+    ],
+    "desc": "All original, top-end model, new facelifted shape, fully loaded with all loadings, next-to-showroom condition, extraordinary maintenance.",
+    "photo": "assets/cars/27.jpg"
+  },
+  {
+    "id": 28,
+    "brand": "Mercedes-Benz",
+    "model": "GLS 400",
+    "year": 2023,
+    "title": "Mercedes-Benz GLS 400",
+    "price": "₹85 Lakh*",
+    "tags": [
+      "2023 DOP",
+      "Soft Close Doors",
+      "Like New"
+    ],
+    "desc": "Top-end model fully loaded, just like a new car, soft-close doors, all original, single hand driven with all records, full depreciation-cap insured.",
+    "photo": "assets/cars/28.jpg"
+  },
+  {
+    "id": 29,
+    "brand": "Mercedes-Benz",
+    "model": "E 350",
+    "year": 2017,
+    "title": "Mercedes-Benz E 350 Exclusive Edition",
+    "price": "₹24.50 Lakh*",
+    "tags": [
+      "Dec 2017",
+      "Exclusive Edition",
+      "Black"
+    ],
+    "desc": "Black colour, all original, bumper-to-bumper. Top-end Exclusive Edition, fully loaded with all luxury loadings, next-to-showroom condition.",
+    "photo": "assets/cars/29.jpg"
+  },
+  {
+    "id": 30,
+    "brand": "Audi",
+    "model": "A6",
+    "year": 2018,
+    "title": "Audi A6",
+    "price": "₹22 Lakh*",
+    "tags": [
+      "Dec 2018",
+      "Single Owner",
+      "CH Number"
+    ],
+    "desc": "Single owner, CH number, top-end model with all loadings, all original, next-to-showroom condition, very well maintained, extraordinary car.",
+    "photo": "assets/cars/30.jpg"
+  },
+  {
+    "id": 31,
+    "brand": "Land Rover",
+    "model": "Range Rover Evoque",
+    "year": 2015,
+    "title": "Range Rover Evoque HSE Dynamic",
+    "price": "₹21.50 Lakh*",
+    "tags": [
+      "Dec 2015",
+      "HSE Dynamic",
+      "Fully Loaded"
+    ],
+    "desc": "Top-end HSE Dynamic model fully loaded with all loadings, very well maintained, next-to-showroom condition.",
+    "photo": "assets/cars/31.jpg"
+  },
+  {
+    "id": 32,
+    "brand": "BMW",
+    "model": "530i",
+    "year": 2019,
+    "title": "BMW 530i",
+    "price": "₹33.50 Lakh*",
+    "tags": [
+      "BS VI",
+      "Blue",
+      "Like New"
+    ],
+    "desc": "Just like a new car, top-end model, blue colour, fully loaded with all loadings, very well maintained, next-to-showroom condition.",
+    "photo": "assets/cars/32.jpg"
+  },
+  {
+    "id": 33,
+    "brand": "Audi",
+    "model": "A3",
+    "year": 2018,
+    "title": "Audi A3 Petrol",
+    "price": "₹16.50 Lakh*",
+    "tags": [
+      "Dec 2018",
+      "Petrol",
+      "CHD Registered"
+    ],
+    "desc": "Petrol, CHD registered, all original, bumper-to-bumper, top-end model fully loaded, next-to-showroom condition, very well maintained.",
+    "photo": "assets/cars/33.jpg"
+  },
+  {
+    "id": 34,
+    "brand": "BMW",
+    "model": "530d",
+    "year": 2017,
+    "title": "BMW 530d M Sport",
+    "price": "₹26.50 Lakh*",
+    "tags": [
+      "Dec 2017",
+      "M Sport",
+      "New RFT Tyres"
+    ],
+    "desc": "Fully loaded with all loadings, full insured, brand-new RFT tyres, CHD registered, next-to-showroom condition, very well maintained.",
+    "photo": "assets/cars/34.jpg"
+  },
+  {
+    "id": 35,
+    "brand": "Jaguar",
+    "model": "F-Pace",
+    "year": 2019,
+    "title": "Jaguar F-Pace",
+    "price": "₹28 Lakh*",
+    "tags": [
+      "2019",
+      "CHD Registered",
+      "Black"
+    ],
+    "desc": "Black colour, extraordinary, very well maintained, just like a new car, top-end model fully loaded with all loadings.",
+    "photo": "assets/cars/35.jpg"
+  },
+  {
+    "id": 36,
+    "brand": "Mercedes-Benz",
+    "model": "S-Class Maybach",
+    "year": 2017,
+    "title": "Mercedes-Benz S-Class Maybach",
+    "price": "₹55 Lakh*",
+    "tags": [
+      "Dec 2017",
+      "New Shape",
+      "Fully Loaded"
+    ],
+    "desc": "New-shape top-end model fully loaded with all loadings, all original, next-to-showroom condition, very well and extraordinarily maintained.",
+    "photo": "assets/cars/36.jpg"
+  },
+  {
+    "id": 37,
+    "brand": "BMW",
+    "model": "X4",
+    "year": 2022,
+    "title": "BMW X4 M Sport Shadow Jahre Edition",
+    "price": "₹55 Lakh*",
+    "tags": [
+      "Dec 2022",
+      "Shadow Jahre Edition",
+      "Petrol BS VI"
+    ],
+    "desc": "Black colour, all original, next-to-showroom condition, top-end model fully loaded with all loadings, very well maintained, petrol BS VI version.",
+    "photo": "assets/cars/37.jpg"
+  },
+  {
+    "id": 38,
+    "brand": "BMW",
+    "model": "X5",
+    "year": 2023,
+    "title": "BMW X5 M Sport",
+    "price": "₹72 Lakh*",
+    "tags": [
+      "2023",
+      "Only 25k km",
+      "Like New"
+    ],
+    "desc": "Top-end model fully loaded, only 25k km driven, just like a new car, next-to-showroom condition, all original bumper-to-bumper, full depreciation-cap insured, BS VI version.",
+    "photo": "assets/cars/38.jpg"
+  },
+  {
+    "id": 39,
+    "brand": "BMW",
+    "model": "730Ld",
+    "year": 2019,
+    "title": "BMW 730Ld M Sport",
+    "price": "₹40 Lakh*",
+    "tags": [
+      "2019 DOP",
+      "Only 50k km",
+      "Carbon Black"
+    ],
+    "desc": "Only 50k km driven with service records, top-end model fully loaded with all loadings, next-to-showroom condition, very well and extraordinarily maintained, carbon black colour.",
+    "photo": "assets/cars/39.jpg"
+  },
+  {
+    "id": 40,
+    "brand": "Jeep",
+    "model": "Wrangler Rubicon",
+    "year": 2022,
+    "title": "Jeep Wrangler Rubicon Special Edition",
+    "price": "₹45 Lakh*",
+    "tags": [
+      "Dec 2022",
+      "Special Edition",
+      "Single Owner"
+    ],
+    "desc": "Single hand driven, special edition, grey colour, fully loaded top-end model with all loadings, very well maintained, next-to-showroom condition.",
+    "photo": "assets/cars/40.jpg"
+  },
+  {
+    "id": 41,
+    "brand": "Maserati",
+    "model": "Quattroporte",
+    "year": 2016,
+    "title": "Maserati Quattroporte",
+    "price": "₹40 Lakh*",
+    "tags": [
+      "Dec 2016",
+      "4-Seat Config",
+      "Red Interior"
+    ],
+    "desc": "Single hand driven, very well and extraordinarily maintained, top-end model fully loaded with all loadings. Four-seater configuration, red interior with carbon-fibre inserts, recently fully serviced, full depreciation-cap insured.",
+    "photo": "assets/cars/41.jpg"
+  },
+  {
+    "id": 42,
+    "brand": "Toyota",
+    "model": "Fortuner",
+    "year": 2024,
+    "title": "Toyota Fortuner 4x2 Automatic",
+    "price": "₹40 Lakh*",
+    "tags": [
+      "White",
+      "30k km",
+      "All Records"
+    ],
+    "desc": "White colour, 4x2 automatic, top-end model all original bumper-to-bumper, only 30k km driven with all service records, next-to-showroom condition, very well maintained.",
+    "photo": "assets/cars/42.jpg"
+  }
+]
