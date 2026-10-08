@@ -1,0 +1,13 @@
+# The repository holds the ui-ux-pro-max toolkit; only the car showroom under
+# projects/ is a website. Point Netlify at that folder and publish it as-is --
+# the site is plain HTML with no build step.
+[build]
+  base = "projects/mohit-raja-car-deals"
+  publish = "site"
+  command = ""
+
+# The showroom staff know this address as "the admin page".
+[[redirects]]
+  from = "/admin"
+  to = "/manager.html"
+  status = 302
