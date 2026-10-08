@@ -259,5 +259,17 @@
   },
   "_status": "COMPLETE",
   "_summary": "43 of 43 target images successfully retrieved and saved as 00.jpg through 42.jpg (13.jpg is an intentional duplicate of 00.jpg per instructions). Most are exact or very close year/trim/body-style matches; items marked APPROX have a noted discrepancy (usually a closely related model year, trim, or unconfirmed exact color) since exact matches were unavailable via image search.",
-  "_audit_sep_2026": "Visual audit of all 42 photos found 13 unusable: 9 carried competitor-dealer branding, 2 carried stock-library/portal watermarks (EVOX, CarWale), 1 was a cluttered show-floor shot, and 28.jpg was corrupt (decoded to grey noise). All 13 were re-sourced from manufacturer press and motoring-editorial outlets, which do not brand their images."
+  "_audit_sep_2026": "Visual audit of all 42 photos found 13 unusable: 9 carried competitor-dealer branding, 2 carried stock-library/portal watermarks (EVOX, CarWale), 1 was a cluttered show-floor shot, and 28.jpg was corrupt (decoded to grey noise). All 13 were re-sourced from manufacturer press and motoring-editorial outlets, which do not brand their images.",
+  "43": {
+    "filename": "43.jpg",
+    "query_used": "McLaren GT 2021 press photo studio white background",
+    "source": "mclarenofgreenwich.com (dealer studio photo)",
+    "notes": "Added Oct 2026 for the McLaren inventory listing. Cropped off the top ~23% of the frame, which carried a competing dealership's 'McLaren Miller Motorcars' wall signage; the car and turntable below were untouched."
+  },
+  "44": {
+    "filename": "44.jpg",
+    "query_used": "Aston Martin DB11 for sale dealer stock photo exterior",
+    "source": "perfectautocollection.com (dealer studio photo)",
+    "notes": "Added Oct 2026 for the Aston Martin inventory listing. Clean studio turntable shot, no watermark or branding visible; used as-is."
+  }
 }

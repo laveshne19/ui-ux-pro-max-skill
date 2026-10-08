@@ -628,5 +628,35 @@
     ],
     "desc": "White colour, 4x2 automatic, top-end model all original bumper-to-bumper, only 30k km driven with all service records, next-to-showroom condition, very well maintained.",
     "photo": "assets/cars/42.jpg"
+  },
+  {
+    "id": 43,
+    "brand": "McLaren",
+    "model": "GT",
+    "year": 2022,
+    "title": "McLaren GT",
+    "price": "₹3.25 Cr*",
+    "tags": [
+      "Silver",
+      "Carbon Pack",
+      "One of One in Region"
+    ],
+    "desc": "Grand tourer supercar, silver over black, carbon-fibre exterior pack, full McLaren service history. Exceptionally rare in private hands — a true collector's piece, not just a car.",
+    "photo": "assets/cars/43.jpg"
+  },
+  {
+    "id": 44,
+    "brand": "Aston Martin",
+    "model": "DB11",
+    "year": 2021,
+    "title": "Aston Martin DB11",
+    "price": "₹3.60 Cr*",
+    "tags": [
+      "V8 Coupe",
+      "Single Owner",
+      "Showroom Condition"
+    ],
+    "desc": "The quintessential British grand tourer — hand-finished coupe, single owner, meticulously maintained. Effortless power, unmistakable presence, next-to-showroom condition.",
+    "photo": "assets/cars/44.jpg"
   }
 ]

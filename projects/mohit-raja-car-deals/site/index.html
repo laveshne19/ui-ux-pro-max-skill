@@ -37,7 +37,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
@@ -133,6 +133,12 @@
   }
   .hero-slide.is-active{ opacity:1; }
   .hero-stage{ perspective:1400px; }
+  .hero-dot{
+    width:7px; height:7px; border-radius:999px; padding:0; border:0; cursor:pointer;
+    background:rgba(255,255,255,0.32); transition:background-color .3s ease, transform .3s ease;
+  }
+  .hero-dot:hover{ background:rgba(255,255,255,0.55); }
+  .hero-dot.is-active{ background:#C9A356; transform:scale(1.35); }
   .hero-grain{
     opacity:0.05; mix-blend-mode:overlay;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -366,10 +372,18 @@
 <!-- ============ HERO — full-page ============ -->
 <section id="hero" class="hero-stage relative min-h-[100svh] flex flex-col overflow-hidden bg-dark">
   <div id="carRig" class="absolute inset-0">
-    <div class="hero-slide kenburns is-active" data-slide="0" style="background-image:url('assets/hero/lexus-hero.jpg')"></div>
-    <div class="hero-slide kenburns" data-slide="1" style="background-image:url('assets/cars/10.jpg')"></div>
-    <div class="hero-slide kenburns" data-slide="2" style="background-image:url('assets/cars/27.jpg')"></div>
-    <div class="hero-slide kenburns" data-slide="3" style="background-image:url('assets/cars/41.jpg')"></div>
+    <div class="hero-slide kenburns is-active" data-slide="0" style="background-image:url('assets/hero/lexus-hero.jpg')"
+         data-title="Lexus LX 570" data-year="2021" data-price="Est. &#8377;1.70 Cr*"></div>
+    <div class="hero-slide kenburns" data-slide="1" style="background-image:url('assets/cars/43.jpg')"
+         data-title="McLaren GT" data-year="2022" data-price="Est. &#8377;3.25 Cr*"></div>
+    <div class="hero-slide kenburns" data-slide="2" style="background-image:url('assets/cars/44.jpg')"
+         data-title="Aston Martin DB11" data-year="2021" data-price="Est. &#8377;3.60 Cr*"></div>
+    <div class="hero-slide kenburns" data-slide="3" style="background-image:url('assets/cars/10.jpg')"
+         data-title="Porsche Cayenne Platinum Edition" data-year="2019" data-price="Est. &#8377;68 Lakh*"></div>
+    <div class="hero-slide kenburns" data-slide="4" style="background-image:url('assets/cars/27.jpg')"
+         data-title="Range Rover Vogue LWB" data-year="2019" data-price="Est. &#8377;88 Lakh*"></div>
+    <div class="hero-slide kenburns" data-slide="5" style="background-image:url('assets/cars/41.jpg')"
+         data-title="Maserati Quattroporte" data-year="2016" data-price="Est. &#8377;40 Lakh*"></div>
   </div>
   <div class="absolute inset-0 bg-gradient-to-b from-black/65 via-black/20 to-black/80 pointer-events-none"></div>
   <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50 pointer-events-none"></div>
@@ -378,13 +392,14 @@
   <div class="relative z-10 flex flex-col flex-1">
     <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-10 pt-28 md:pt-36 fade-up" data-fade>
       <div class="eyebrow text-accent/90 mb-4">Chandigarh &middot; A Name of Trust</div>
-      <h1 class="display text-[2.75rem] sm:text-6xl md:text-[5.5rem] font-medium tracking-tight text-white leading-[1.02] mb-6" style="text-wrap:balance;">
+      <h1 class="display text-[2.75rem] sm:text-6xl md:text-[5.75rem] font-semibold tracking-tight text-white leading-[1.0] mb-6" style="text-wrap:balance;">
         Own the<br class="hidden sm:block">
         <span class="italic text-transparent bg-clip-text bg-gradient-to-br from-[#F3EEE3] via-[#E7D6A9] to-accent">extraordinary.</span>
       </h1>
       <p class="text-white/75 text-lg md:text-xl max-w-2xl mx-auto mb-9 leading-relaxed">
-        A curated bench of Mercedes-Benz, BMW, Audi, Range&nbsp;Rover, Porsche, Lexus, Jaguar
-        &amp; Maserati — single-owner, fully documented, next-to-showroom condition only.
+        A curated bench of Mercedes-Benz, BMW, Audi, Range&nbsp;Rover, Porsche, Lexus, Jaguar,
+        Maserati, McLaren &amp; Aston&nbsp;Martin — single-owner, fully documented,
+        next-to-showroom condition only.
       </p>
       <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
         <a href="#inventory" class="btn-primary font-medium px-7 py-3.5 rounded-full">
@@ -400,11 +415,12 @@
     <div class="flex-1"></div>
 
     <div class="relative z-10 flex items-end justify-between gap-4 px-4 sm:px-6 lg:px-12 pb-8 md:pb-10 fade-up" data-fade>
-      <div class="glasscard rounded-2xl px-4 py-3 md:px-5 md:py-4">
+      <div class="glasscard rounded-2xl px-4 py-3 md:px-5 md:py-4 min-w-[200px]">
         <div class="eyebrow text-[11px] mb-0.5">Featured In Stock</div>
-        <div class="font-semibold text-ink text-[15px] md:text-base">Lexus LX 570 &middot; 2021</div>
-        <div class="text-gold font-semibold text-sm mt-0.5 num-badge">Est. &#8377;1.70 Cr*</div>
+        <div id="heroCaption" class="font-semibold text-ink text-[15px] md:text-base transition-opacity duration-300">Lexus LX 570 &middot; 2021</div>
+        <div id="heroPrice" class="text-gold font-semibold text-sm mt-0.5 num-badge transition-opacity duration-300">Est. &#8377;1.70 Cr*</div>
       </div>
+      <div id="heroDots" class="hidden sm:flex items-center gap-2" role="tablist" aria-label="Featured cars"></div>
       <div class="hidden sm:flex flex-col items-center gap-2 text-white/60 eyebrow text-[11px]">
         <span>Scroll</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="animate-bounce"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
@@ -417,10 +433,10 @@
 <section class="bg-bg border-y border-hairline py-5 overflow-hidden">
   <div class="flex whitespace-nowrap brand-marquee">
     <div class="flex items-center gap-8 text-mute2 text-sm font-medium pr-8">
-      <span>Mercedes-Benz</span><span class="text-hairline">/</span><span>BMW</span><span class="text-hairline">/</span><span>Audi</span><span class="text-hairline">/</span><span>Range Rover</span><span class="text-hairline">/</span><span>Porsche</span><span class="text-hairline">/</span><span>Lexus</span><span class="text-hairline">/</span><span>Jaguar</span><span class="text-hairline">/</span><span>Volvo</span><span class="text-hairline">/</span><span>Maserati</span><span class="text-hairline">/</span><span>Jeep</span><span class="text-hairline">/</span><span>Toyota</span>
+      <span>Mercedes-Benz</span><span class="text-hairline">/</span><span>BMW</span><span class="text-hairline">/</span><span>Audi</span><span class="text-hairline">/</span><span>Range Rover</span><span class="text-hairline">/</span><span>Porsche</span><span class="text-hairline">/</span><span>Lexus</span><span class="text-hairline">/</span><span>Jaguar</span><span class="text-hairline">/</span><span>Volvo</span><span class="text-hairline">/</span><span>Maserati</span><span class="text-hairline">/</span><span>McLaren</span><span class="text-hairline">/</span><span>Aston Martin</span><span class="text-hairline">/</span><span>Jeep</span><span class="text-hairline">/</span><span>Toyota</span>
     </div>
     <div class="flex items-center gap-8 text-mute2 text-sm font-medium pr-8" aria-hidden="true">
-      <span>Mercedes-Benz</span><span class="text-hairline">/</span><span>BMW</span><span class="text-hairline">/</span><span>Audi</span><span class="text-hairline">/</span><span>Range Rover</span><span class="text-hairline">/</span><span>Porsche</span><span class="text-hairline">/</span><span>Lexus</span><span class="text-hairline">/</span><span>Jaguar</span><span class="text-hairline">/</span><span>Volvo</span><span class="text-hairline">/</span><span>Maserati</span><span class="text-hairline">/</span><span>Jeep</span><span class="text-hairline">/</span><span>Toyota</span>
+      <span>Mercedes-Benz</span><span class="text-hairline">/</span><span>BMW</span><span class="text-hairline">/</span><span>Audi</span><span class="text-hairline">/</span><span>Range Rover</span><span class="text-hairline">/</span><span>Porsche</span><span class="text-hairline">/</span><span>Lexus</span><span class="text-hairline">/</span><span>Jaguar</span><span class="text-hairline">/</span><span>Volvo</span><span class="text-hairline">/</span><span>Maserati</span><span class="text-hairline">/</span><span>McLaren</span><span class="text-hairline">/</span><span>Aston Martin</span><span class="text-hairline">/</span><span>Jeep</span><span class="text-hairline">/</span><span>Toyota</span>
     </div>
   </div>
 </section>
@@ -638,48 +654,50 @@
 <script>
 /* ============ CAR DATA ============ */
 const CARS = [
-{id:1,brand:"Volvo",model:"S90",year:2019,title:"Volvo S90 Inscription",price:"₹27 Lakh*",tags:["Dec 2019","Inscription","Single Owner"],desc:"Top-end Inscription trim, fully loaded, next-to-showroom condition. Single hand driven, all original, very well maintained — just like a new car."},
-{id:2,brand:"BMW",model:"3 GT",year:2017,title:"BMW 320 GT",price:"₹21 Lakh*",tags:["Dec 2017","Digital Cluster","Full Insured"],desc:"Top-end model with all loadings, full digital instrument cluster, new shape. All original, single hand driven, full depreciation-cap insured."},
-{id:3,brand:"Jaguar",model:"F-Pace",year:2020,title:"Jaguar F-Pace",price:"₹32 Lakh*",tags:["2020 DOP","Single Owner","Fully Loaded"],desc:"Top-end model, single hand driven, fully loaded, next-to-showroom condition. All original."},
-{id:4,brand:"Volvo",model:"XC90",year:2018,title:"Volvo XC90",price:"₹32 Lakh*",tags:["Dec 2018","Fully Loaded","Single Owner"],desc:"Top-end model fully loaded with all loadings. Single hand driven, next-to-showroom condition, very well maintained."},
-{id:5,brand:"BMW",model:"630 GT",year:2019,title:"BMW 630 GT M Sport",price:"₹32.50 Lakh*",tags:["Dec 2019","M Sport","Single Owner"],desc:"Single hand driven, all original, very well company maintained. Next-to-showroom condition, top-end model fully loaded with all M-loadings."},
-{id:6,brand:"Land Rover",model:"Discovery Sport",year:2022,title:"Land Rover Discovery Sport HSE R-Dynamic",price:"₹42.50 Lakh*",tags:["Dec 2022","HSE R-Dynamic","BS VI"],desc:"All original, single hand driven with full records. New-shape BS VI version, top-end model fully loaded, next-to-showroom condition."},
-{id:7,brand:"Audi",model:"Q5",year:2022,title:"Audi Q5 Technology Pack",price:"₹38 Lakh*",tags:["2022 DOP","Technology Pack","Single Owner"],desc:"All original, single owner, top-end Technology Pack, fully loaded. Full service records, very well maintained, next-to-showroom condition."},
-{id:8,brand:"Mercedes-Benz",model:"GLC 200",year:2021,title:"Mercedes-Benz GLC 200",price:"₹41 Lakh*",tags:["Dec 2021","Petrol BS VI","35k km"],desc:"Blue colour, all original, single hand, only 35k km driven. Top-end model fully loaded, very well maintained, next-to-showroom condition."},
-{id:9,brand:"Mercedes-Benz",model:"GLE 300",year:2022,title:"Mercedes-Benz GLE 300",price:"₹62.50 Lakh*",tags:["Dec 2022","White","Like New"],desc:"Top-end model fully loaded with all loadings. All original, just like a brand-new car, very well maintained, next-to-showroom condition."},
-{id:10,brand:"Porsche",model:"Cayenne",year:2019,title:"Porsche Cayenne Platinum Edition",price:"₹68 Lakh*",tags:["Single Owner","22\" Forged Alloys","Limited Edition"],desc:"New-shape Platinum Edition, top-end model fully loaded with all luxury loadings. 22-inch limited-edition Porsche original forged alloys, just like a new car."},
-{id:11,brand:"Audi",model:"Q8",year:2024,title:"Audi Q8",price:"₹74 Lakh*",tags:["2024 DOP","Single Owner","Like New"],desc:"All original, single hand driven, top-end model fully loaded with all loadings, next-to-showroom condition, just like a new car."},
-{id:12,brand:"Volvo",model:"S90",year:2018,title:"Volvo S90 Inscription",price:"₹22 Lakh*",tags:["2018 DOP","Inscription","Black"],desc:"Top-end Inscription model fully loaded, all original, single hand driven, next-to-showroom condition, black colour."},
-{id:13,brand:"Lexus",model:"LX 570",year:2021,title:"Lexus LX 570 Limited Edition",price:"₹1.70 Cr*",tags:["Dec 2021","Limited Edition","VVIP Number"],desc:"All original, top-end limited-edition model fully loaded with all loadings. Chandigarh VVIP-paid single-hand-driven number, next-to-showroom condition. Our featured car in stock."},
-{id:14,brand:"Audi",model:"Q3",year:2016,title:"Audi Q3",price:"₹12.50 Lakh*",tags:["Dec 2016","Single Owner","Full Insured"],desc:"Single hand driven, new shape, top-end model fully loaded with all loadings, full insured, next-to-showroom condition, all original."},
-{id:15,brand:"BMW",model:"X4",year:2022,title:"BMW X4 Shadow Edition",price:"₹52 Lakh*",tags:["Dec 2022","Shadow Edition","Black"],desc:"Single hand driven, black colour, top-end Shadow Edition with all loadings, brand-new tyres, very well maintained, next-to-showroom condition."},
-{id:16,brand:"Mercedes-Benz",model:"GL 350",year:2016,title:"Mercedes-Benz GL 350 AMG Kit",price:"₹27 Lakh*",tags:["2016","AMG Kit","Full Insured"],desc:"All original, AMG kit with original AMG alloys, single hand driven, top-end model fully loaded, full insured, next-to-showroom condition."},
-{id:17,brand:"Audi",model:"Q7",year:2017,title:"Audi Q7 Technology Pack",price:"₹26.50 Lakh*",tags:["Dec 2017","Technology Pack","Full Insured"],desc:"All original, full depreciation-cap insured, next-to-showroom condition, fully loaded top-end model, Technology Pack with all loadings."},
-{id:18,brand:"Mercedes-Benz",model:"E-Class",year:2023,title:"Mercedes-Benz E-Class",price:"₹48.50 Lakh*",tags:["2023 DOP","White","Single Owner"],desc:"All original, single hand driven, CH registration, white colour, next-to-showroom condition, top-end model fully loaded, very well maintained."},
-{id:19,brand:"Mercedes-Benz",model:"GLC 220",year:2016,title:"Mercedes-Benz GLC 220",price:"₹22 Lakh*",tags:["Dec 2016","White","Full Insured"],desc:"White colour, single hand driven, top-end model fully loaded, next-to-showroom, full depreciation-cap insured, all original with service record."},
-{id:20,brand:"Audi",model:"A3 Cabriolet",year:2016,title:"Audi A3 Cabriolet",price:"₹32 Lakh*",tags:["Dec 2016","Only 15k km","Black"],desc:"Single hand driven, all original, only 15k km driven, next-to-showroom condition, black colour, just like a new car."},
-{id:21,brand:"Mercedes-Benz",model:"GLS 63 AMG",year:2014,title:"Mercedes-Benz GLS 63 AMG (GL63 Converted)",price:"₹50 Lakh*",tags:["Dec 2014","5.5L V8 Biturbo","Full Insured"],desc:"GL 63 AMG converted to GLS 63 AMG, all original 5.5-litre V8 Biturbo, full depreciation-cap insured, black colour, CH number, very well maintained."},
-{id:22,brand:"Mercedes-Benz",model:"C-Class",year:2023,title:"Mercedes-Benz C-Class",price:"₹47 Lakh*",tags:["2023 DOP","CH Registered","Like New"],desc:"Top-end model fully loaded, CH registered, just like a new car, all original, single hand driven, full insured, next-to-showroom condition."},
-{id:23,brand:"Jaguar",model:"XJL",year:2016,title:"Jaguar XJL",price:"₹28 Lakh*",tags:["2016","New Shape","Fully Loaded"],desc:"Top-end model fully loaded with all loadings, new shape, next-to-showroom condition, all original, just like a new car, very well maintained."},
-{id:24,brand:"BMW",model:"X4",year:2019,title:"BMW X4 M Sport 3.0",price:"₹42 Lakh*",tags:["Dec 2019","3.0 Litre","Facelifted"],desc:"All original, facelifted new shape, next-to-showroom condition, top-end model fully loaded, well maintained, extraordinary car."},
-{id:25,brand:"BMW",model:"520d",year:2016,title:"BMW 520d M Sport",price:"₹18.50 Lakh*",tags:["Dec 2016","M-Class Loadings","Full Insured"],desc:"All original, single hand driven, top-end model fully loaded with all M-class loadings. Extraordinary car, very well maintained, full depreciation-cap insured."},
-{id:26,brand:"Mercedes-Benz",model:"S 350",year:2016,title:"Mercedes-Benz S 350",price:"₹28 Lakh*",tags:["Dec 2016","Facelifted","CHD Registered"],desc:"Facelifted new shape, CHD-paid registration, top-end model fully loaded with all luxury loadings, full depreciation-cap insured, very well maintained."},
-{id:27,brand:"Land Rover",model:"Range Rover Vogue LWB",year:2019,title:"Range Rover Vogue LWB",price:"₹88 Lakh*",tags:["2019","Facelifted","Fully Loaded"],desc:"All original, top-end model, new facelifted shape, fully loaded with all loadings, next-to-showroom condition, extraordinary maintenance."},
-{id:28,brand:"Mercedes-Benz",model:"GLS 400",year:2023,title:"Mercedes-Benz GLS 400",price:"₹85 Lakh*",tags:["2023 DOP","Soft Close Doors","Like New"],desc:"Top-end model fully loaded, just like a new car, soft-close doors, all original, single hand driven with all records, full depreciation-cap insured."},
-{id:29,brand:"Mercedes-Benz",model:"E 350",year:2017,title:"Mercedes-Benz E 350 Exclusive Edition",price:"₹24.50 Lakh*",tags:["Dec 2017","Exclusive Edition","Black"],desc:"Black colour, all original, bumper-to-bumper. Top-end Exclusive Edition, fully loaded with all luxury loadings, next-to-showroom condition."},
-{id:30,brand:"Audi",model:"A6",year:2018,title:"Audi A6",price:"₹22 Lakh*",tags:["Dec 2018","Single Owner","CH Number"],desc:"Single owner, CH number, top-end model with all loadings, all original, next-to-showroom condition, very well maintained, extraordinary car."},
-{id:31,brand:"Land Rover",model:"Range Rover Evoque",year:2015,title:"Range Rover Evoque HSE Dynamic",price:"₹21.50 Lakh*",tags:["Dec 2015","HSE Dynamic","Fully Loaded"],desc:"Top-end HSE Dynamic model fully loaded with all loadings, very well maintained, next-to-showroom condition."},
-{id:32,brand:"BMW",model:"530i",year:2019,title:"BMW 530i",price:"₹33.50 Lakh*",tags:["BS VI","Blue","Like New"],desc:"Just like a new car, top-end model, blue colour, fully loaded with all loadings, very well maintained, next-to-showroom condition."},
-{id:33,brand:"Audi",model:"A3",year:2018,title:"Audi A3 Petrol",price:"₹16.50 Lakh*",tags:["Dec 2018","Petrol","CHD Registered"],desc:"Petrol, CHD registered, all original, bumper-to-bumper, top-end model fully loaded, next-to-showroom condition, very well maintained."},
-{id:34,brand:"BMW",model:"530d",year:2017,title:"BMW 530d M Sport",price:"₹26.50 Lakh*",tags:["Dec 2017","M Sport","New RFT Tyres"],desc:"Fully loaded with all loadings, full insured, brand-new RFT tyres, CHD registered, next-to-showroom condition, very well maintained."},
-{id:35,brand:"Jaguar",model:"F-Pace",year:2019,title:"Jaguar F-Pace",price:"₹28 Lakh*",tags:["2019","CHD Registered","Black"],desc:"Black colour, extraordinary, very well maintained, just like a new car, top-end model fully loaded with all loadings."},
-{id:36,brand:"Mercedes-Benz",model:"S-Class Maybach",year:2017,title:"Mercedes-Benz S-Class Maybach",price:"₹55 Lakh*",tags:["Dec 2017","New Shape","Fully Loaded"],desc:"New-shape top-end model fully loaded with all loadings, all original, next-to-showroom condition, very well and extraordinarily maintained."},
-{id:37,brand:"BMW",model:"X4",year:2022,title:"BMW X4 M Sport Shadow Jahre Edition",price:"₹55 Lakh*",tags:["Dec 2022","Shadow Jahre Edition","Petrol BS VI"],desc:"Black colour, all original, next-to-showroom condition, top-end model fully loaded with all loadings, very well maintained, petrol BS VI version."},
-{id:38,brand:"BMW",model:"X5",year:2023,title:"BMW X5 M Sport",price:"₹72 Lakh*",tags:["2023","Only 25k km","Like New"],desc:"Top-end model fully loaded, only 25k km driven, just like a new car, next-to-showroom condition, all original bumper-to-bumper, full depreciation-cap insured, BS VI version."},
-{id:39,brand:"BMW",model:"730Ld",year:2019,title:"BMW 730Ld M Sport",price:"₹40 Lakh*",tags:["2019 DOP","Only 50k km","Carbon Black"],desc:"Only 50k km driven with service records, top-end model fully loaded with all loadings, next-to-showroom condition, very well and extraordinarily maintained, carbon black colour."},
-{id:40,brand:"Jeep",model:"Wrangler Rubicon",year:2022,title:"Jeep Wrangler Rubicon Special Edition",price:"₹45 Lakh*",tags:["Dec 2022","Special Edition","Single Owner"],desc:"Single hand driven, special edition, grey colour, fully loaded top-end model with all loadings, very well maintained, next-to-showroom condition."},
-{id:41,brand:"Maserati",model:"Quattroporte",year:2016,title:"Maserati Quattroporte",price:"₹40 Lakh*",tags:["Dec 2016","4-Seat Config","Red Interior"],desc:"Single hand driven, very well and extraordinarily maintained, top-end model fully loaded with all loadings. Four-seater configuration, red interior with carbon-fibre inserts, recently fully serviced, full depreciation-cap insured."},
-{id:42,brand:"Toyota",model:"Fortuner",year:2024,title:"Toyota Fortuner 4x2 Automatic",price:"₹40 Lakh*",tags:["White","30k km","All Records"],desc:"White colour, 4x2 automatic, top-end model all original bumper-to-bumper, only 30k km driven with all service records, next-to-showroom condition, very well maintained."},
+{id:1,brand:"Volvo",model:"S90",year:2019,title:"Volvo S90 Inscription",price:"₹27 Lakh*",tags:["Dec 2019", "Inscription", "Single Owner"],desc:"Top-end Inscription trim, fully loaded, next-to-showroom condition. Single hand driven, all original, very well maintained — just like a new car."},
+{id:2,brand:"BMW",model:"3 GT",year:2017,title:"BMW 320 GT",price:"₹21 Lakh*",tags:["Dec 2017", "Digital Cluster", "Full Insured"],desc:"Top-end model with all loadings, full digital instrument cluster, new shape. All original, single hand driven, full depreciation-cap insured."},
+{id:3,brand:"Jaguar",model:"F-Pace",year:2020,title:"Jaguar F-Pace",price:"₹32 Lakh*",tags:["2020 DOP", "Single Owner", "Fully Loaded"],desc:"Top-end model, single hand driven, fully loaded, next-to-showroom condition. All original."},
+{id:4,brand:"Volvo",model:"XC90",year:2018,title:"Volvo XC90",price:"₹32 Lakh*",tags:["Dec 2018", "Fully Loaded", "Single Owner"],desc:"Top-end model fully loaded with all loadings. Single hand driven, next-to-showroom condition, very well maintained."},
+{id:5,brand:"BMW",model:"630 GT",year:2019,title:"BMW 630 GT M Sport",price:"₹32.50 Lakh*",tags:["Dec 2019", "M Sport", "Single Owner"],desc:"Single hand driven, all original, very well company maintained. Next-to-showroom condition, top-end model fully loaded with all M-loadings."},
+{id:6,brand:"Land Rover",model:"Discovery Sport",year:2022,title:"Land Rover Discovery Sport HSE R-Dynamic",price:"₹42.50 Lakh*",tags:["Dec 2022", "HSE R-Dynamic", "BS VI"],desc:"All original, single hand driven with full records. New-shape BS VI version, top-end model fully loaded, next-to-showroom condition."},
+{id:7,brand:"Audi",model:"Q5",year:2022,title:"Audi Q5 Technology Pack",price:"₹38 Lakh*",tags:["2022 DOP", "Technology Pack", "Single Owner"],desc:"All original, single owner, top-end Technology Pack, fully loaded. Full service records, very well maintained, next-to-showroom condition."},
+{id:8,brand:"Mercedes-Benz",model:"GLC 200",year:2021,title:"Mercedes-Benz GLC 200",price:"₹41 Lakh*",tags:["Dec 2021", "Petrol BS VI", "35k km"],desc:"Blue colour, all original, single hand, only 35k km driven. Top-end model fully loaded, very well maintained, next-to-showroom condition."},
+{id:9,brand:"Mercedes-Benz",model:"GLE 300",year:2022,title:"Mercedes-Benz GLE 300",price:"₹62.50 Lakh*",tags:["Dec 2022", "White", "Like New"],desc:"Top-end model fully loaded with all loadings. All original, just like a brand-new car, very well maintained, next-to-showroom condition."},
+{id:10,brand:"Porsche",model:"Cayenne",year:2019,title:"Porsche Cayenne Platinum Edition",price:"₹68 Lakh*",tags:["Single Owner", "22\" Forged Alloys", "Limited Edition"],desc:"New-shape Platinum Edition, top-end model fully loaded with all luxury loadings. 22-inch limited-edition Porsche original forged alloys, just like a new car."},
+{id:11,brand:"Audi",model:"Q8",year:2024,title:"Audi Q8",price:"₹74 Lakh*",tags:["2024 DOP", "Single Owner", "Like New"],desc:"All original, single hand driven, top-end model fully loaded with all loadings, next-to-showroom condition, just like a new car."},
+{id:12,brand:"Volvo",model:"S90",year:2018,title:"Volvo S90 Inscription",price:"₹22 Lakh*",tags:["2018 DOP", "Inscription", "Black"],desc:"Top-end Inscription model fully loaded, all original, single hand driven, next-to-showroom condition, black colour."},
+{id:13,brand:"Lexus",model:"LX 570",year:2021,title:"Lexus LX 570 Limited Edition",price:"₹1.70 Cr*",tags:["Dec 2021", "Limited Edition", "VVIP Number"],desc:"All original, top-end limited-edition model fully loaded with all loadings. Chandigarh VVIP-paid single-hand-driven number, next-to-showroom condition. Our featured car in stock."},
+{id:14,brand:"Audi",model:"Q3",year:2016,title:"Audi Q3",price:"₹12.50 Lakh*",tags:["Dec 2016", "Single Owner", "Full Insured"],desc:"Single hand driven, new shape, top-end model fully loaded with all loadings, full insured, next-to-showroom condition, all original."},
+{id:15,brand:"BMW",model:"X4",year:2022,title:"BMW X4 Shadow Edition",price:"₹52 Lakh*",tags:["Dec 2022", "Shadow Edition", "Black"],desc:"Single hand driven, black colour, top-end Shadow Edition with all loadings, brand-new tyres, very well maintained, next-to-showroom condition."},
+{id:16,brand:"Mercedes-Benz",model:"GL 350",year:2016,title:"Mercedes-Benz GL 350 AMG Kit",price:"₹27 Lakh*",tags:["2016", "AMG Kit", "Full Insured"],desc:"All original, AMG kit with original AMG alloys, single hand driven, top-end model fully loaded, full insured, next-to-showroom condition."},
+{id:17,brand:"Audi",model:"Q7",year:2017,title:"Audi Q7 Technology Pack",price:"₹26.50 Lakh*",tags:["Dec 2017", "Technology Pack", "Full Insured"],desc:"All original, full depreciation-cap insured, next-to-showroom condition, fully loaded top-end model, Technology Pack with all loadings."},
+{id:18,brand:"Mercedes-Benz",model:"E-Class",year:2023,title:"Mercedes-Benz E-Class",price:"₹48.50 Lakh*",tags:["2023 DOP", "White", "Single Owner"],desc:"All original, single hand driven, CH registration, white colour, next-to-showroom condition, top-end model fully loaded, very well maintained."},
+{id:19,brand:"Mercedes-Benz",model:"GLC 220",year:2016,title:"Mercedes-Benz GLC 220",price:"₹22 Lakh*",tags:["Dec 2016", "White", "Full Insured"],desc:"White colour, single hand driven, top-end model fully loaded, next-to-showroom, full depreciation-cap insured, all original with service record."},
+{id:20,brand:"Audi",model:"A3 Cabriolet",year:2016,title:"Audi A3 Cabriolet",price:"₹32 Lakh*",tags:["Dec 2016", "Only 15k km", "Black"],desc:"Single hand driven, all original, only 15k km driven, next-to-showroom condition, black colour, just like a new car."},
+{id:21,brand:"Mercedes-Benz",model:"GLS 63 AMG",year:2014,title:"Mercedes-Benz GLS 63 AMG (GL63 Converted)",price:"₹50 Lakh*",tags:["Dec 2014", "5.5L V8 Biturbo", "Full Insured"],desc:"GL 63 AMG converted to GLS 63 AMG, all original 5.5-litre V8 Biturbo, full depreciation-cap insured, black colour, CH number, very well maintained."},
+{id:22,brand:"Mercedes-Benz",model:"C-Class",year:2023,title:"Mercedes-Benz C-Class",price:"₹47 Lakh*",tags:["2023 DOP", "CH Registered", "Like New"],desc:"Top-end model fully loaded, CH registered, just like a new car, all original, single hand driven, full insured, next-to-showroom condition."},
+{id:23,brand:"Jaguar",model:"XJL",year:2016,title:"Jaguar XJL",price:"₹28 Lakh*",tags:["2016", "New Shape", "Fully Loaded"],desc:"Top-end model fully loaded with all loadings, new shape, next-to-showroom condition, all original, just like a new car, very well maintained."},
+{id:24,brand:"BMW",model:"X4",year:2019,title:"BMW X4 M Sport 3.0",price:"₹42 Lakh*",tags:["Dec 2019", "3.0 Litre", "Facelifted"],desc:"All original, facelifted new shape, next-to-showroom condition, top-end model fully loaded, well maintained, extraordinary car."},
+{id:25,brand:"BMW",model:"520d",year:2016,title:"BMW 520d M Sport",price:"₹18.50 Lakh*",tags:["Dec 2016", "M-Class Loadings", "Full Insured"],desc:"All original, single hand driven, top-end model fully loaded with all M-class loadings. Extraordinary car, very well maintained, full depreciation-cap insured."},
+{id:26,brand:"Mercedes-Benz",model:"S 350",year:2016,title:"Mercedes-Benz S 350",price:"₹28 Lakh*",tags:["Dec 2016", "Facelifted", "CHD Registered"],desc:"Facelifted new shape, CHD-paid registration, top-end model fully loaded with all luxury loadings, full depreciation-cap insured, very well maintained."},
+{id:27,brand:"Land Rover",model:"Range Rover Vogue LWB",year:2019,title:"Range Rover Vogue LWB",price:"₹88 Lakh*",tags:["2019", "Facelifted", "Fully Loaded"],desc:"All original, top-end model, new facelifted shape, fully loaded with all loadings, next-to-showroom condition, extraordinary maintenance."},
+{id:28,brand:"Mercedes-Benz",model:"GLS 400",year:2023,title:"Mercedes-Benz GLS 400",price:"₹85 Lakh*",tags:["2023 DOP", "Soft Close Doors", "Like New"],desc:"Top-end model fully loaded, just like a new car, soft-close doors, all original, single hand driven with all records, full depreciation-cap insured."},
+{id:29,brand:"Mercedes-Benz",model:"E 350",year:2017,title:"Mercedes-Benz E 350 Exclusive Edition",price:"₹24.50 Lakh*",tags:["Dec 2017", "Exclusive Edition", "Black"],desc:"Black colour, all original, bumper-to-bumper. Top-end Exclusive Edition, fully loaded with all luxury loadings, next-to-showroom condition."},
+{id:30,brand:"Audi",model:"A6",year:2018,title:"Audi A6",price:"₹22 Lakh*",tags:["Dec 2018", "Single Owner", "CH Number"],desc:"Single owner, CH number, top-end model with all loadings, all original, next-to-showroom condition, very well maintained, extraordinary car."},
+{id:31,brand:"Land Rover",model:"Range Rover Evoque",year:2015,title:"Range Rover Evoque HSE Dynamic",price:"₹21.50 Lakh*",tags:["Dec 2015", "HSE Dynamic", "Fully Loaded"],desc:"Top-end HSE Dynamic model fully loaded with all loadings, very well maintained, next-to-showroom condition."},
+{id:32,brand:"BMW",model:"530i",year:2019,title:"BMW 530i",price:"₹33.50 Lakh*",tags:["BS VI", "Blue", "Like New"],desc:"Just like a new car, top-end model, blue colour, fully loaded with all loadings, very well maintained, next-to-showroom condition."},
+{id:33,brand:"Audi",model:"A3",year:2018,title:"Audi A3 Petrol",price:"₹16.50 Lakh*",tags:["Dec 2018", "Petrol", "CHD Registered"],desc:"Petrol, CHD registered, all original, bumper-to-bumper, top-end model fully loaded, next-to-showroom condition, very well maintained."},
+{id:34,brand:"BMW",model:"530d",year:2017,title:"BMW 530d M Sport",price:"₹26.50 Lakh*",tags:["Dec 2017", "M Sport", "New RFT Tyres"],desc:"Fully loaded with all loadings, full insured, brand-new RFT tyres, CHD registered, next-to-showroom condition, very well maintained."},
+{id:35,brand:"Jaguar",model:"F-Pace",year:2019,title:"Jaguar F-Pace",price:"₹28 Lakh*",tags:["2019", "CHD Registered", "Black"],desc:"Black colour, extraordinary, very well maintained, just like a new car, top-end model fully loaded with all loadings."},
+{id:36,brand:"Mercedes-Benz",model:"S-Class Maybach",year:2017,title:"Mercedes-Benz S-Class Maybach",price:"₹55 Lakh*",tags:["Dec 2017", "New Shape", "Fully Loaded"],desc:"New-shape top-end model fully loaded with all loadings, all original, next-to-showroom condition, very well and extraordinarily maintained."},
+{id:37,brand:"BMW",model:"X4",year:2022,title:"BMW X4 M Sport Shadow Jahre Edition",price:"₹55 Lakh*",tags:["Dec 2022", "Shadow Jahre Edition", "Petrol BS VI"],desc:"Black colour, all original, next-to-showroom condition, top-end model fully loaded with all loadings, very well maintained, petrol BS VI version."},
+{id:38,brand:"BMW",model:"X5",year:2023,title:"BMW X5 M Sport",price:"₹72 Lakh*",tags:["2023", "Only 25k km", "Like New"],desc:"Top-end model fully loaded, only 25k km driven, just like a new car, next-to-showroom condition, all original bumper-to-bumper, full depreciation-cap insured, BS VI version."},
+{id:39,brand:"BMW",model:"730Ld",year:2019,title:"BMW 730Ld M Sport",price:"₹40 Lakh*",tags:["2019 DOP", "Only 50k km", "Carbon Black"],desc:"Only 50k km driven with service records, top-end model fully loaded with all loadings, next-to-showroom condition, very well and extraordinarily maintained, carbon black colour."},
+{id:40,brand:"Jeep",model:"Wrangler Rubicon",year:2022,title:"Jeep Wrangler Rubicon Special Edition",price:"₹45 Lakh*",tags:["Dec 2022", "Special Edition", "Single Owner"],desc:"Single hand driven, special edition, grey colour, fully loaded top-end model with all loadings, very well maintained, next-to-showroom condition."},
+{id:41,brand:"Maserati",model:"Quattroporte",year:2016,title:"Maserati Quattroporte",price:"₹40 Lakh*",tags:["Dec 2016", "4-Seat Config", "Red Interior"],desc:"Single hand driven, very well and extraordinarily maintained, top-end model fully loaded with all loadings. Four-seater configuration, red interior with carbon-fibre inserts, recently fully serviced, full depreciation-cap insured."},
+{id:42,brand:"Toyota",model:"Fortuner",year:2024,title:"Toyota Fortuner 4x2 Automatic",price:"₹40 Lakh*",tags:["White", "30k km", "All Records"],desc:"White colour, 4x2 automatic, top-end model all original bumper-to-bumper, only 30k km driven with all service records, next-to-showroom condition, very well maintained."},
+{id:43,brand:"McLaren",model:"GT",year:2022,title:"McLaren GT",price:"₹3.25 Cr*",tags:["Silver", "Carbon Pack", "One of One in Region"],desc:"Grand tourer supercar, silver over black, carbon-fibre exterior pack, full McLaren service history. Exceptionally rare in private hands — a true collector's piece, not just a car."},
+{id:44,brand:"Aston Martin",model:"DB11",year:2021,title:"Aston Martin DB11",price:"₹3.60 Cr*",tags:["V8 Coupe", "Single Owner", "Showroom Condition"],desc:"The quintessential British grand tourer — hand-finished coupe, single owner, meticulously maintained. Effortless power, unmistakable presence, next-to-showroom condition."},
 ];
 
 /* ============ RENDER GRID ============ */
@@ -920,12 +938,46 @@ const slides = document.querySelectorAll('.hero-slide');
    each with its own slow Ken Burns zoom (a lightweight stand-in for video —
    this session's Higgsfield/Canva connectors don't expose text-to-video
    generation, so the "premium car video" feel comes from real photography
-   instead of AI-generated footage). */
+   instead of AI-generated footage). The caption/price badge and the dot rail
+   below are driven from each slide's own data-* attributes, so what's on
+   screen and what the badge says can never drift apart again. */
+const heroCaption = document.getElementById('heroCaption');
+const heroPrice = document.getElementById('heroPrice');
+const heroDots = document.getElementById('heroDots');
+
+if (heroDots) {
+  slides.forEach((s, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-label', `Show ${s.dataset.title}`);
+    dot.className = 'hero-dot' + (i === 0 ? ' is-active' : '');
+    dot.addEventListener('click', () => goToHeroSlide(i));
+    heroDots.appendChild(dot);
+  });
+}
+
+function updateHeroCaption(slide){
+  if (!heroCaption || !slide) return;
+  heroCaption.style.opacity = 0;
+  heroPrice.style.opacity = 0;
+  setTimeout(() => {
+    heroCaption.textContent = `${slide.dataset.title} · ${slide.dataset.year}`;
+    heroPrice.innerHTML = slide.dataset.price;
+    heroCaption.style.opacity = 1;
+    heroPrice.style.opacity = 1;
+  }, 280);
+  heroDots?.querySelectorAll('.hero-dot').forEach((d, i) =>
+    d.classList.toggle('is-active', slides[i] === slide));
+}
+
 let heroSlideIndex = 0;
-function advanceHeroSlide(){
+let heroTimer;
+function showHeroSlide(nextIndex){
   const current = slides[heroSlideIndex];
-  heroSlideIndex = (heroSlideIndex + 1) % slides.length;
-  const next = slides[heroSlideIndex];
+  const next = slides[nextIndex];
+  if (next === current) return;
+  heroSlideIndex = nextIndex;
   if (hasGSAP) {
     gsap.to(current, {opacity:0, duration:1.4, ease:'power2.inOut'});
     gsap.to(next, {opacity:1, duration:1.4, ease:'power2.inOut'});
@@ -933,8 +985,20 @@ function advanceHeroSlide(){
     current.classList.remove('is-active');
     next.classList.add('is-active');
   }
+  updateHeroCaption(next);
 }
-if (slides.length > 1) setInterval(advanceHeroSlide, 5000);
+function advanceHeroSlide(){
+  showHeroSlide((heroSlideIndex + 1) % slides.length);
+}
+function goToHeroSlide(i){
+  showHeroSlide(i);
+  resetHeroTimer();
+}
+function resetHeroTimer(){
+  clearInterval(heroTimer);
+  if (slides.length > 1) heroTimer = setInterval(advanceHeroSlide, 5000);
+}
+resetHeroTimer();
 
 if (hasGSAP) {
   gsap.registerPlugin(ScrollTrigger);
