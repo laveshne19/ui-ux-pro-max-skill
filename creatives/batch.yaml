@@ -1,0 +1,24 @@
+# batch.yaml — Example Diwali campaign batch
+# Run: python make_scheme.py batch.yaml --brand nalanda
+#      python make_festival.py diwali --brand all
+#      python make_reel.py --brand nalanda --out out/reel_ne_diwali.mp4
+
+campaign: "Diwali 2025"
+brand: nalanda
+
+# Buy-X-Get-Y scheme
+headline: "Buy 2 Get 1 FREE this Diwali!"
+sub: "Celebrate with the best deals on electronics"
+kick: "Limited Period Offer"
+badge: "DIWALI SPECIAL"
+chips:
+  - "Buy 2, Get 1 Free"
+  - "All Categories"
+  - "While Stocks Last"
+stamp_line1: "Valid till"
+stamp_line2: "Diwali Night"
+
+# Add images after running fetch_product.py:
+# images:
+#   - img/boat_airdopes_141_c.png
+#   - img/zebronics_zeb_c.png

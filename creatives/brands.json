@@ -1,0 +1,51 @@
+{
+  "nalanda": {
+    "id": "nalanda",
+    "name": "Nalanda Enterprises",
+    "tagline": "Quality You Can Trust",
+    "logo": "logos/ne_mark.png",
+    "logoSvg": "logos/ne_mark.svg",
+    "logoHtml": "<img src='../../logos/ne_mark.png' class='brand-logo' alt='Nalanda Enterprises' onerror=\"this.style.display='none';this.nextElementSibling.style.display='flex'\"><div class='brand-logo-fallback' style='display:none'>NE</div>",
+    "primary": "#1A2C4E",
+    "accent": "#D4A017",
+    "light": "#F5F0E8",
+    "dark": "#0D1A30",
+    "website": "nalandaenterprises.in",
+    "footer": ["nalandaenterprises.in", "Quality You Can Trust"],
+    "fontHeading": "Sora",
+    "fontBody": "Manrope"
+  },
+  "bizwrap": {
+    "id": "bizwrap",
+    "name": "BizWrap India",
+    "tagline": "Gift Smart. Gift Right.",
+    "logo": "logos/bizwrap.png",
+    "logoSvg": "logos/bizwrap.svg",
+    "logoHtml": "<img src='../../logos/bizwrap.png' class='brand-logo' alt='BizWrap India' onerror=\"this.style.display='none';this.nextElementSibling.style.display='flex'\"><div class='brand-logo-fallback' style='display:none'>BW</div>",
+    "primary": "#2D5016",
+    "accent": "#F4C430",
+    "light": "#F9F5EC",
+    "dark": "#1A2F0D",
+    "website": "bizwrapindia.com",
+    "footer": ["bizwrapindia.com", "Gift Smart. Gift Right."],
+    "fontHeading": "Sora",
+    "fontBody": "Manrope"
+  },
+  "cgi": {
+    "id": "cgi",
+    "name": "Corporate Gifting India",
+    "tagline": "Elevate Every Occasion",
+    "logo": "logos/cgi.png",
+    "logoSvg": "logos/cgi.svg",
+    "logoHtml": "<img src='../../logos/cgi.png' class='brand-logo' alt='Corporate Gifting India' onerror=\"this.style.display='none';this.nextElementSibling.style.display='flex'\"><div class='brand-logo-fallback' style='display:none'>CGI</div>",
+    "primary": "#4A1C6B",
+    "accent": "#C0A060",
+    "light": "#FAF8FD",
+    "dark": "#2A0D3E",
+    "website": "corporategiftingindia.co",
+    "qr": "img/qr.png",
+    "footer": ["corporategiftingindia.co", "Elevate Every Occasion"],
+    "fontHeading": "Cormorant Garamond",
+    "fontBody": "Manrope"
+  }
+}

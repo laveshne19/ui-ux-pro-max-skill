@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<title>GBP Post</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --acc:  #D4A017;
+    --acc2: #1A2C4E;
+    --bg0:  #F5F0E8;
+    --bg1:  #EDE4D2;
+    --bg2:  #D9CCB4;
+    --font-h: 'Sora', sans-serif;
+    --font-b: 'Manrope', sans-serif;
+  }
+
+  body {
+    width: 1200px;
+    height: 900px;
+    overflow: hidden;
+    font-family: var(--font-b);
+    background: linear-gradient(135deg, var(--bg0) 0%, var(--bg1) 55%, var(--bg2) 100%);
+    position: relative;
+  }
+
+  /* Subtle noise texture overlay */
+  body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Corner accent shape */
+  .corner-accent {
+    position: absolute;
+    top: 0; right: 0;
+    width: 280px; height: 280px;
+    background: var(--acc);
+    opacity: 0.08;
+    border-bottom-left-radius: 100%;
+    z-index: 1;
+  }
+  .corner-accent-br {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 200px; height: 200px;
+    background: var(--acc2);
+    opacity: 0.06;
+    border-top-right-radius: 100%;
+    z-index: 1;
+  }
+
+  /* Header strip */
+  .header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 10;
+  }
+
+  .brand-logo {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+  }
+  .brand-logo-fallback {
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+    background: var(--acc2);
+    color: var(--acc);
+    font-family: var(--font-h);
+    font-weight: 800;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .badge {
+    background: var(--acc);
+    color: #fff;
+    font-family: var(--font-h);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 4px;
+  }
+
+  /* Kick line */
+  .kick {
+    position: absolute;
+    top: 84px; left: 40px;
+    font-family: var(--font-b);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--acc2);
+    opacity: 0.75;
+    letter-spacing: 0.5px;
+    z-index: 10;
+  }
+
+  /* Main headline */
+  .headline {
+    position: absolute;
+    top: 112px; left: 40px;
+    width: 560px;
+    font-family: var(--font-h);
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.18;
+    color: var(--acc2);
+    z-index: 10;
+  }
+  .headline em {
+    font-style: normal;
+    color: var(--acc);
+  }
+
+  /* Sub headline */
+  .sub {
+    position: absolute;
+    top: 310px; left: 40px;
+    width: 520px;
+    font-family: var(--font-b);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--acc2);
+    opacity: 0.82;
+    z-index: 10;
+  }
+
+  /* Chips row */
+  .chips {
+    position: absolute;
+    top: 390px; left: 40px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    z-index: 10;
+  }
+  .chip {
+    background: var(--acc2);
+    color: #fff;
+    font-family: var(--font-b);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 100px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Stamp */
+  .stamp {
+    position: absolute;
+    top: 460px; left: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 10;
+  }
+  .stamp-line1 {
+    font-family: var(--font-h);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--acc);
+    opacity: 0.9;
+  }
+  .stamp-line2 {
+    font-family: var(--font-h);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--acc2);
+    opacity: 0.6;
+  }
+
+  /* Divider line */
+  .divider {
+    position: absolute;
+    bottom: 72px; left: 40px; right: 40px;
+    height: 1px;
+    background: var(--acc2);
+    opacity: 0.15;
+    z-index: 10;
+  }
+
+  /* Footer */
+  .footer {
+    position: absolute;
+    bottom: 18px; left: 40px; right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+  }
+  .tagline {
+    font-family: var(--font-b);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--acc2);
+    opacity: 0.65;
+    letter-spacing: 0.3px;
+  }
+  .website {
+    font-family: var(--font-b);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--acc);
+    opacity: 0.85;
+  }
+
+  /* Product images layer */
+  .product-layer {
+    position: absolute;
+    top: 0; left: 0;
+    width: 1200px; height: 900px;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .product-img {
+    position: absolute;
+    object-fit: contain;
+    filter: drop-shadow(0 24px 48px rgba(0,0,0,0.18));
+  }
+</style>
+</head>
+<body>
+  <div class="corner-accent"></div>
+  <div class="corner-accent-br"></div>
+
+  <div class="header">
+    <div id="logoWrap">
+      <div class="brand-logo-fallback">NE</div>
+    </div>
+    <div id="badge" class="badge">SALE</div>
+  </div>
+
+  <div id="kick" class="kick">Special Offer</div>
+
+  <h1 id="headline" class="headline">
+    Up to <em>40% Off</em> on Premium Earbuds
+  </h1>
+
+  <p id="sub" class="sub">
+    Booming bass, crystal clarity. Limited stock.
+  </p>
+
+  <div id="chips" class="chips">
+    <span class="chip">Free Shipping</span>
+    <span class="chip">24H Dispatch</span>
+    <span class="chip">1-Year Warranty</span>
+  </div>
+
+  <div id="stamp" class="stamp">
+    <span class="stamp-line1">TOP PICK</span>
+    <span class="stamp-line2">2024</span>
+  </div>
+
+  <div class="product-layer" id="productLayer"></div>
+
+  <div class="divider"></div>
+
+  <div class="footer">
+    <span id="tagline" class="tagline">Quality You Can Trust</span>
+    <span id="website" class="website">nalandaenterprises.in</span>
+  </div>
+
+<script>
+window.__applyConfig = function(cfg, brand) {
+  const root = document.documentElement;
+
+  // Colors from config or brand
+  const acc  = cfg.acc  || brand.accent  || '#D4A017';
+  const acc2 = cfg.acc2 || brand.primary || '#1A2C4E';
+  const bg   = cfg.bg   || [brand.light || '#F5F0E8', '#EDE4D2', '#D9CCB4'];
+
+  root.style.setProperty('--acc',  acc);
+  root.style.setProperty('--acc2', acc2);
+  root.style.setProperty('--bg0',  bg[0]);
+  root.style.setProperty('--bg1',  bg[1] || bg[0]);
+  root.style.setProperty('--bg2',  bg[2] || bg[1] || bg[0]);
+
+  // Fonts from brand
+  if (brand.fontHeading) root.style.setProperty('--font-h', `'${brand.fontHeading}', sans-serif`);
+  if (brand.fontBody)    root.style.setProperty('--font-b', `'${brand.fontBody}', sans-serif`);
+
+  // Logo
+  const logoWrap = document.getElementById('logoWrap');
+  if (brand.logoHtml) {
+    logoWrap.innerHTML = brand.logoHtml;
+  } else {
+    logoWrap.innerHTML = `<div class="brand-logo-fallback">${(brand.name||'').slice(0,2).toUpperCase()}</div>`;
+  }
+
+  // Badge
+  const badgeEl = document.getElementById('badge');
+  if (cfg.badge) { badgeEl.textContent = cfg.badge; badgeEl.style.display = ''; }
+  else           { badgeEl.style.display = 'none'; }
+
+  // Kick
+  const kickEl = document.getElementById('kick');
+  kickEl.textContent = cfg.kick || '';
+  kickEl.style.display = cfg.kick ? '' : 'none';
+
+  // Headline (allow HTML for <em>)
+  const hdEl = document.getElementById('headline');
+  hdEl.innerHTML = cfg.hd || '';
+  if (cfg.hs) { hdEl.style.fontSize = cfg.hs + 'px'; }
+
+  // Sub
+  document.getElementById('sub').textContent = cfg.sub || '';
+
+  // Chips
+  const chipsEl = document.getElementById('chips');
+  chipsEl.innerHTML = '';
+  (cfg.chips || []).forEach(c => {
+    const s = document.createElement('span');
+    s.className = 'chip';
+    s.textContent = c;
+    chipsEl.appendChild(s);
+  });
+
+  // Stamp
+  const stampEl = document.getElementById('stamp');
+  if (cfg.stamp && cfg.stamp.length) {
+    stampEl.innerHTML = '';
+    const s1 = document.createElement('span');
+    s1.className = 'stamp-line1';
+    s1.textContent = cfg.stamp[0];
+    stampEl.appendChild(s1);
+    if (cfg.stamp[1]) {
+      const s2 = document.createElement('span');
+      s2.className = 'stamp-line2';
+      s2.textContent = cfg.stamp[1];
+      stampEl.appendChild(s2);
+    }
+  } else {
+    stampEl.style.display = 'none';
+  }
+
+  // Tagline & website footer
+  const taglineEl = document.getElementById('tagline');
+  const websiteEl = document.getElementById('website');
+  taglineEl.textContent = cfg.tagline || brand.tagline || '';
+  websiteEl.textContent = brand.website || (brand.footer && brand.footer[0]) || '';
+
+  // Product images
+  const layer = document.getElementById('productLayer');
+  layer.innerHTML = '';
+  (cfg.items || []).forEach(item => {
+    const [src, w, h, cx, fy] = item;
+    const img = document.createElement('img');
+    img.className = 'product-img';
+    img.src = src;
+    img.style.width  = w + 'px';
+    img.style.height = h + 'px';
+    img.style.left   = (cx - w / 2) + 'px';
+    img.style.top    = (fy - h) + 'px';
+    layer.appendChild(img);
+  });
+};
+
+// Auto-apply on load if config already set
+window.addEventListener('load', function() {
+  if (window.__CONFIG__ && window.__BRAND__) {
+    window.__applyConfig(window.__CONFIG__, window.__BRAND__);
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<title>Cover Banner 1920x1080</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --acc:  #D4A017;
+    --acc2: #1A2C4E;
+    --bg0:  #0D1A30;
+    --bg1:  #1A2C4E;
+    --bg2:  #0A1020;
+    --font-h: 'Sora', sans-serif;
+    --font-b: 'Manrope', sans-serif;
+  }
+  body {
+    width: 1920px; height: 1080px;
+    overflow: hidden;
+    background: linear-gradient(120deg, var(--bg0) 0%, var(--bg1) 50%, var(--bg2) 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Geometric accent shapes */
+  .geo-right {
+    position: absolute;
+    right: -100px; top: -100px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    border: 2px solid var(--acc);
+    opacity: 0.12;
+  }
+  .geo-right2 {
+    position: absolute;
+    right: 50px; top: 50px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1px solid var(--acc);
+    opacity: 0.08;
+  }
+  .geo-left {
+    position: absolute;
+    left: -80px; bottom: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: var(--acc);
+    opacity: 0.05;
+  }
+
+  /* Vertical gold stripe */
+  .stripe {
+    position: absolute;
+    left: 520px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--acc) 30%, var(--acc) 70%, transparent);
+    opacity: 0.3;
+  }
+
+  /* Left panel: logo + tagline */
+  .left-panel {
+    position: relative;
+    z-index: 10;
+    padding: 0 60px 0 80px;
+    width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .brand-logo {
+    height: 64px;
+    width: auto;
+    object-fit: contain;
+  }
+  .brand-logo-fallback {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--acc);
+    color: var(--acc2);
+    font-family: var(--font-h);
+    font-weight: 800;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-name {
+    font-family: var(--font-h);
+    font-weight: 800;
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: -0.2px;
+    margin-top: 4px;
+  }
+  .brand-tagline {
+    font-family: var(--font-b);
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--acc);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+  .website-label {
+    font-family: var(--font-b);
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+  }
+
+  /* Right panel: headline + sub + chips */
+  .right-panel {
+    position: relative;
+    z-index: 10;
+    padding: 0 80px 0 70px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .kick {
+    font-family: var(--font-b);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--acc);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  .headline {
+    font-family: var(--font-h);
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.12;
+    color: #fff;
+    max-width: 800px;
+  }
+  .headline em {
+    font-style: normal;
+    color: var(--acc);
+  }
+
+  .sub {
+    font-family: var(--font-b);
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    max-width: 620px;
+  }
+
+  .chips {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .chip {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.8);
+    font-family: var(--font-b);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 18px;
+    border-radius: 100px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Product images */
+  .product-layer {
+    position: absolute;
+    top: 0; left: 0;
+    width: 1920px; height: 1080px;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .product-img {
+    position: absolute;
+    object-fit: contain;
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.4));
+  }
+
+  /* Badge */
+  .badge {
+    position: absolute;
+    top: 40px; right: 60px;
+    background: var(--acc);
+    color: #fff;
+    font-family: var(--font-h);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 4px;
+    z-index: 20;
+  }
+</style>
+</head>
+<body>
+  <div class="geo-right"></div>
+  <div class="geo-right2"></div>
+  <div class="geo-left"></div>
+  <div class="stripe"></div>
+
+  <div id="badge" class="badge">FEATURED</div>
+
+  <div class="left-panel">
+    <div id="logoWrap">
+      <div class="brand-logo-fallback">NE</div>
+    </div>
+    <div id="brandName" class="brand-name">Nalanda Enterprises</div>
+    <div id="brandTagline" class="brand-tagline">Quality You Can Trust</div>
+    <div id="website" class="website-label">nalandaenterprises.in</div>
+  </div>
+
+  <div class="right-panel">
+    <div id="kick" class="kick">Featured Collection</div>
+    <h1 id="headline" class="headline">Premium Tech Gifts for <em>Every Occasion</em></h1>
+    <p id="sub" class="sub">Explore our handpicked selection of top-rated gadgets, accessories and gifting solutions.</p>
+    <div id="chips" class="chips">
+      <span class="chip">Free Shipping</span>
+      <span class="chip">24H Dispatch</span>
+    </div>
+  </div>
+
+  <div class="product-layer" id="productLayer"></div>
+
+<script>
+window.__applyConfig = function(cfg, brand) {
+  const root = document.documentElement;
+  const acc  = cfg.acc  || brand.accent  || '#D4A017';
+  const acc2 = cfg.acc2 || brand.primary || '#1A2C4E';
+  root.style.setProperty('--acc',  acc);
+  root.style.setProperty('--acc2', acc2);
+  root.style.setProperty('--bg0',  brand.dark || '#0D1A30');
+  root.style.setProperty('--bg1',  brand.primary || '#1A2C4E');
+  root.style.setProperty('--bg2',  '#0A1020');
+  if (brand.fontHeading) root.style.setProperty('--font-h', `'${brand.fontHeading}', sans-serif`);
+  if (brand.fontBody)    root.style.setProperty('--font-b', `'${brand.fontBody}', sans-serif`);
+
+  const logoWrap = document.getElementById('logoWrap');
+  if (brand.logoHtml) {
+    logoWrap.innerHTML = brand.logoHtml;
+  } else {
+    logoWrap.innerHTML = `<div class="brand-logo-fallback">${(brand.name||'').slice(0,2).toUpperCase()}</div>`;
+  }
+
+  document.getElementById('brandName').textContent    = brand.name    || '';
+  document.getElementById('brandTagline').textContent = brand.tagline || '';
+  document.getElementById('website').textContent      = brand.website || '';
+
+  const badgeEl = document.getElementById('badge');
+  if (cfg.badge) { badgeEl.textContent = cfg.badge; }
+  else           { badgeEl.style.display = 'none'; }
+
+  document.getElementById('kick').textContent     = cfg.kick    || '';
+  document.getElementById('headline').innerHTML   = cfg.hd      || '';
+  document.getElementById('sub').textContent      = cfg.sub     || '';
+
+  const chipsEl = document.getElementById('chips');
+  chipsEl.innerHTML = '';
+  (cfg.chips || []).forEach(c => {
+    const s = document.createElement('span');
+    s.className = 'chip';
+    s.textContent = c;
+    chipsEl.appendChild(s);
+  });
+
+  const layer = document.getElementById('productLayer');
+  layer.innerHTML = '';
+  (cfg.items || []).forEach(item => {
+    const [src, w, h, cx, fy] = item;
+    const img = document.createElement('img');
+    img.className = 'product-img';
+    img.src = src;
+    img.style.width  = w + 'px';
+    img.style.height = h + 'px';
+    img.style.left   = (cx - w / 2) + 'px';
+    img.style.top    = (fy - h) + 'px';
+    layer.appendChild(img);
+  });
+};
+window.addEventListener('load', function() {
+  if (window.__CONFIG__ && window.__BRAND__) window.__applyConfig(window.__CONFIG__, window.__BRAND__);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Festival Greeting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    font-family: 'Sora', 'Manrope', sans-serif;
+    background: #0D1B3E;
+    position: relative;
+  }
+
+  #sky {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, var(--sky0) 0%, var(--sky1) 55%, var(--sky2) 100%);
+  }
+
+  #motif-canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .card {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 60px 60px;
+  }
+
+  #brand-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+
+  #brand-logo-img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    padding: 6px;
+  }
+
+  #brand-logo-fallback {
+    display: none;
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 22px;
+    font-weight: 800;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #brand-name {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+
+  #motif-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+  }
+
+  #motif-svg {
+    width: 380px;
+    height: 380px;
+    filter: drop-shadow(0 0 40px var(--gold));
+  }
+
+  .titles {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  #title-main {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1.2;
+    text-shadow: 0 0 30px rgba(212, 160, 23, 0.6), 0 2px 12px rgba(0,0,0,0.6);
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  #subtitle {
+    font-size: 26px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.6;
+    max-width: 820px;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+  }
+
+  .divider {
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 32px;
+    border-radius: 2px;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    width: 100%;
+  }
+
+  #footer-website {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  #footer-tagline {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1px;
+  }
+
+  /* Particle shimmer */
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0;
+    animation: twinkle var(--dur, 3s) var(--delay, 0s) infinite ease-in-out;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 0.9; transform: scale(1.2); }
+  }
+</style>
+</head>
+<body>
+<div id="sky"></div>
+<svg id="motif-canvas"></svg>
+
+<div class="card">
+  <div id="brand-logo-wrap">
+    <img id="brand-logo-img" src="" alt="">
+    <div id="brand-logo-fallback"></div>
+    <span id="brand-name"></span>
+  </div>
+
+  <div id="motif-area"></div>
+
+  <div class="titles">
+    <div id="title-main"></div>
+    <div class="divider"></div>
+    <div id="subtitle"></div>
+  </div>
+
+  <div class="footer">
+    <div id="footer-website"></div>
+    <div id="footer-tagline"></div>
+  </div>
+</div>
+
+<script>
+const MOTIFS = {
+  moon: () => `<svg viewBox="0 0 200 200" id="motif-svg">
+    <defs><filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <circle cx="100" cy="100" r="75" fill="#FFF8DC" filter="url(#glow)"/>
+    <circle cx="130" cy="70" r="58" fill="#0D1B3E"/>
+    <circle cx="100" cy="100" r="3" fill="#FFD700"/><circle cx="65" cy="80" r="2" fill="#FFD700"/>
+    <circle cx="130" cy="130" r="2.5" fill="#FFD700"/><circle cx="80" cy="140" r="2" fill="#FFD700"/>
+  </svg>`,
+
+  diya: () => `<svg viewBox="0 0 200 200" id="motif-svg">
+    <defs><filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <ellipse cx="100" cy="148" rx="60" ry="20" fill="#C8860A"/>
+    <path d="M 45 148 Q 50 110 100 105 Q 150 110 155 148 Z" fill="#E8A010"/>
+    <path d="M 65 148 Q 68 125 100 120 Q 132 125 135 148 Z" fill="#F4C430"/>
+    <line x1="100" y1="105" x2="100" y2="50" stroke="#FF8C00" stroke-width="5" filter="url(#glow)"/>
+    <ellipse cx="100" cy="48" rx="8" ry="14" fill="#FFD700" filter="url(#glow)"/>
+    <ellipse cx="100" cy="44" rx="4" ry="8" fill="#FFF"/>
+  </svg>`,
+
+  light: () => `<svg viewBox="0 0 200 200" id="motif-svg">
+    <defs><filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <circle cx="100" cy="100" r="55" fill="#FFD700" filter="url(#glow)" opacity="0.3"/>
+    <circle cx="100" cy="100" r="30" fill="#FFD700" filter="url(#glow)"/>
+    ${[0,30,60,90,120,150,180,210,240,270,300,330].map(a=>`<line x1="100" y1="100" x2="${100+80*Math.cos(a*Math.PI/180)}" y2="${100+80*Math.sin(a*Math.PI/180)}" stroke="#FFD700" stroke-width="3" opacity="0.6" filter="url(#glow)"/>`).join('')}
+  </svg>`,
+
+  rangoli: () => `<svg viewBox="0 0 200 200" id="motif-svg">
+    <circle cx="100" cy="100" r="90" fill="none" stroke="#FF6B35" stroke-width="3" opacity="0.7"/>
+    <circle cx="100" cy="100" r="65" fill="none" stroke="#FFD700" stroke-width="3" opacity="0.8"/>
+    <circle cx="100" cy="100" r="40" fill="none" stroke="#FF69B4" stroke-width="3" opacity="0.8"/>
+    <circle cx="100" cy="100" r="18" fill="#FFD700" opacity="0.9"/>
+    ${[0,45,90,135,180,225,270,315].map(a=>`<circle cx="${100+75*Math.cos(a*Math.PI/180)}" cy="${100+75*Math.sin(a*Math.PI/180)}" r="8" fill="#FF6B35" opacity="0.9"/>`).join('')}
+    ${[22,67,112,157,202,247,292,337].map(a=>`<circle cx="${100+52*Math.cos(a*Math.PI/180)}" cy="${100+52*Math.sin(a*Math.PI/180)}" r="5" fill="#FFD700" opacity="0.9"/>`).join('')}
+  </svg>`,
+
+  firework: () => `<svg viewBox="0 0 200 200" id="motif-svg">
+    <defs><filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    ${[0,36,72,108,144,180,216,252,288,324].map((a,i)=>`<line x1="100" y1="100" x2="${100+80*Math.cos(a*Math.PI/180)}" y2="${100+80*Math.sin(a*Math.PI/180)}" stroke="${['#FFD700','#FF6B35','#FF69B4','#00CED1','#7B68EE'][i%5]}" stroke-width="3" filter="url(#glow)"/><circle cx="${100+80*Math.cos(a*Math.PI/180)}" cy="${100+80*Math.sin(a*Math.PI/180)}" r="5" fill="${['#FFD700','#FF6B35','#FF69B4','#00CED1','#7B68EE'][i%5]}" filter="url(#glow)"/>`).join('')}
+    <circle cx="100" cy="100" r="8" fill="#FFD700" filter="url(#glow)"/>
+  </svg>`,
+
+  star: () => `<svg viewBox="0 0 200 200" id="motif-svg">
+    <defs><filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <polygon points="100,20 113,66 162,66 123,93 136,140 100,113 64,140 77,93 38,66 87,66" fill="#FFD700" filter="url(#glow)"/>
+  </svg>`,
+
+  flag: () => `<svg viewBox="0 0 200 200" id="motif-svg">
+    <rect x="60" y="30" width="120" height="40" fill="#FF9933"/>
+    <rect x="60" y="70" width="120" height="40" fill="#FFFFFF"/>
+    <rect x="60" y="110" width="120" height="40" fill="#138808"/>
+    <circle cx="120" cy="90" r="18" fill="none" stroke="#000080" stroke-width="2.5"/>
+    <line x1="55" y1="30" x2="55" y2="175" stroke="#8B4513" stroke-width="5"/>
+  </svg>`,
+
+  rakhi: () => `<svg viewBox="0 0 200 200" id="motif-svg">
+    <defs><filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <circle cx="100" cy="80" r="38" fill="none" stroke="#FFD700" stroke-width="4" filter="url(#glow)"/>
+    <circle cx="100" cy="80" r="25" fill="#FF69B4"/>
+    <circle cx="100" cy="80" r="14" fill="#FFD700"/>
+    ${[0,60,120,180,240,300].map(a=>`<circle cx="${100+38*Math.cos(a*Math.PI/180)}" cy="${80+38*Math.sin(a*Math.PI/180)}" r="7" fill="#FF6B35"/>`).join('')}
+    <path d="M 62 118 Q 100 145 138 118" stroke="#FFD700" stroke-width="4" fill="none" filter="url(#glow)"/>
+  </svg>`,
+
+  fire: () => `<svg viewBox="0 0 200 200" id="motif-svg">
+    <defs><filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <path d="M100 170 Q 55 140 60 100 Q 65 75 80 80 Q 70 55 90 40 Q 95 70 105 65 Q 90 45 110 30 Q 115 60 125 55 Q 145 70 140 100 Q 145 140 100 170Z" fill="#FF8C00" filter="url(#glow)"/>
+    <path d="M100 165 Q 70 140 72 108 Q 76 88 88 95 Q 82 75 96 55 Q 100 80 108 78 Q 124 92 122 112 Q 128 138 100 165Z" fill="#FFD700"/>
+    <ellipse cx="100" cy="140" rx="22" ry="8" fill="#FF4500" filter="url(#glow)" opacity="0.6"/>
+  </svg>`,
+};
+
+function buildParticles(n = 20) {
+  const wrap = document.querySelector('.card');
+  for (let i = 0; i < n; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.top = Math.random() * 60 + '%';
+    p.style.setProperty('--dur', (2 + Math.random() * 4) + 's');
+    p.style.setProperty('--delay', (Math.random() * 4) + 's');
+    p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
+    wrap.appendChild(p);
+  }
+}
+
+window.__applyConfig = function(cfg, brand) {
+  const gold = cfg.gold || brand.accent || '#D4A017';
+  const sky = cfg.sky || ['#0D1B3E','#1A237E','#311B92'];
+  document.documentElement.style.setProperty('--gold', gold);
+  document.documentElement.style.setProperty('--sky0', sky[0]);
+  document.documentElement.style.setProperty('--sky1', sky[1]);
+  document.documentElement.style.setProperty('--sky2', sky[2]);
+
+  // Logo
+  const logoImg = document.getElementById('brand-logo-img');
+  const logoFb  = document.getElementById('brand-logo-fallback');
+  if (brand.logo) {
+    logoImg.src = brand.logo;
+    logoImg.style.display = 'block';
+    logoFb.style.display = 'none';
+  } else {
+    logoImg.style.display = 'none';
+    logoFb.style.display = 'flex';
+    logoFb.textContent = brand.id ? brand.id.toUpperCase() : '?';
+  }
+  document.getElementById('brand-name').textContent = brand.name || '';
+
+  // Motif
+  const motifKey = cfg.motif || 'star';
+  const motifFn = MOTIFS[motifKey] || MOTIFS.star;
+  document.getElementById('motif-area').innerHTML = motifFn();
+
+  // Text
+  document.getElementById('title-main').textContent = cfg.title || cfg.festival || '';
+  document.getElementById('subtitle').textContent = cfg.subtitle || '';
+
+  // Footer
+  const footer = brand.footer || [brand.website || '', brand.tagline || ''];
+  document.getElementById('footer-website').textContent = footer[0] || '';
+  document.getElementById('footer-tagline').textContent = footer[1] || '';
+
+  buildParticles(18);
+};
+
+// Auto-apply if config is pre-loaded (for static preview)
+if (window.__CONFIG__ && window.__BRAND__) {
+  window.__applyConfig(window.__CONFIG__, window.__BRAND__);
+}
+</script>
+</body>
+</html>

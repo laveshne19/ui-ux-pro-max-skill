@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <circle cx="60" cy="60" r="56" fill="#1A2C4E"/>
+  <text x="60" y="74" font-family="Georgia, serif" font-size="36" font-weight="700"
+        fill="#D4A017" text-anchor="middle">NE</text>
+  <circle cx="60" cy="60" r="56" fill="none" stroke="#D4A017" stroke-width="2.5" stroke-opacity="0.5"/>
+</svg>
