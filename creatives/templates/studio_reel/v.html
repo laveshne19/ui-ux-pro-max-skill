@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Studio Reel Frame</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    font-family: 'Sora', 'Manrope', sans-serif;
+    background: var(--bg, #0D1B3E);
+    position: relative;
+  }
+
+  /* Gradient background */
+  #bg-grad {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, var(--primary, #1A2C4E) 0%, var(--dark, #0A1628) 60%, #000 100%);
+    z-index: 0;
+  }
+
+  /* Subtle grid overlay */
+  #grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    z-index: 1;
+  }
+
+  /* Header bar */
+  #header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+    gap: 20px;
+    z-index: 10;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 100%);
+  }
+
+  #logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  #logo-img {
+    width: 56px; height: 56px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    padding: 4px;
+  }
+
+  #logo-fallback {
+    display: none;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--primary, #1A2C4E);
+    border: 2px solid var(--accent, #D4A017);
+    color: var(--accent, #D4A017);
+    font-size: 18px;
+    font-weight: 800;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #brand-name-h {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  #brand-tagline-h {
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  #header-badge {
+    margin-left: auto;
+    background: var(--accent, #D4A017);
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Main product stage */
+  #stage {
+    position: absolute;
+    top: 160px;
+    left: 0; right: 0;
+    height: 1100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    overflow: hidden;
+  }
+
+  /* Glow circle behind product */
+  #glow-ring {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--glow, rgba(212, 160, 23, 0.15)) 0%, transparent 70%);
+    z-index: 2;
+  }
+
+  #product-img {
+    position: relative;
+    max-width: 860px;
+    max-height: 960px;
+    object-fit: contain;
+    z-index: 3;
+    filter: drop-shadow(0 40px 80px rgba(0,0,0,0.6));
+  }
+
+  #product-placeholder {
+    display: none;
+    width: 400px;
+    height: 400px;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.06);
+    border: 2px dashed rgba(255,255,255,0.2);
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.3);
+    font-size: 18px;
+    z-index: 3;
+  }
+
+  /* Bottom info section */
+  #info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 660px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.95) 40%, transparent 100%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 60px 80px;
+    gap: 0;
+  }
+
+  .accent-line {
+    width: 60px;
+    height: 4px;
+    background: var(--accent, #D4A017);
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  #caption {
+    font-size: 52px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+  }
+
+  #subcaption {
+    font-size: 24px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+    margin-bottom: 32px;
+    max-width: 800px;
+  }
+
+  #chips-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .chip {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.85);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 40px;
+    letter-spacing: 0.5px;
+  }
+
+  .chip.accent {
+    background: var(--accent, #D4A017);
+    border-color: var(--accent, #D4A017);
+    color: #000;
+  }
+
+  #footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  #footer-website {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent, #D4A017);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  #footer-cta {
+    background: var(--accent, #D4A017);
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Shot counter dots */
+  #dots {
+    position: absolute;
+    top: 200px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 20;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .dot.active {
+    background: var(--accent, #D4A017);
+    transform: scale(1.4);
+  }
+</style>
+</head>
+<body>
+<div id="bg-grad"></div>
+<div id="grid-overlay"></div>
+
+<!-- Header -->
+<div id="header">
+  <div id="logo-wrap">
+    <img id="logo-img" src="" alt="">
+    <div id="logo-fallback"></div>
+    <div id="brand-text">
+      <span id="brand-name-h"></span>
+      <span id="brand-tagline-h"></span>
+    </div>
+  </div>
+  <div id="header-badge"></div>
+</div>
+
+<!-- Product stage -->
+<div id="stage">
+  <div id="glow-ring"></div>
+  <img id="product-img" src="" alt="">
+  <div id="product-placeholder">No product image</div>
+</div>
+
+<!-- Shot counter -->
+<div id="dots"></div>
+
+<!-- Info panel -->
+<div id="info">
+  <div class="accent-line"></div>
+  <div id="caption"></div>
+  <div id="subcaption"></div>
+  <div id="chips-row"></div>
+  <div id="footer-row">
+    <span id="footer-website"></span>
+    <span id="footer-cta">Shop Now</span>
+  </div>
+</div>
+
+<script>
+window.__applyConfig = function(cfg, brand) {
+  const primary = brand.primary || '#1A2C4E';
+  const accent  = brand.accent  || '#D4A017';
+  const dark    = brand.dark    || '#0A1628';
+
+  document.documentElement.style.setProperty('--primary', primary);
+  document.documentElement.style.setProperty('--accent', accent);
+  document.documentElement.style.setProperty('--dark', dark);
+  document.documentElement.style.setProperty('--glow', hexToRgba(accent, 0.18));
+
+  // Logo
+  const logoImg = document.getElementById('logo-img');
+  const logoFb  = document.getElementById('logo-fallback');
+  if (brand.logo) {
+    logoImg.src = brand.logo;
+    logoImg.style.display = 'block';
+    logoFb.style.display = 'none';
+  } else {
+    logoImg.style.display = 'none';
+    logoFb.style.display = 'flex';
+    logoFb.textContent = (brand.id || '?').toUpperCase().slice(0, 3);
+  }
+  document.getElementById('brand-name-h').textContent = brand.name || '';
+  document.getElementById('brand-tagline-h').textContent = brand.tagline || '';
+
+  // Shots
+  const shots = cfg.shots || [];
+  const active = cfg.activeShot || 0;
+  const shot   = shots[active] || shots[0] || {};
+
+  // Badge from shot type or config
+  const badge = cfg.badge || (shot.type === 'full' ? 'FEATURED' : 'NEW ARRIVAL');
+  document.getElementById('header-badge').textContent = badge;
+
+  // Product image
+  const imgEl = document.getElementById('product-img');
+  const phEl  = document.getElementById('product-placeholder');
+  if (shot.img) {
+    imgEl.src = shot.img;
+    imgEl.style.display = 'block';
+    phEl.style.display  = 'none';
+  } else {
+    imgEl.style.display = 'none';
+    phEl.style.display  = 'flex';
+  }
+
+  // Caption
+  document.getElementById('caption').textContent = shot.caption || cfg.title || '';
+  document.getElementById('subcaption').textContent = shot.subcaption || cfg.subtitle || '';
+
+  // Chips
+  const chipsRow = document.getElementById('chips-row');
+  chipsRow.innerHTML = '';
+  const chips = shot.chips || cfg.chips || [];
+  chips.forEach((c, i) => {
+    const el = document.createElement('div');
+    el.className = 'chip' + (i === 0 ? ' accent' : '');
+    el.textContent = c;
+    chipsRow.appendChild(el);
+  });
+
+  // Footer
+  const footer = brand.footer || [];
+  document.getElementById('footer-website').textContent = footer[0] || brand.website || '';
+  document.getElementById('footer-cta').textContent = cfg.cta || 'Shop Now';
+
+  // Dots
+  const dotsEl = document.getElementById('dots');
+  dotsEl.innerHTML = '';
+  shots.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === active ? ' active' : '');
+    dotsEl.appendChild(d);
+  });
+};
+
+function hexToRgba(hex, alpha) {
+  try {
+    const h = hex.replace('#', '');
+    const r = parseInt(h.slice(0,2), 16);
+    const g = parseInt(h.slice(2,4), 16);
+    const b = parseInt(h.slice(4,6), 16);
+    return `rgba(${r},${g},${b},${alpha})`;
+  } catch {
+    return `rgba(212,160,23,${alpha})`;
+  }
+}
+
+if (window.__CONFIG__ && window.__BRAND__) {
+  window.__applyConfig(window.__CONFIG__, window.__BRAND__);
+}
+</script>
+</body>
+</html>

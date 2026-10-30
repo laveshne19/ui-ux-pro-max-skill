@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=720">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Manrope:wght@500;600&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+<title>Profile Picture</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --acc:  #D4A017;
+    --acc2: #1A2C4E;
+    --bg0:  #F5F0E8;
+    --bg1:  #1A2C4E;
+  }
+  body {
+    width: 720px;
+    height: 720px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 40%, var(--bg0) 0%, var(--bg1) 100%);
+    position: relative;
+  }
+
+  /* Ring border */
+  .ring {
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    border: 3px solid var(--acc);
+    opacity: 0.35;
+  }
+  .ring-inner {
+    position: absolute;
+    inset: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--acc);
+    opacity: 0.18;
+  }
+
+  .center-content {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .brand-logo {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3));
+  }
+  .brand-logo-fallback {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: var(--acc);
+    color: var(--acc2);
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-name {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    color: #fff;
+    letter-spacing: -0.3px;
+    text-align: center;
+  }
+  .brand-tagline {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--acc);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: -10px;
+  }
+
+  .website {
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.5px;
+  }
+
+  /* Decorative dots */
+  .dot {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--acc);
+    opacity: 0.2;
+  }
+</style>
+</head>
+<body>
+  <div class="ring"></div>
+  <div class="ring-inner"></div>
+  <div class="dot" style="width:60px;height:60px;top:80px;left:80px;"></div>
+  <div class="dot" style="width:30px;height:30px;top:160px;right:100px;"></div>
+  <div class="dot" style="width:20px;height:20px;bottom:120px;left:140px;"></div>
+
+  <div class="center-content">
+    <div id="logoWrap">
+      <div class="brand-logo-fallback">NE</div>
+    </div>
+    <div>
+      <div id="brandName" class="brand-name">Nalanda Enterprises</div>
+      <div id="brandTagline" class="brand-tagline">Quality You Can Trust</div>
+    </div>
+    <div id="website" class="website">nalandaenterprises.in</div>
+  </div>
+
+<script>
+window.__applyConfig = function(cfg, brand) {
+  const root = document.documentElement;
+  root.style.setProperty('--acc',  brand.accent  || '#D4A017');
+  root.style.setProperty('--acc2', brand.primary || '#1A2C4E');
+  root.style.setProperty('--bg0',  brand.light   || '#F5F0E8');
+  root.style.setProperty('--bg1',  brand.primary || '#1A2C4E');
+
+  const logoWrap = document.getElementById('logoWrap');
+  if (brand.logoHtml) {
+    logoWrap.innerHTML = brand.logoHtml.replace('class=\'brand-logo\'', 'class="brand-logo"');
+  }
+  document.getElementById('brandName').textContent    = brand.name    || '';
+  document.getElementById('brandTagline').textContent = brand.tagline || cfg.tagline || '';
+  document.getElementById('website').textContent      = brand.website || '';
+};
+window.addEventListener('load', function() {
+  if (window.__CONFIG__ && window.__BRAND__) window.__applyConfig(window.__CONFIG__, window.__BRAND__);
+});
+</script>
+</body>
+</html>

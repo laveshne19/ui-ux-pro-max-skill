@@ -1,0 +1,15 @@
+{
+  "name": "nalanda-creatives",
+  "version": "1.0.0",
+  "description": "Banner, poster and reel generator for Nalanda Enterprises, BizWrap India, Corporate Gifting India",
+  "main": "render.js",
+  "scripts": {
+    "install:browsers": "npx playwright install chromium"
+  },
+  "dependencies": {
+    "playwright": "^1.45.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
